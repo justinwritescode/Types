@@ -34,7 +34,7 @@ jobs:
       url: https://docs.justinwritescode.com/${{needs.calculate-folder-name.outputs.folder_name}}
     runs-on: ubuntu-latest
     steps:
-      - uses: justinwritescode/deploy-to-docs@v0.43
+      - uses: justinwritescode/deploy-to-docs@v0.44
         with:
           repository_name: ${{github.repository}}
           github_token: ${{secrets.GIT_TOKEN}}

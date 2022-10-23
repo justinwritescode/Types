@@ -4,16 +4,9 @@
     <AssemblyName>justinwritescode.Types.Core</AssemblyName>
     <PackageId>justinwritescode.Types.Core</PackageId>
     <RootNamespace>JustinWritesCode.Types</RootNamespace>
+    <SlnGenSolutionFolder>Core</SlnGenSolutionFolder>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="../Abstractions/Abstractions.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Core.Enumeration\Attributes\HelloWorldAttribute.cs">
-      <CodeLanguage></CodeLanguage>
-      <DefaultPackFolder></DefaultPackFolder>
-      <Pack></Pack>
-      <BuildAction></BuildAction>
-    </Compile>
   </ItemGroup>
 </Project>

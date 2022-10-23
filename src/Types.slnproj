@@ -1,8 +1,0 @@
-<Project Sdk="Microsoft.Build.Traversal">
- <ItemGroup>
-  <ProjectReference Include="./Abstractions/Abstractions.csproj" />
-  <ProjectReference Include="./ComponentModel/ComponentModel.csproj" />
-  <ProjectReference Include="./Core/Core.csproj" />
-  <ProjectReference Include="./Enumerations/Enumerations.csproj" />
- </ItemGroup>
-</Project>

@@ -5,8 +5,15 @@
     <PackageId>justinwritescode.Enums</PackageId>
     <RootNamespace>JustinWritesCode.Enums</RootNamespace>
     <Description>A collection of useful enums.</Description>
+    <SlnGenSolutionFolder>Core.Enumerations</SlnGenSolutionFolder>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <CompilerGeneratedFilesOutputPath>$(IntermediateOutputPath)GeneratedFiles</CompilerGeneratedFilesOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+    <PackageReference Include="System.ComponentModel.Annotations" />
+   <ProjectReference Include="../ComponentModel/ComponentModel.csproj" />
+   <ProjectReference Include="../Enumerations/Enumeration/Enumeration.csproj" />
+   <ProjectReference Include="../Enumerations/CodeGeneration/CodeGeneration.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.Build.Traversal">
+  <PropertyGroup>
+    <IncludeInSolutionFile>false</IncludeInSolutionFile>
+    <EnableCentralPackageVersions>false</EnableCentralPackageVersions>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="./**/*.*proj" />
+  </ItemGroup>
+</Project>

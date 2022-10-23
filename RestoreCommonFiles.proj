@@ -3,6 +3,7 @@
       <EnableCentralPackageVersions>false</EnableCentralPackageVersions>
       <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
       <TargetFramework>netstandard1.0</TargetFramework>
+      <IncludeInSolutionFile>false</IncludeInSolutionFile>
     </PropertyGroup>
     <ItemGroup>
      <PackageReference Include="JustinWritesCode.Common" Version="0.0.1-Local" />

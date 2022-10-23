@@ -8,4 +8,12 @@
   <ItemGroup>
     <PackageReference Include="System.ComponentModel.Annotations" />
   </ItemGroup>
+  <ItemGroup>
+    <Using Include="System" />
+    <Using Include="System.Diagnostics" />
+    <Using Include="System.Reflection" />
+    <Using Include="System.ComponentModel" />
+    <Using Include="System.ComponentModel.DataAnnotations" />
+    <Using Include="JustinWritesCode.Enumerations.Abstractions" />
+  </ItemGroup>
 </Project>

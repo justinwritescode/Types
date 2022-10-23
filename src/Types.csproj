@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup>
+    <SlnGenSolutionFolder>src</SlnGenSolutionFolder>
+ </PropertyGroup>
+ <ItemGroup>
+  <ProjectReference Include="./Abstractions/Abstractions.csproj" />
+  <ProjectReference Include="./ComponentModel/ComponentModel.csproj" />
+  <ProjectReference Include="./Core/Core.csproj" />
+  <ProjectReference Include="./Enumerations/Enumerations.csproj" />
+ </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="**/*.cs" />
+  </ItemGroup>
+</Project>

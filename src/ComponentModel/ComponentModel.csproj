@@ -1,2 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>JustinWritesCode.ComponentModel</RootNamespace>
+    <AssemblyName>JustinWritesCode.ComponentModel</AssemblyName>
+    <PackageId>JustinWritesCode.ComponentModel</PackageId>
+    <SlnGenSolutionFolder>Annotations</SlnGenSolutionFolder>
+  </PropertyGroup>
 </Project>

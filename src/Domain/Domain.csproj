@@ -5,6 +5,8 @@
     <PackageId>justinwritescode.Domain</PackageId>
     <RootNamespace>JustinWritesCode.Domain</RootNamespace>
     <Description>A collection of useful data and behavioral domain value types.</Description>
+    <LangVersion>latest</LangVersion>
+    <SlnGenSolutionFolder>Domain</SlnGenSolutionFolder>
   </PropertyGroup>
   <ItemGroup>
   </ItemGroup>

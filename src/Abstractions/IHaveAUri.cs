@@ -18,5 +18,3 @@ public interface IHaveWritableAUri : IHaveAUri
 {
     new Uri Uri { get; set; }
 }
-
-public interface IHaveAReadWriteUri : IHaveAUri, IHaveWritableAUri { }

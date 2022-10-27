@@ -39,7 +39,7 @@ public static class JustinsEnumerableExtensions
     /// Performs the specified action on each element of the <see cref="IEnumerable{T}"/>.
     /// </summary>
     /// <param name="e">The <see cref="IEnumerable{T}"/> to perform the action on.</param>
-    /// <param name="action">The action to perform on each element of the <see cref="IEnumerable{T}"/>.</param>
+    /// <param name="foreach">The action to perform on each element of the <see cref="IEnumerable{T}"/>.</param>
     public static void ForEach<T>(this IEnumerable<T> e, Action<T> @foreach)
     {
         foreach (var item in e)
@@ -50,8 +50,9 @@ public static class JustinsEnumerableExtensions
     /// Adds the specified elements to the <see cref="ICollection{T}"/>.
     /// </summary>
     /// <param name="collection">The <see cref="ICollection{T}"/> to add the elements to.</param>
-    /// <param name="elements">The elements to add to the <see cref="ICollection{T}"/>.</param>
+    /// <param name="thingsToAdd">The elements to add to the <see cref="ICollection{T}"/>.</param>
     /// <typeparam name="T">The type of elements in the <see cref="ICollection{T}"/>.</typeparam>
+    /// <typeparam name="TCollection">The type of the <see cref="ICollection{T}"/>.</typeparam>
     /// <returns>The <see cref="ICollection{T}"/> with the added elements.</returns>
     public static TCollection AddRange<TCollection, T>(this TCollection collection, IEnumerable<T> thingsToAdd)
         where TCollection : ICollection<T>
@@ -63,9 +64,10 @@ public static class JustinsEnumerableExtensions
     /// <summary>
     /// Removes the specified elements from the <see cref="ICollection{T}"/>.
     /// </summary>
-    /// <param name="collection">The collection from which to remobe the elements</param>
+    /// <param name="collection">The collection from which to remove the elements</param>
     /// <param name="removeRange">The elements to remove from the <see cref="ICollection{T}" /></param>
     /// <typeparam name="T">The type of elements in the <see cref="ICollection{T}"/>.</typeparam>
+    /// <typeparam name="TCollection">The type of the <see cref="ICollection{T}"/>.</typeparam>
     /// <returns>The <see cref="ICollection{T}"/> with the removed elements.</returns>
     public static TCollection RemoveRange<TCollection, T>(this TCollection collection, IEnumerable<T> removeRange) where TCollection : ICollection<T>
     {
@@ -79,6 +81,7 @@ public static class JustinsEnumerableExtensions
     /// <param name="collection">The collection from which to remove the elements.</param>
     /// <param name="predicate">The predicate to match the elements to remove.</param>
     /// <typeparam name="T">The type of elements in the <see cref="ICollection{T}"/>.</typeparam>
+    /// <typeparam name="TCollection">The type of the <see cref="ICollection{T}"/>.</typeparam>
     /// <returns>The <see cref="ICollection{T}"/> with the removed elements.</returns>
     public static TCollection Without<TCollection, T>(this TCollection collection, Func<T, bool> predicate) where TCollection : ICollection<T>
     {
@@ -92,6 +95,7 @@ public static class JustinsEnumerableExtensions
     /// <param name="collection">The collection from which to select the elements.</param>
     /// <param name="predicate">The predicate to match the elements to not select.</param>
     /// <typeparam name="T">The type of elements in the <see cref="ICollection{T}"/>.</typeparam>
+    /// <typeparam name="TCollection">The type of the <see cref="ICollection{T}"/>.</typeparam>
     /// <returns>The <see cref="ICollection{T}"/> without the matchings elements.</returns>
     public static ICollection<T> Except<TCollection, T>(this TCollection collection, Func<T, bool> predicate) where TCollection : ICollection<T>
         => collection.Except(collection.Where(predicate)).ToList();

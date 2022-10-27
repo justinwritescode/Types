@@ -5,6 +5,6 @@
     <EnableCentralPackageVersions>false</EnableCentralPackageVersions>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="./**/*.*proj" />
+    <ProjectReference Include="./src/**/*.*proj" />
   </ItemGroup>
 </Project>

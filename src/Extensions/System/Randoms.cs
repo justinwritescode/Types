@@ -25,8 +25,8 @@ using System.Linq;
 
 namespace System;
 
-/// <summary>Extensions to the <see cref="Random"/ class></summary>
-public class RandomV2 : Random
+/// <summary>Extensions to the <see cref="Random" /> class</summary>
+public class Randoms : System.Random
 {
     /// <summary>Generates a new GUID (UUID)</summary>
     /// <returns>A new GUID</returns>

@@ -54,8 +54,8 @@ jobs:
     #- name: Restore dependencies
     #  run: dotnet restore *.slnproj
     
-    - name: Output Packages.pkgs
-      run: cat /home/runner/work/EntityFrameworkCore/EntityFrameworkCore/Packages.pkgs
+    #- name: Output Packages.pkgs
+    #  run: cat /home/runner/work/EntityFrameworkCore/EntityFrameworkCore/Packages.pkgs
       
     - name: Build the Solution
       run: dotnet build *.slnproj --configuration Release

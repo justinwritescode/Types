@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>justinwritescode.Domain</AssemblyName>
-    <PackageId>justinwritescode.Domain</PackageId>
+    <AssemblyName>JustinWritesCode.Domain</AssemblyName>
+    <PackageId>JustinWritesCode.Domain</PackageId>
     <RootNamespace>JustinWritesCode.Domain</RootNamespace>
     <Description>A collection of useful data and behavioral domain value types.</Description>
     <LangVersion>latest</LangVersion>

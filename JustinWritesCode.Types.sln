@@ -1,4 +1,5 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abstractions", "src\Abstractions\Abstractions.csproj", "{10E40825-B2EC-40B0-BD9F-4C499890D8C2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComponentModel", "src\ComponentModel\ComponentModel.csproj", "{2C9C9622-ED81-42E1-BBA2-AA2AB453AEBB}"
@@ -30,6 +31,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core.Enumerations", "Core.Enumerations", "{98AC3C37-84C4-4D3E-830F-C11318C4968E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{87CD8FC4-BA50-4226-922A-0E4E7120D214}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9413F4C2-7D09-4C36-B298-F4C4D6430AF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

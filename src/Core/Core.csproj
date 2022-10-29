@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>justinwritescode.Types.Core</AssemblyName>
-    <PackageId>justinwritescode.Types.Core</PackageId>
-    <RootNamespace>JustinWritesCode.Types</RootNamespace>
+    <AssemblyName>JustinWritesCode.Types.Core</AssemblyName>
+    <PackageId>JustinWritesCode.Types.Core</PackageId>
+    <RootNamespace>JustinWritesCode.Types.Core</RootNamespace>
     <SlnGenSolutionFolder>Core</SlnGenSolutionFolder>
   </PropertyGroup>
   <ItemGroup>

@@ -2,6 +2,8 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>JustinWritesCode.Enumeration</PackageId>
+    <AssemblyName>JustinWritesCode.Enumeration</AssemblyName>
+    <RootNamespace>JustinWritesCode.Enumeration</RootNamespace>
     <AssemblyName>$(PackageId)</AssemblyName>
     <RootNamespace>$(PackageId)</RootNamespace>
   </PropertyGroup>

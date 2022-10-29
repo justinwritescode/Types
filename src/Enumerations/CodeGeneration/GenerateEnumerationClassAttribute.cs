@@ -5,7 +5,7 @@ public static partial class Constants
     public const string GenerateEnumerationClassAttributeDeclaration =
 @"
 
-[AttributeUsage(AttributeTargets.Enum)] public class GenerateEnumerationClassAttribute : Attribute 
+[AttributeUsage(AttributeTargets.Enum)] internal class GenerateEnumerationClassAttribute : Attribute 
 {
     // public string EnumerationClassName { get; set; }
     // public string Namespace { get; set; }

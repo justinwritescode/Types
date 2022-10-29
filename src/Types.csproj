@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
  <PropertyGroup>
     <SlnGenSolutionFolder>src</SlnGenSolutionFolder>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
  </PropertyGroup>
  <ItemGroup>
   <ProjectReference Include="./Abstractions/Abstractions.csproj" />
@@ -10,5 +11,258 @@
  </ItemGroup>
   <ItemGroup>
     <Compile Remove="**/*.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Extensions\obj\netstandard1.3\GitInfo.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Extensions\obj\netstandard1.3\Extensions.assets.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Extensions\obj\netstandard1.3\Extensions.csproj.AssemblyReference.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Core\obj\netstandard2.0\GitInfo.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Domain\obj\netstandard2.0\GitInfo.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\obj\netstandard2.0\GitInfo.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\EnumerationsTests\obj\netstandard2.0\GitInfo.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Extensions\obj\netstandard1.3\Extensions.GeneratedMSBuildEditorConfig.editorconfig">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Extensions\obj\netstandard1.3\Extensions.AssemblyInfoInputs.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Extensions\obj\netstandard1.3\GitIsDirty.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Extensions\obj\netstandard2.0\GitInfo.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Extensions\obj\netstandard1.3\GitInfo.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\CodeGeneration\obj\Debug\netstandard2.0\CodeGeneration.assets.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\CodeGeneration\obj\Debug\netstandard2.0\CodeGeneration.csproj.AssemblyReference.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\Enumeration\obj\Debug\netstandard2.0\Enumeration.assets.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\Enumeration\obj\Debug\netstandard2.0\Enumeration.csproj.AssemblyReference.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\EnumerationsTests\obj\Debug\netstandard2.0\EnumsTests.assets.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\EnumerationsTests\obj\Debug\netstandard2.0\EnumsTests.csproj.AssemblyReference.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Extensions\obj\Debug\netstandard1.3\Extensions.assets.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Extensions\obj\Debug\netstandard1.3\Extensions.csproj.AssemblyReference.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Abstractions\obj\Debug\netstandard2.0\Abstractions.assets.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Abstractions\obj\Debug\netstandard2.0\Abstractions.csproj.AssemblyReference.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Core\obj\Debug\netstandard2.0\Core.assets.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Core\obj\Debug\netstandard2.0\Core.csproj.AssemblyReference.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Domain\obj\Debug\netstandard2.0\Domain.assets.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Domain\obj\Debug\netstandard2.0\Domain.csproj.AssemblyReference.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\obj\Debug\netstandard2.0\Enumerations.assets.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\obj\Debug\netstandard2.0\Enumerations.csproj.AssemblyReference.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enums\obj\Debug\netstandard2.0\Enums.assets.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enums\obj\Debug\netstandard2.0\Enums.csproj.AssemblyReference.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Abstractions\obj\Debug\netstandard2.0\GitIsDirty.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\CodeGeneration\obj\Debug\netstandard2.0\GitIsDirty.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\Enumeration\obj\Debug\netstandard2.0\GitIsDirty.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Domain\obj\Debug\netstandard2.0\GitIsDirty.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Abstractions\obj\Debug\netstandard2.0\GitInfo.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\CodeGeneration\obj\Debug\netstandard2.0\GitInfo.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\Enumeration\obj\Debug\netstandard2.0\GitInfo.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Abstractions\obj\Debug\netstandard2.0\Abstractions.GeneratedMSBuildEditorConfig.editorconfig">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\CodeGeneration\obj\Debug\netstandard2.0\CodeGeneration.GeneratedMSBuildEditorConfig.editorconfig">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\Enumeration\obj\Debug\netstandard2.0\Enumeration.GeneratedMSBuildEditorConfig.editorconfig">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Domain\obj\Debug\netstandard2.0\GitInfo.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Domain\obj\Debug\netstandard2.0\Domain.GeneratedMSBuildEditorConfig.editorconfig">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\CodeGeneration\obj\Debug\netstandard2.0\CodeGeneration.AssemblyInfoInputs.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\Enumeration\obj\Debug\netstandard2.0\Enumeration.AssemblyInfoInputs.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Abstractions\obj\Debug\netstandard2.0\Abstractions.AssemblyInfoInputs.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\CodeGeneration\obj\Debug\netstandard2.0\CodeGeneration.csproj.CoreCompileInputs.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\Enumeration\obj\Debug\netstandard2.0\Enumeration.csproj.CoreCompileInputs.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\CodeGeneration\obj\Debug\netstandard2.0\CodeGeneration.sourcelink.json">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\Enumeration\obj\Debug\netstandard2.0\Enumeration.sourcelink.json">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Abstractions\obj\Debug\netstandard2.0\Abstractions.csproj.CoreCompileInputs.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Abstractions\obj\Debug\netstandard2.0\Abstractions.sourcelink.json">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Domain\obj\Debug\netstandard2.0\Domain.AssemblyInfoInputs.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Domain\obj\Debug\netstandard2.0\Domain.csproj.CoreCompileInputs.cache">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Domain\obj\Debug\netstandard2.0\Domain.sourcelink.json">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\CodeGeneration\obj\Debug\netstandard2.0\CodeGeneration.csproj.FileListAbsolute.txt">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Enumerations\Enumeration\obj\Debug\netstandard2.0\Enumeration.csproj.FileListAbsolute.txt">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Abstractions\obj\Debug\netstandard2.0\Abstractions.csproj.FileListAbsolute.txt">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Domain\obj\Debug\netstandard2.0\JustinWritesCode.Domain.dll">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Domain\obj\Debug\netstandard2.0\JustinWritesCode.Domain.pdb">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Domain\bin\Debug\netstandard2.0\JustinWritesCode.Domain.deps.json">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Domain\bin\Debug\netstandard2.0\JustinWritesCode.Domain.dll">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Domain\bin\Debug\netstandard2.0\JustinWritesCode.Domain.pdb">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
+    <None Update="Domain\obj\Debug\netstandard2.0\Domain.csproj.FileListAbsolute.txt">
+      <DefaultPackFolder></DefaultPackFolder>
+      <BuildAction></BuildAction>
+    </None>
   </ItemGroup>
 </Project>

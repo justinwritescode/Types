@@ -1,10 +1,17 @@
 {
     "workbench.colorCustomizations": {
-        "activityBar.background": "#4D164A",
-        "titleBar.activeBackground": "#6B1F68",
-        "titleBar.activeForeground": "#FDF8FD"
+        "activityBar.background": "#541918",
+        "titleBar.activeBackground": "#752421",
+        "titleBar.activeForeground": "#FEFBFB"
     },
-    "github-actions.workflows.pinned.workflows": [
-        ".github/workflows/docs-cd.yml"
-    ]
+    "files.eol": "\r\n",
+    "yaml.schemas": {
+        "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml",
+        "https://appsemble.app/api.json": "file:///Users/david/GitHub/justinwritescode/mkdocs.yml"
+    },
+    "files.exclude": {
+        "obj": true,
+        "bin": true
+    },
+    "workspace.isHidden": true
 }

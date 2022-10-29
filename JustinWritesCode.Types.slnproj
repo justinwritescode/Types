@@ -4,6 +4,7 @@
     <IncludeInSolutionFile>false</IncludeInSolutionFile>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <UsingMicrosoftNETSdk>true</UsingMicrosoftNETSdk>
+    <!-- <SlnGenInheritGlobalProperties>true</SlnGenInheritGlobalProperties> -->
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="./src/**/*.*proj" />

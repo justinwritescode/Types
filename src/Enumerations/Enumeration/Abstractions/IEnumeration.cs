@@ -1,29 +1,51 @@
-using System;
+// 
+// IEnumeration.cs
+// 
+//   Created: 2022-11-02-01:22:22
+//   Modified: 2022-11-02-01:22:22
+// 
+//   Author: Justin Chase <justin@justinwritescode.com>
+//   
+//   Copyright © 2022 Justin Chase, All Rights Reserved
+//      License: MIT (https://opensource.org/licenses/MIT)
+// 
 namespace JustinWritesCode.Enumerations.Abstractions;
+using JustinWritesCode.Abstractions;
+using JustinWritesCode.ComponentModel;
 using System.Reflection;
-using System.ComponentModel.DataAnnotations;
-
-public interface IEnumeration
+public interface IEnumeration : IHaveAnId, IConvertible, IComparable, IHaveAValue, IHaveAName, IHaveADescription
 {
-    int Id { get; }
-    string Name { get; }
-    FieldInfo FieldInfo { get; }
-    string DisplayName { get; }
-    string ShortName { get; }
-    string Description { get; }
-    string GroupName { get; }
-    int Order { get; }
-    DisplayAttribute DisplayAttribute { get; }
-    IComparable ComparisonPropertyValue { get; }
-
-    int CompareTo(object other);
-    bool Equals(object obj);
-    int GetHashCode();
-    // IDictionary<string, object> Properties<TAttribute>() where TAttribute : Attribute;
-    string ToString();
-}
-
-public interface IEnumeration<TValue> where TValue : Enum
-{
-    TValue Value { get; }
+    //const string NoGroup = "No Group";
+    //const int DefaultOrder = 0;
+    //static IEnumeration Default;// { get; }
+    //object Id {get;}
+    //object Value{get;}// => Id;
+    //string Name{get;}// => ToString();
+    FieldInfo FieldInfo {get;}//=> GetType().GetField(Name);
+    [FromString]
+    string DisplayName {get;}//=> Name;
+    [FromString]
+    string ShortName{get;}// => Name;
+    //[FromString]
+    //string Description{get;}// => Description;
+    string GroupName {get;}// => NoGroup;
+    int Order{get;}// => DefaultOrder;
+    TAttribute? GetCustomAttribute<TAttribute>() where TAttribute : Attribute;// => FieldInfo.GetCustomAttribute<TAttribute>();
+    //static abstract IEnumeration FromValue(Type t, object value);// => Parse(t, x => x.Value.Equals(value));
+    //static abstract TEnumeration FromValue<TEnumeration>(object value) where TEnumeration : class, IEnumeration;// => FromValue(typeof(TEnumeration), value) as TEnumeration;
+    //static abstract IEnumeration[] GetValues(Type t);// => t.GetRuntimeFields().Select(f => f.GetValue(null)).OfType<IEnumeration>().ToArray();
+    //static abstract TEnumeration[] GetValues<TEnumeration>();// => GetValues(typeof(TEnumeration)).OfType<TEnumeration>().ToArray();
+    //protected static abstract IEnumerable<PropertyInfo> GetFromStringProperties(Type t);
+        // => t.GetRuntimeProperties().Where(p => p.GetCustomAttribute<FromStringAttribute>() != null);
+    /*protected static IEnumerable<PropertyInfo> GetFromStringProperties<TEnumeration>()
+        => GetFromStringProperties(typeof(TEnumeration));*/
+    //static abstract IEnumeration Parse(Type t, string value);// => Parse(t, e => GetFromStringProperties(t).Any(p => p.GetValue(null) == value));
+    //static abstract TEnumeration Parse<TEnumeration>(string value) where TEnumeration : IEnumeration;
+        //=> Parse<TEnumeration>(e => GetFromStringProperties<TEnumeration>().Any(p => p.GetValue(null) == value));
+    //static abstract TEnumeration Parse<TEnumeration>(Func<TEnumeration, bool> matchPredicate) where TEnumeration : IEnumeration;
+        //=> GetValues<TEnumeration>().FirstOrDefault(matchPredicate);
+    //static abstract IEnumeration Parse(Type t, Func<IEnumeration, bool> matchPredicate);
+        //=> GetValues(t).FirstOrDefault(matchPredicate);
+    //static abstract bool TryParse<TEnumeration>(string s, out TEnumeration value) where TEnumeration : class, IEnumeration;
+        //=> (value = Parse<TEnumeration>(s) as TEnumeration) != null;
 }

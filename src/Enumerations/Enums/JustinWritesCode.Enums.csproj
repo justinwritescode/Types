@@ -1,0 +1,42 @@
+<!--
+ Enums.csproj
+ 
+   Created: 2022-10-16-05:52:23
+   Modified: 2022-10-30-05:45:46
+ 
+   Author: Justin Chase <justin@justinwritescode.com>
+   
+   Copyright © 2022 Justin Chase, All Rights Reserved
+      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Title>A collection of useful enum types along with their enumeration counterparts</Title>
+    <AssemblyName>JustinWritesCode.Enums</AssemblyName>
+    <PackageId>JustinWritesCode.Enums</PackageId>
+    <RootNamespace>JustinWritesCode.Enums</RootNamespace>
+    <Description>A collection of useful enums.</Description>
+    <SlnGenSolutionFolder>Enumerations</SlnGenSolutionFolder>
+    <ProjectGuid>b15661f1-21ee-447f-82b1-dfd689e8dbd2</ProjectGuid>
+    <EnableGlobalCodeGenerators>false</EnableGlobalCodeGenerators>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+    <PackageReference Include="System.ComponentModel.Annotations" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)' == 'Local'">
+    <ProjectReference Include="../../Core/ComponentModel/JustinWritesCode.ComponentModel.csproj" />
+    <ProjectReference Include="../../Enumerations/Enumeration/JustinWritesCode.Enumerations.Enumeration.csproj" />
+    <ProjectReference Include="../../Enumerations/CodeGeneration/JustinWritesCode.Enumerations.CodeGeneration.csproj" TreatAsPackageReference="true" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)' != 'Local'">
+    <PackageReference Include="JustinWritesCode.ComponentModel" />
+    <PackageReference Include="JustinWritesCode.Enumerations.Enumeration" />
+    <PackageReference Include="JustinWritesCode.Enumerations.CodeGeneration" IncludeAssets="Analyzers" PrivateAssets="All" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Licenses/*" />
+  </ItemGroup>
+</Project>

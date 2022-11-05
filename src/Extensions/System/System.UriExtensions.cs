@@ -1,3 +1,15 @@
+// 
+// System.UriExtensions.cs
+// 
+//   Created: 2022-10-24-03:07:13
+//   Modified: 2022-10-30-08:57:01
+// 
+//   Author: Justin Chase <justin@justinwritescode.com>
+//   
+//   Copyright © 2022 Justin Chase, All Rights Reserved
+//      License: MIT (https://opensource.org/licenses/MIT)
+// 
+
 namespace JustinWritesCode.Extensions;
 
 public static class UriExtensions

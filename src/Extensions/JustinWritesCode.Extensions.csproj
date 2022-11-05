@@ -1,0 +1,28 @@
+<!--
+ JustinWritesCode.Extensions.csproj
+ 
+   Created: 2022-10-23-11:18:23
+   Modified: 2022-11-01-06:59:08
+ 
+   Author: Justin Chase <justin@justinwritescode.com>
+   
+   Copyright © 2022 Justin Chase, All Rights Reserved
+      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.3;netstandard2.0</TargetFrameworks>
+    <PackageId>JustinWritesCode.Extensions</PackageId>
+    <RootNamespace>JustinWritesCode.Extensions</RootNamespace>
+    <AssemblyName>JustinWritesCode.Extensions</AssemblyName>
+    <EnableGlobalCodeGenerators>false</EnableGlobalCodeGenerators>
+    <SlnGenSolutionFolder>Extensions</SlnGenSolutionFolder>
+  </PropertyGroup>
+  <ItemGroup>
+   <PackageReference Include="System.Usings" />
+   <PackageReference Include="System.Text.Usings" />
+  </ItemGroup>
+
+</Project>

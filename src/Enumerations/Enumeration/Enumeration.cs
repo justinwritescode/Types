@@ -1,126 +1,104 @@
+// 
+// Enumeration.cs
+// 
+//   Created: 2022-10-16-03:16:17
+//   Modified: 2022-11-02-01:58:19
+// 
+//   Author: Justin Chase <justin@justinwritescode.com>
+//   
+//   Copyright © 2022 Justin Chase, All Rights Reserved
+//      License: MIT (https://opensource.org/licenses/MIT)
+// 
+
 namespace JustinWritesCode.Enumerations;
+using JustinWritesCode.Abstractions;
+using JustinWritesCode.Enumerations.Abstractions;
+using System.ComponentModel.DataAnnotations;
+using Convert = System.Convert;
+using static System.Convert;
 
-public abstract class Enumeration : Enumeration<Enumeration>
+[Serializable]
+[DebuggerDisplay("{DisplayName} - {Value}")]
+public abstract class Enumeration : IEnumeration
 {
-    protected Enumeration(int value, string displayName)
-        : base(value, displayName)
+    public const int DefaultOrder = 0;
+    public const string NoGroup = "No Group";
+
+    protected Enumeration(object id, string name) 
     {
+        this.Id = id;
+        Name = name;
     }
 
+    object IHaveAnId.Id => Id;
+    public virtual object Value => Id;
+    public virtual FieldInfo FieldInfo => GetType().GetField(Name);
+    protected Func<IEnumeration, string> ToStringDelegate { get; init; } = e => e.DisplayName;
+    public virtual object Id {get;}
+    [FromString]
+    public virtual string Name { get; init; }
+    public virtual TAttribute? GetCustomAttribute<TAttribute>() where TAttribute : Attribute 
+        => ((IEnumeration)this).GetCustomAttribute<DisplayAttribute>() as TAttribute;
+    public virtual DisplayAttribute? DisplayAttribute => GetCustomAttribute<DisplayAttribute>();
+    [FromString]
+    public virtual string ShortName => DisplayAttribute?.ShortName ?? Name;
+    public virtual string Description => DisplayAttribute?.Description ?? Name;
+    [FromString]
+    public string DisplayName => DisplayAttribute?.Name ?? Name;
 
+    public string GroupName => DisplayAttribute?.GroupName ?? Enumeration.NoGroup;
 
-    #region arbitrary properties
-    public virtual TAttribute GetCustomAttribute<TAttribute>() where TAttribute : Attribute
-    {
-        return FieldInfo.GetCustomAttribute<TAttribute>();
-    }
-    #endregion
+    public int Order => DisplayAttribute?.Order ?? Enumeration.DefaultOrder;
 
-    // public override string ToString() => GetType().GetProperty(ToStringProperty).GetValue(this).ToString();
-
-    public static IEnumerable<T> GetAll<T>() where T : Enumeration
-    {
-        var fields = typeof(T).GetFields(BindingFlags.Public |
-                                         BindingFlags.Static |
-                                         BindingFlags.DeclaredOnly);
-
-        return fields.Select(f => f.GetValue(null)).Cast<T>();
-    }
-
-    public override bool Equals(object obj)
-    {
-        var otherValue = obj as Enumeration;
-
-        if (otherValue == null)
-            return false;
-
-        var typeMatches = GetType() == obj.GetType();
-        var valueMatches = Id.Equals(otherValue.Id);
-
-        return typeMatches && valueMatches;
-    }
-
+    public override string ToString() => ToStringDelegate(this);
+    public virtual int CompareTo(object other) => other is IEnumeration ? CompareTo((IEnumeration)other) : -1;
+    public virtual int CompareTo(IEnumeration other) => (Id as IComparable)?.CompareTo(other.Id) ?? -1;
+    public override bool Equals(object other) => other is IEnumeration && CompareTo(other) == 0;
+    public virtual bool Equals(IEnumeration other) => GetHashCode() == other.GetHashCode();
     public override int GetHashCode() => Id.GetHashCode();
 
-    public static int AbsoluteDifference(Enumeration firstValue, Enumeration secondValue)
-    {
-        return Math.Abs(firstValue.Id - secondValue.Id);
-    }
+    public virtual int ToInt32() => Convert.ToInt32(Value);
+    public TypeCode GetTypeCode() => Convert.GetTypeCode(Value);
 
-    public static T FromValue<T>(int value) where T : Enumeration
-    {
-        return Parse<T, int>(value, "value", item => item.Id == value);
-    }
+    public bool ToBoolean(IFormatProvider provider) => Convert.ToBoolean(Value, provider);
 
-    public static T FromDisplayName<T>(string displayName) where T : Enumeration
-    {
-        return Parse<T, string>(displayName, "display name", item => item.Name == displayName);
-    }
+    public byte ToByte(IFormatProvider provider) => Convert.ToByte(Value, provider);
 
-    private static T Parse<T, K>(K value, string description, Func<T, bool> predicate) where T : Enumeration
-    {
-        var matchingItem = GetAll<T>().FirstOrDefault(predicate);
+    #region type conversions
+    public object ToType(Type conversionType, IFormatProvider provider) => Convert.ChangeType(Value, conversionType);
+    public char ToChar(IFormatProvider provider) => Convert.ToChar(Value, provider);
+    public DateTime ToDateTime(IFormatProvider provider) => Convert.ToDateTime(Value, provider);
+    public decimal ToDecimal(IFormatProvider provider) => Convert.ToDecimal(Value, provider);
+    public double ToDouble(IFormatProvider provider) => Convert.ToDouble(Value, provider);
+    public short ToInt16(IFormatProvider provider) => Convert.ToInt16(Value, provider);
+    public int ToInt32(IFormatProvider provider) => Convert.ToInt32(Value, provider);
+    public long ToInt64(IFormatProvider provider) => Convert.ToInt64(Value, provider);
+    public sbyte ToSByte(IFormatProvider provider) => Convert.ToSByte(Value, provider);
+    public float ToSingle(IFormatProvider provider) => Convert.ToSingle(Value, provider);
+    public string ToString(IFormatProvider provider) => ToString();   
+    public ushort ToUInt16(IFormatProvider provider) => Convert.ToUInt16(Value, provider);    
+    public uint ToUInt32(IFormatProvider provider) => Convert.ToUInt32(Value, provider);    
+    public ulong ToUInt64(IFormatProvider provider) => Convert.ToUInt64(Value, provider);
+    #endregion
 
-        if (matchingItem == null)
-            throw new InvalidOperationException($"'{value}' is not a valid {description} in {typeof(T)}");
+    public static bool operator==(Enumeration e, object o) => e.Equals(o);
+    public static bool operator!=(Enumeration e, object o) => !e.Equals(o);
 
-        return matchingItem;
-    }
-
-    private static bool TryParse<T, K>(K value, string description, Func<T, bool> predicate, out T result) where T : Enumeration
-    {
-        var matchingItem = GetAll<T>().FirstOrDefault(predicate);
-
-        result = matchingItem;
-
-        return matchingItem != null;
-    }
-
-    // public IComparable ComparisonPropertyValue => GetType().GetProperty(ComparisonProperty).GetValue(this) as IComparable;
-
-    // public int CompareTo(object other) =>
-    //     ComparisonPropertyValue.CompareTo(((Enumeration)other).ComparisonPropertyValue);
-
-    public static implicit operator int(Enumeration enumeration) => enumeration.Id;
-    public static implicit operator Enumeration(int id) => FromValue<Enumeration>(id);
+    public static IEnumeration FromValue(Type t, object value) => Parse(t, x => x.Value.Equals(value));
+    public static TEnumeration? FromValue<TEnumeration>(object value) where TEnumeration : class, IEnumeration => FromValue(typeof(TEnumeration), value) as TEnumeration;
+    public static IEnumeration[] GetValues(Type t) => t.GetRuntimeFields().Select(f => f.GetValue(null)).OfType<IEnumeration>().ToArray();
+    public static TEnumeration[] GetValues<TEnumeration>() => GetValues(typeof(TEnumeration)).OfType<TEnumeration>().ToArray();
+    protected static IEnumerable<PropertyInfo> GetFromStringProperties(Type t)
+        => t.GetRuntimeProperties().Where(p => p.GetCustomAttribute<FromStringAttribute>() != null);
+    protected static IEnumerable<PropertyInfo> GetFromStringProperties<TEnumeration>()
+        => GetFromStringProperties(typeof(TEnumeration));
+    public static IEnumeration Parse(Type t, string value) => Parse(t, e => GetFromStringProperties(t).Any(p => p.GetValue(null) as string == value));
+    public static TEnumeration Parse<TEnumeration>(string value) where TEnumeration : IEnumeration
+        => Parse<TEnumeration>(e => GetFromStringProperties<TEnumeration>().Any(p => p.GetValue(null) as string == value));
+    public static TEnumeration Parse<TEnumeration>(Func<TEnumeration, bool> matchPredicate) where TEnumeration : IEnumeration
+        => GetValues<TEnumeration>().FirstOrDefault(matchPredicate);
+    public static IEnumeration Parse(Type t, Func<IEnumeration, bool> matchPredicate)
+        => GetValues(t).FirstOrDefault(matchPredicate);
+    public static bool TryParse<TEnumeration>(string s, out TEnumeration value) where TEnumeration : class, IEnumeration
+        => (value = Parse<TEnumeration>(s) as TEnumeration) != null;
 }
-
-// public class Enumeration<TSelf> : Enumeration where TSelf : Enumeration<TSelf>
-// {
-
-//     protected Enumeration(int id, string name, string toStringProperty = DefaultToStringProperty, string comparisonProperty = DefaultComparisonProperty)
-//         : base(id, name, toStringProperty, comparisonProperty)
-//     {
-//     }
-
-//     public static IEnumerable<TSelf> GetAll() => Enumeration.GetAll<TSelf>();
-//     public static implicit operator Enumeration<TSelf>(int id) => FromValue<TSelf>(id);
-// }
-
-// // public class Enumeration<TValue> : Enumeration, IEnumeration<TValue> where TValue : Enum
-// // {
-// //     public TValue Value { get; }
-
-// //     protected Enumeration(int id, string name, TValue value, string toStringProperty = DefaultToStringProperty, string comparisonProperty = DefaultComparisonProperty)
-// //         : base(id, name, toStringProperty, comparisonProperty)
-// //     {
-// //         Value = value;
-// //     }
-
-// //     public static implicit operator TValue(Enumeration<TValue> enumeration) => enumeration.Value;
-// //     public static implicit operator Enumeration<TValue>(TValue value) => FromValue<Enumeration<TValue>>(value);
-// // }
-
-// public class Enumeration<TValue, TSelf> : Enumeration<TSelf> where TSelf : Enumeration<TValue, TSelf> where TValue : Enum
-// {
-//     public TValue Value { get; }
-
-//     protected Enumeration(int id, string name, TValue value, string toStringProperty = DefaultToStringProperty, string comparisonProperty = DefaultComparisonProperty)
-//         : base(id, name, toStringProperty, comparisonProperty)
-//     {
-//         Value = value;
-//     }
-
-//     public static implicit operator TValue(Enumeration<TValue, TSelf> enumeration) => enumeration.Value;
-//     public static implicit operator Enumeration<TValue, TSelf>(TValue value) => FromValue<TSelf>((int)(object)value);
-// }

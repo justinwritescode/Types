@@ -1,0 +1,44 @@
+<!--
+ Enumeration.csproj
+ 
+   Created: 2022-10-16-01:05:46
+   Modified: 2022-10-30-06:37:51
+ 
+   Author: Justin Chase <justin@justinwritescode.com>
+   
+   Copyright © 2022 Justin Chase, All Rights Reserved
+      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>JustinWritesCode.Enumerations.Enumeration</PackageId>
+    <AssemblyName>JustinWritesCode.Enumerations.Enumeration</AssemblyName>
+    <RootNamespace>JustinWritesCode.Enumerations</RootNamespace>
+    <AssemblyName>$(PackageId)</AssemblyName>
+    <ProjectGuid>9e5f180b-f73b-4f2d-b8ec-0503dd834a98</ProjectGuid>
+    <EnableGlobalCodeGenerators>false</EnableGlobalCodeGenerators>
+    <SlnGenSolutionFolder>Enumerations</SlnGenSolutionFolder>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../Core/Abstractions/JustinWritesCode.Abstractions.csproj" />
+    <ProjectReference Include="./Abstractions/JustinWritesCode.Enumerations.Abstractions.csproj" />
+    <PackageReference Include="System.ComponentModel.Annotations" />
+    <PackageReference Include="System.Text.Json.Usings" />
+    <PackageReference Include="System.Text.Json" />
+    <PackageReference Include="System.Usings" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="System" />
+    <Using Include="System.Diagnostics" />
+    <Using Include="System.Reflection" />
+    <Using Include="System.ComponentModel" />
+    <Using Include="System.ComponentModel.DataAnnotations" />
+    <Using Include="JustinWritesCode.Enumerations.Abstractions" />
+    <Using Include="JustinWritesCode.ComponentModel" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="./Abstractions/**/*" />
+  </ItemGroup>
+</Project>

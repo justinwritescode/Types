@@ -1,6 +1,18 @@
+<!--
+ LICENSE.md
+ 
+   Created: 2022-10-27-02:41:58
+   Modified: 2022-10-31-06:17:16
+ 
+   Author: Justin Chase <justin@justinwritescode.com>
+   
+   Copyright © 2022 Justin Chase, All Rights Reserved
+      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
 # MIT License
 
-Copyright (c) 2022 Justin Chase <justin@justinwritescode.com>, All Righhts Reserved
+Copyright (c) 2022 Justin Chase <justin@justinwritescode.com>, All Rights Reserved
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

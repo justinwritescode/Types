@@ -1,0 +1,28 @@
+<!--
+ ComponentModel.csproj
+ 
+   Created: 2022-10-16-10:43:55
+   Modified: 2022-10-30-06:38:47
+ 
+   Author: Justin Chase <justin@justinwritescode.com>
+   
+   Copyright © 2022 Justin Chase, All Rights Reserved
+      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>JustinWritesCode.ComponentModel</RootNamespace>
+    <AssemblyName>JustinWritesCode.ComponentModel</AssemblyName>
+    <PackageId>JustinWritesCode.ComponentModel</PackageId>
+    <SlnGenSolutionFolder>Core</SlnGenSolutionFolder>
+    <Description># JustinWritesCode.ComponentModel
+This package contains additional attributes similar to the ones offered in ```System.ComponentModel.```  Types include the following:
+
+* ```GuidAttribute```: An attribute for placing a GUID on a class member
+* ```UriArttribute```: An attribute for placing a URI on a class member
+</Description>
+    <ProjectGuid>c5218b5f-7a8e-474d-b7bd-3c8369309861</ProjectGuid>
+  </PropertyGroup>
+</Project>

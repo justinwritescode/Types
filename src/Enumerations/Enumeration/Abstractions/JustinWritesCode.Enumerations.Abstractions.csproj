@@ -1,0 +1,24 @@
+<!--
+ JustinWritesCode.Enumerations.Abstractions.csproj
+ 
+   Created: 2022-11-02-03:41:22
+   Modified: 2022-11-02-03:41:23
+ 
+   Author: Justin Chase <justin@justinwritescode.com>
+   
+   Copyright © 2022 Justin Chase, All Rights Reserved
+      License: MIT (https://opensource.org/licenses/MIT)
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <SlnGenSolutionFolder>Enumerations</SlnGenSolutionFolder>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../../Core/Abstractions/JustinWritesCode.Abstractions.csproj" />
+    <ProjectReference Include="../../../Core/ComponentModel/JustinWritesCode.ComponentModel.csproj" />
+    <PackageReference Include="System.Text.Json.Usings" />
+    <PackageReference Include="System.Text.Json" />
+    <Using Include="System.Reflection" />
+  </ItemGroup>
+</Project>

@@ -14,20 +14,20 @@ namespace JustinWritesCode.Payloads;
 
 public record StringPayload(string Value) : Payload<string>(Value, Value);
 // {
-    // public StringPayload(string Value, bool Success = true, string? Error = null, string? Message = null, string? StackTrace = null)
-    //     : base(Value)
-    // { }
+// public StringPayload(string Value, bool Success = true, string? Error = null, string? Message = null, string? StackTrace = null)
+//     : base(Value)
+// { }
 
-    // public StringPayload() : base(string.Empty)
-    // { }
+// public StringPayload() : base(string.Empty)
+// { }
 // }
 
-public record StringWithRegexPayload(string Value, string Regex) 
-    : StringPayload(Value);
+public record StringWithRegexPayload(string Value, string Regex)
+	: StringPayload(Value);
 // {
-    // public string Regex { get; set; }
-    // public StringWithRegexPayload(string Value, string Regex) : base(Value)
-    // {
-    //     this.Regex = Regex;
-    // }
+// public string Regex { get; set; }
+// public StringWithRegexPayload(string Value, string Regex) : base(Value)
+// {
+//     this.Regex = Regex;
+// }
 // }

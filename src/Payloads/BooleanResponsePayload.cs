@@ -12,8 +12,8 @@
 
 namespace JustinWritesCode.Payloads;
 
-public record BooleanResponsePayload(bool Value, bool Success = true, string? Error = default, string? Message = null, string? StackTrace = null) 
-    : ResponsePayload<bool>(Value, Success, Error, Message, StackTrace);
+public record BooleanResponsePayload(bool Value, bool Success = true, string? Error = default, string? Message = null, string? StackTrace = null)
+	: ResponsePayload<bool>(Value, Success, Error, Message, StackTrace);
 // {
 //     public BooleanResponsePayload(bool Value, bool Success = true, string? Error = null, string? Message = null, string? StackTrace = null)
 //         : base(Value, Success, Error, Message, StackTrace)

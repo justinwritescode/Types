@@ -12,8 +12,8 @@
 namespace JustinWritesCode.Enums.SoftwareLicenses;
 using System.ComponentModel.DataAnnotations;
 
-[GenerateEnumerationClass("Condition")]
-public enum ConditionEnum
+[GenerateEnumerationClass("LicenseCondition")]
+public enum LicenseConditionEnum
 {
     [Display(Name = "No Conditions", ShortName = "No Conditions")]
     None = 0,

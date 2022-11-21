@@ -14,5 +14,5 @@ namespace JustinWritesCode.Payloads;
 
 public record BooleanPayload(bool Value) : Payload<bool>(Value, Value.ToString());
 // {
-    // public BooleanPayload(bool Value) : base(Value) { }
+// public BooleanPayload(bool Value) : base(Value) { }
 // }

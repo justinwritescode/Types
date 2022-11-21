@@ -12,10 +12,10 @@
 
 namespace JustinWritesCode.Payloads;
 
-public record IntResponsePayload(int Value, bool Success = true, string? Error = default, string? Message = null, string? StackTrace = null) 
-    : ResponsePayload<int>(Value, Success, Error, Message, StackTrace);
+public record IntResponsePayload(int Value, bool Success = true, string? Error = default, string? Message = null, string? StackTrace = null)
+	: ResponsePayload<int>(Value, Success, Error, Message, StackTrace);
 // {
-    // public IntResponsePayload(int Value, bool Success = true, string? Error = null, string? Message = null, string? StackTrace = null)
-    //     : base(Value, Success, Error, Message, StackTrace)
-    // { }
+// public IntResponsePayload(int Value, bool Success = true, string? Error = null, string? Message = null, string? StackTrace = null)
+//     : base(Value, Success, Error, Message, StackTrace)
+// { }
 // }

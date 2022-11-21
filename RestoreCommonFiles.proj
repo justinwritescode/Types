@@ -1,9 +1,0 @@
-<Project Sdk="Microsoft.Build.NoTargets">
-    <PropertyGroup>
-      <EnableCentralPackageVersions>false</EnableCentralPackageVersions>
-      <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-      <TargetFramework>netstandard1.0</TargetFramework>
-      <IncludeInSolutionFile>false</IncludeInSolutionFile>
-      <SlnGenProjectName>RestoreCommonFilesProj</SlnGenProjectName>
-    </PropertyGroup>
-</Project>

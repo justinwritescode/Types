@@ -1,0 +1,7 @@
+<Project>
+<ItemGroup>
+	<Using Include="JustinWritesCode.Constants" Static="true" />
+	<Using Include="JustinWritesCode.Constants.Uris.Strings" Static="true" />
+	<Using Include="JustinWritesCode.Constants.Uris" Static="true" />
+</ItemGroup>
+</Project>

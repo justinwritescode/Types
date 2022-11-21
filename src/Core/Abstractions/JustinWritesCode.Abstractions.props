@@ -1,0 +1,17 @@
+<!--
+ Abstractions.csproj
+ 
+   Created: 2022-10-10-10:54:14
+   Modified: 2022-10-30-06:38:34
+ 
+   Author: Justin Chase <justin@justinwritescode.com>
+   
+   Copyright © 2022 Justin Chase, All Rights Reserved
+      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project>
+  <ItemGroup>
+    <Using Include="JustinWritesCode.Abstractions" />
+  </ItemGroup>
+</Project>

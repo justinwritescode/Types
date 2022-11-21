@@ -1,0 +1,35 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JustinWritesCode.Http.Extensions", "JustinWritesCode.Http.Extensions.csproj", "{9449C865-5397-4922-9063-A1B18149D7D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{99CB6F39-68BA-4743-A843-52B8C9185A37}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Testing|Any CPU = Testing|Any CPU
+		Local|Any CPU = Local|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Staging|Any CPU = Staging|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9449C865-5397-4922-9063-A1B18149D7D7}.Testing|Any CPU.ActiveCfg = Testing|Any CPU
+		{9449C865-5397-4922-9063-A1B18149D7D7}.Testing|Any CPU.Build.0 = Testing|Any CPU
+		{9449C865-5397-4922-9063-A1B18149D7D7}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{9449C865-5397-4922-9063-A1B18149D7D7}.Local|Any CPU.Build.0 = Local|Any CPU
+		{9449C865-5397-4922-9063-A1B18149D7D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9449C865-5397-4922-9063-A1B18149D7D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9449C865-5397-4922-9063-A1B18149D7D7}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{9449C865-5397-4922-9063-A1B18149D7D7}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{9449C865-5397-4922-9063-A1B18149D7D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9449C865-5397-4922-9063-A1B18149D7D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9449C865-5397-4922-9063-A1B18149D7D7} = {99CB6F39-68BA-4743-A843-52B8C9185A37}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C3F5072-33BE-4905-8AF9-40F65FCD7C3C}
+	EndGlobalSection
+EndGlobal

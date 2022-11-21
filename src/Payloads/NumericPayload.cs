@@ -14,5 +14,5 @@ namespace JustinWritesCode.Payloads;
 
 public record NumericPayload(decimal Value) : Payload<decimal>(Value, Value.ToString());
 // {
-    // public NumericPayload(decimal Value) : base(Value) { }
+// public NumericPayload(decimal Value) : base(Value) { }
 // }

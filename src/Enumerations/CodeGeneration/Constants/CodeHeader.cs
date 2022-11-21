@@ -15,5 +15,6 @@ namespace JustinWritesCode.Enumerations.CodeGeneration;
 public static partial class Constants
 {
     public static readonly string CodeHeader = 
-        new StreamReader(typeof(Constants).Assembly.GetManifestResourceStream("JustinWritesCode.Enumerations.CodeGeneration.Resources.CodeHeader.cs")).ReadToEnd();
+        new StreamReader(typeof(Constants).Assembly.GetManifestResourceStream("JustinWritesCode.Enumerations.CodeGeneration.Resources.CodeHeader.cs")).ReadToEnd()
+        .TrimFromSentinel();
 }

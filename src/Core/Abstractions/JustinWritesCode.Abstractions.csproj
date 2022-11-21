@@ -26,4 +26,13 @@
   <ItemGroup>
     <PackageReference Include="System.ComponentModel.Annotations" />
   </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)' == 'Testing' Or '$(Configuration)' == 'Local'">
+    <ProjectReference Include="../../Core/ComponentModel/JustinWritesCode.ComponentModel.csproj" TreatAsPackageReference="true" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)' != 'Testing' And '$(Configuration)' != 'Local'">
+    <PackageReference Include="JustinWritesCode.ComponentModel" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="./JustinWritesCode.Abstractions.props" PackagePath="build/%(Filename)%(Extension)" />
+  </ItemGroup>
 </Project>

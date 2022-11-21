@@ -1,0 +1,18 @@
+<!--
+ * JustinWritesCode.System.Extensions.props
+ * 
+ *   Created: 2022-11-12-07:27:11
+ *   Modified: 2022-11-12-07:27:11
+ * 
+ *   Author: Justin Chase <justin@justinwritescode.com>
+ *   
+ *   Copyright © 2022 Justin Chase, All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+-->
+<Project>
+	<ItemGroup>
+		<Using Include="System.MathExtensions" Static="true" />
+		<Using Include="System.Randoms" Static="true" />
+		<Using Include="System.Text.TextEncodingExtensions" Static="true" />
+	</ItemGroup>
+</Project>

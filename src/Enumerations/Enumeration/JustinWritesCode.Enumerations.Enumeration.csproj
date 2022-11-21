@@ -28,6 +28,7 @@
     <PackageReference Include="System.Text.Json.Usings" />
     <PackageReference Include="System.Text.Json" />
     <PackageReference Include="System.Usings" />
+    <PackageReference Include="Ardalis.SmartEnum" />
   </ItemGroup>
   <ItemGroup>
     <Using Include="System" />
@@ -36,9 +37,10 @@
     <Using Include="System.ComponentModel" />
     <Using Include="System.ComponentModel.DataAnnotations" />
     <Using Include="JustinWritesCode.Enumerations.Abstractions" />
-    <Using Include="JustinWritesCode.ComponentModel" />
+    <Using Include="Ardalis.SmartEnum" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="./Abstractions/**/*" />
   </ItemGroup>
+	<Import Project="../../Core/ComponentModel/JustinWritesCode.ComponentModel.props" />
 </Project>

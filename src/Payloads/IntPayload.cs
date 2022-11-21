@@ -14,5 +14,5 @@ namespace JustinWritesCode.Payloads;
 
 public record IntPayload(int Value) : Payload<int>(Value, Value.ToString());
 // {
-    // public IntPayload(int Value) : base(Value) { }
+// public IntPayload(int Value) : base(Value) { }
 // }

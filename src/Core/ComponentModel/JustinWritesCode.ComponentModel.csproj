@@ -1,18 +1,18 @@
 <!--
- ComponentModel.csproj
- 
-   Created: 2022-10-16-10:43:55
-   Modified: 2022-10-30-06:38:47
- 
-   Author: Justin Chase <justin@justinwritescode.com>
-   
-   Copyright © 2022 Justin Chase, All Rights Reserved
-      License: MIT (https://opensource.org/licenses/MIT)
+ * JustinWritesCode.ComponentModel.csproj
+ * 
+ *   Created: 2022-10-16-01:43:55
+ *   Modified: 2022-11-19-04:06:29
+ * 
+ *   Author: Justin Chase <justin@justinwritescode.com>
+ *   
+ *   Copyright © 2022 Justin Chase, All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
 -->
 
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net6.0;net7.0</TargetFrameworks>
     <RootNamespace>JustinWritesCode.ComponentModel</RootNamespace>
     <AssemblyName>JustinWritesCode.ComponentModel</AssemblyName>
     <PackageId>JustinWritesCode.ComponentModel</PackageId>
@@ -20,9 +20,14 @@
     <Description># JustinWritesCode.ComponentModel
 This package contains additional attributes similar to the ones offered in ```System.ComponentModel.```  Types include the following:
 
-* ```GuidAttribute```: An attribute for placing a GUID on a class member
-* ```UriArttribute```: An attribute for placing a URI on a class member
+| Type                                                                                                                                           | Description                                                                      |
+| :----------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------- |
+| [```GuidAttribute```](https://github.com/justinwritescode/Types/blob/Use-Resources/src/Core/ComponentModel/GuidAttribute.cs)                   | An attribute for placing a GUID on a class member                                |
+| [```UriArttribute```](https://github.com/justinwritescode/Types/blob/Use-Resources/src/Core/ComponentModel/UriAttribute.cs)                    | An attribute for placing a URI on a class member                                 |
+| [```FromStringAttribute```](https://github.com/justinwritescode/Types/blob/Use-Resources/src/Core/ComponentModel/FromStringAttribute.cs)       | An attribute for noting a member that can be used to parse a value from a string |
+| [```FileExtensionAttribute```](https://github.com/justinwritescode/Types/blob/Use-Resources/src/Core/ComponentModel/FileExtensionAttribute.cs) | An attribute for noting something's file extension(s)                            |
 </Description>
     <ProjectGuid>c5218b5f-7a8e-474d-b7bd-3c8369309861</ProjectGuid>
   </PropertyGroup>
+	<Import Project="JustinWritesCode.ComponentModel.props" />
 </Project>

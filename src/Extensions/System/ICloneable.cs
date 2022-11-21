@@ -1,34 +1,22 @@
-//
-//  ICloneable{T}.cs
-//
-//  Authors:
-//       Justin Chase <justin@thebackroom.app>
-//       &
-//       Municipal Drew <drew@wheatleythecat.com>
-//
-//  Copyright ©️ 2022 2022 Justin Chase
-//
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// 
+// ICloneable.cs
+// 
+//   Created: 2022-10-23-11:39:49
+//   Modified: 2022-11-11-06:11:07
+// 
+//   Author: Justin Chase <justin@justinwritescode.com>
+//   
+//   Copyright © 2022 Justin Chase, All Rights Reserved
+//      License: MIT (https://opensource.org/licenses/MIT)
+// 
 
-namespace System
+namespace System;
+
+/// <summary>Clones the object</summary>
+/// <typeparam name="TSelf">The class' name</typeparam>
+public interface ICloneable<TSelf> where TSelf : ICloneable<TSelf>
 {
     /// <summary>Clones the object</summary>
-    /// <typeparam name="TSelf">The class' name</typeparam>
-    public interface ICloneable<TSelf> where TSelf : ICloneable<TSelf>
-    {
-        /// <summary>Clones the object</summary>
-        /// <returns>The cloned object</returns>
-        TSelf Clone();
-    }
+    /// <returns>The cloned object</returns>
+    TSelf Clone();
 }

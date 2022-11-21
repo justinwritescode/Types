@@ -1,33 +1,25 @@
-// 
+//
 // IEnumeration.cs
-// 
+//
 //   Created: 2022-11-02-01:22:22
 //   Modified: 2022-11-02-01:22:22
-// 
+//
 //   Author: Justin Chase <justin@justinwritescode.com>
-//   
+//
 //   Copyright © 2022 Justin Chase, All Rights Reserved
 //      License: MIT (https://opensource.org/licenses/MIT)
-// 
+//
 namespace JustinWritesCode.Enumerations.Abstractions;
 using JustinWritesCode.Abstractions;
-using JustinWritesCode.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Reflection;
-public interface IEnumeration : IHaveAnId, IConvertible, IComparable, IHaveAValue, IHaveAName, IHaveADescription
+public interface IEnumeration : IConvertible, IComparable, IHaveAValue, IHaveAName, IHaveADescription, IIdentifiable
 {
-    //const string NoGroup = "No Group";
-    //const int DefaultOrder = 0;
-    //static IEnumeration Default;// { get; }
-    //object Id {get;}
-    //object Value{get;}// => Id;
-    //string Name{get;}// => ToString();
     FieldInfo FieldInfo {get;}//=> GetType().GetField(Name);
     [FromString]
     string DisplayName {get;}//=> Name;
     [FromString]
     string ShortName{get;}// => Name;
-    //[FromString]
-    //string Description{get;}// => Description;
     string GroupName {get;}// => NoGroup;
     int Order{get;}// => DefaultOrder;
     TAttribute? GetCustomAttribute<TAttribute>() where TAttribute : Attribute;// => FieldInfo.GetCustomAttribute<TAttribute>();

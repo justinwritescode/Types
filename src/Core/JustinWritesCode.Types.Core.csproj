@@ -1,15 +1,3 @@
-<!--
- Core.csproj
- 
-   Created: 2022-10-16-04:19:58
-   Modified: 2022-11-01-06:34:03
- 
-   Author: Justin Chase <justin@justinwritescode.com>
-   
-   Copyright © 2022 Justin Chase, All Rights Reserved
-      License: MIT (https://opensource.org/licenses/MIT)
--->
-
 <Project Sdk="Microsoft.Build.Traversal">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -17,9 +5,12 @@
     <PackageId>JustinWritesCode.Types.Core</PackageId>
     <RootNamespace>JustinWritesCode.Types.Core</RootNamespace>
     <SlnGenSolutionFolder>Core</SlnGenSolutionFolder>
+    <GenerateNuspec>true</GenerateNuspec>
+    <UsingMicrosoftNetSdk>true</UsingMicrosoftNetSdk>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="./**/*.csproj" />
+    <ProjectReference Remove="./JustinWritesCode.Types.Core.csproj" />
     <!-- <ProjectReference Remove="./JustinWritesCode.Types.Core.csproj" /> -->
     <Compile Remove="**/*" />
   </ItemGroup>

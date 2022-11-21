@@ -1,30 +1,36 @@
-// 
-// SoftwareLicense.cs
-// 
-//   Created: 2022-10-31-02:18:33
-//   Modified: 2022-10-31-02:18:33
-// 
-//   Author: Justin Chase <justin@justinwritescode.com>
-//   
-//   Copyright © 2022 Justin Chase, All Rights Reserved
-//      License: MIT (https://opensource.org/licenses/MIT)
-// 
+/* 
+ * SoftwareLicenseEnum.cs
+ * 
+ *   Created: 2022-10-31-05:18:33
+ *   Modified: 2022-11-11-03:44:07
+ * 
+ *   Author: Justin Chase <justin@justinwritescode.com>
+ *   
+ *   Copyright © 2022 Justin Chase, All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+ */ 
+
 namespace JustinWritesCode.Enums;
 using System.ComponentModel.DataAnnotations;
 using JustinWritesCode.ComponentModel;
 [GenerateEnumerationClass("SoftwareLicense")]
 public enum SoftwareLicenseEnum
 {
+
+    [Display(Name = "The Unlicense", ShortName = "Unlicense")]
+    [Uri("https://api.github.com/licenses/unlicense")]
+    Unlicense = 0,
+    None = 0,
     [Display(Name = "GNU Affero General Public License v3.0", ShortName = "AGPL-3.0")]
     [Uri("https://api.github.com/licenses/agpl-3.0")]
     AGPL3,
     [Display(Name = "Apache License 2.0", ShortName = "Apache-2.0")]
     [Uri("https://api.github.com/licenses/apache-2.0")]
     Apache2,
-    [Display(Name = "BSD 2-Clause \"Simplified\" License", ShortName = "BSD-2-Clause")]
+    [Display(Name = "BSD 2-Clause \\\"Simplified\\\" License", ShortName = "BSD-2-Clause")]
     [Uri("https://api.github.com/licenses/bsd-2-clause")]
     BSD2Clause,
-    [Display(Name = "BSD 3-Clause \"New\" or \"Revised\" License", ShortName = "BSD-3-Clause")]
+    [Display(Name = "BSD 3-Clause \\\"New\\\" or \\\"Revised\\\" License", ShortName = "BSD-3-Clause")]
     [Uri("https://api.github.com/licenses/bsd-3-clause")]
     BSD3Clause,
     [Display(Name = "Boost Software License 1.0", ShortName = "BSL-1.0")]
@@ -51,9 +57,9 @@ public enum SoftwareLicenseEnum
     [Display(Name = "Mozilla Public License 2.0", ShortName = "MPL-2.0")]
     [Uri("https://api.github.com/licenses/mpl-2.0")]
     MPL2,
-    [Display(Name = "The Unlicense", ShortName = "Unlicense")]
-    [Uri("https://api.github.com/licenses/unlicense")]
-    Unlicense
+    [Display(Name = "Microsoft Public License", ShortName = "MS-PL")]
+    [Uri("https://api.github.com/licenses/ms-pl")]
+    MSPL
 }
 
 

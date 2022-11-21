@@ -16,10 +16,8 @@
     <AssemblyName>$(PackageId)</AssemblyName>
     <RootNamespace>$(PackageId)</RootNamespace>
     <EnableGlobalCodeGenerators>false</EnableGlobalCodeGenerators>
-    <SlnGenSolutionFolder>Extensions</SlnGenSolutionFolder>
+    <SlnGenSolutionFolder>src</SlnGenSolutionFolder>
+		<ProjectGuid>f52d8a04-cd74-4a5d-900f-9df28dcce542</ProjectGuid>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.OpenApi" />
-    <PackageReference Include="System.Text.Json" />
-  </ItemGroup>
+	<Import Project="./JustinWritesCode.Http.Extensions.props" />
 </Project>

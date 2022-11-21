@@ -15,8 +15,5 @@ namespace JustinWritesCode.Enumerations.CodeGeneration;
 public static partial class Constants
 {
     public static readonly string EnumerationFieldDeclaration = 
-        new StreamReader(typeof(Constants).Assembly.GetManifestResourceStream("JustinWritesCode.Enumerations.CodeGeneration.Resources.EnumerationFieldDeclaration.cs")).ReadToEnd();
-    /*@"
-public static readonly {EnumerationClassName} {FieldName} = new {EnumerationClassName}({Id}, {Name});
-";*/
+        new StreamReader(typeof(Constants).Assembly.GetManifestResourceStream("JustinWritesCode.Enumerations.CodeGeneration.Resources.EnumerationFieldDeclaration.cs")).ReadToEnd().TrimFromSentinel();
 }

@@ -10,8 +10,8 @@
 //      License: MIT (https://opensource.org/licenses/MIT)
 // 
 namespace JustinWritesCode.Enumerations;
-public class Enumeration<TEnumeration, TId> : Enumeration<TEnumeration>
-    where TEnumeration : Enumeration<TEnumeration>
+public class Enumeration<TSelf, TId> : Enumeration<TId>
+    where TSelf : Enumeration<TId>
     where TId : IComparable, IComparable<TId>, IEquatable<TId>
 {
     protected Enumeration(TId id, string name)

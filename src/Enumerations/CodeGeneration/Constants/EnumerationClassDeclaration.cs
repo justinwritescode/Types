@@ -15,7 +15,7 @@ namespace JustinWritesCode.Enumerations.CodeGeneration;
 public static partial class Constants
 {
     public static readonly string EnumerationClassDeclaration = 
-        new StreamReader(typeof(Constants).Assembly.GetManifestResourceStream("JustinWritesCode.Enumerations.CodeGeneration.Resources.EnumerationClassDeclaration.cs")).ReadToEnd();
+        new StreamReader(typeof(Constants).Assembly.GetManifestResourceStream("JustinWritesCode.Enumerations.CodeGeneration.Resources.EnumerationClassDeclaration.cs")).ReadToEnd().TrimFromSentinel();
     /*@"
 
 namespace {Namespace};

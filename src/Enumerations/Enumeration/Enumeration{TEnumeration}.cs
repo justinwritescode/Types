@@ -19,13 +19,13 @@ using System;
 /// </summary>
 /// <typeparam name="TEnumeration">The enumeration class</typeparam>
 /// <remarks>This class was partially adapted from the contents of the now-defunct NuGetPackage "Enumeration" https://www.nuget.org/packages/Enumeration</remarks>
-[Serializable]
-[DebuggerDisplay("{DisplayName} - {Value}")]
-public abstract class Enumeration<TEnumeration> : Enumeration
-     where TEnumeration : Enumeration<TEnumeration>
-{
-    protected Enumeration(object id, string name)
-        : base(id, name)
-    {
-    }
-}
+// [Serializable]
+// [DebuggerDisplay("{DisplayName} - {Value}")]
+// public abstract class Enumeration<TEnumeration> : Enumeration
+//      where TEnumeration : Enumeration<TEnumeration>
+// {
+//     protected Enumeration(object id, string name)
+//         : base(id, name)
+//     {
+//     }
+// }

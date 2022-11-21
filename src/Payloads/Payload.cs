@@ -14,12 +14,12 @@ namespace JustinWritesCode.Payloads;
 
 public record Payload<T>(T Value, string StringValue)
 {
-//     public Payload() : this(default(T)) { }
-//     public Payload(T Value)
-//     {
-//         this.Value = Value;
-//     }
+	//     public Payload() : this(default(T)) { }
+	//     public Payload(T Value)
+	//     {
+	//         this.Value = Value;
+	//     }
 
-//     public virtual T Value { get; }
-//     public virtual string StringValue => Value?.ToString() ?? string.Empty;
+	//     public virtual T Value { get; }
+	//     public virtual string StringValue => Value?.ToString() ?? string.Empty;
 }

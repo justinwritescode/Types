@@ -12,9 +12,14 @@
 namespace JustinWritesCode.Enumerations.CodeGeneration;
 public static partial class Constants
 {
+    public const string DisplayAttribute = nameof(DisplayAttribute);
     public const string GenerateEnumerationClassAttributeName = "GenerateEnumerationClassAttribute";
     public const string GenerateEnumerationClassAttributeNameWithoutAttribute = "GenerateEnumerationClass";
     public const string EnumerationClassName = "ENUMERATION_CLASS_NAME";
+    public const string Order = "ORDER";
+    public const string ShortName = "SHORT_NAME";
+    public const string DisplayName = "DISPLAY_NAME";
+    public const string GroupName = "GROUP_NAME";
     public const string FieldName = "FIELD_NAME";
     public const string EnumNamespace = "ENUM_NAMESPACE";
     public const string Namespace = "NAMESPACE";
@@ -28,4 +33,11 @@ public static partial class Constants
     public const string Year = "YEAR";
     public const string Name = "NAME";
     public const string Id = "ID";
+    public const string BeginSentinel = "// BEGIN";
+
+    public static string TrimFromSentinel(this string input)
+    {
+        var index = input.IndexOf(BeginSentinel, StringComparison.Ordinal);
+        return index == -1 ? input : input.Substring(index + BeginSentinel.Length);
+    }
 }

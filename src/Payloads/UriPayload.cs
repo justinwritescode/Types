@@ -12,7 +12,7 @@
 
 namespace JustinWritesCode.Payloads;
 using System;
-public record UriPayload (System.Uri Value) : Payload<Uri>(Value, Value.ToString());
+public record UriPayload(System.Uri Value) : Payload<Uri>(Value, Value.ToString());
 // {
-    // public UriPayload(Uri Value) : base(Value) { }
+// public UriPayload(Uri Value) : base(Value) { }
 // }

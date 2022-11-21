@@ -16,10 +16,10 @@ using System.Linq;
 
 namespace JustinWritesCode.Payloads;
 
-public record ArrayPayload<T>(IEnumerable<T>? Values = default, string? StringValue = default) 
-    : Payload<List<T>>(Values is null ? new List<T>() : Values.ToList(), StringValue);
+public record ArrayPayload<T>(IEnumerable<T>? Values = default, string? StringValue = default)
+	: Payload<List<T>>(Values is null ? new List<T>() : Values.ToList(), StringValue);
 // {
-    // public IEnumerable<T> Values {get;} = Values is null ? Array.Empty<T>() : Values;
-    // public ArrayPayload() : this(Array.Empty<T>()) { }
-    // public ArrayPayload(IEnumerable<T> array) : base(array.ToList()) { }
+// public IEnumerable<T> Values {get;} = Values is null ? Array.Empty<T>() : Values;
+// public ArrayPayload() : this(Array.Empty<T>()) { }
+// public ArrayPayload(IEnumerable<T> array) : base(array.ToList()) { }
 // }

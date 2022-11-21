@@ -30,14 +30,19 @@
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)' != 'Testing' And '$(Configuration)' != 'Local'">
     <PackageReference Include="JustinWritesCode.CodeGeneration.Constants" />
+    <PackageReference Include="JustinWritesCode.Enumerations.Enumeration" />
+    <!-- <PackageReference Include="JustinWritesCode.CodeGeneration.Extensions" IncludeAssets="ContentFiles" /> -->
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)' == 'Testing' Or '$(Configuration)' == 'Local'">
     <ProjectReference Include="../../../../CodeGeneration/src/Constants/JustinWritesCode.CodeGeneration.Constants.csproj" />
+    <ProjectReference Include="../../Enumerations/Enumeration/JustinWritesCode.Enumerations.Enumeration.csproj" />
+    <!-- <ProjectReference Include="../../../../CodeGeneration/src/Extensions/JustinWritesCode.CodeGeneration.Extensions.csproj" IncludeAssets="ContentFiles" /> -->
   </ItemGroup>
   
   <ItemGroup>
     <Compile Remove="./Resources/*" />
     <EmbeddedResource Include="./Resources/**/*" />
+    <Compile Include="../../Extensions/System/StringExtensions.cs" />
   </ItemGroup>
 
   <PropertyGroup>

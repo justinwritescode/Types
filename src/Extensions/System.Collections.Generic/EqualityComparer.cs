@@ -1,14 +1,14 @@
-// 
+//
 // EqualityComparer.cs
-// 
+//
 //   Created: 2022-10-23-08:36:04
 //   Modified: 2022-10-30-08:56:53
-// 
+//
 //   Author: Justin Chase <justin@justinwritescode.com>
-//   
+//
 //   Copyright © 2022 Justin Chase, All Rights Reserved
 //      License: MIT (https://opensource.org/licenses/MIT)
-// 
+//
 
 using System.Diagnostics.CodeAnalysis;
 
@@ -29,8 +29,8 @@ public class LambdaEqualityComparer<T> : IEqualityComparer<T>
 #endif
     };
 
-    public LambdaEqualityComparer(Comparer<T> comparer, Func<T, int> getHashCode = null) : this((x, y) => (comparer.Compare(x, y) == 0), getHashCode) { }
-    public LambdaEqualityComparer(Func<T, T, bool> comparer, Func<T, int> getHashCode = null)
+    public LambdaEqualityComparer(Comparer<T> comparer, Func<T, int>? getHashCode = default) : this((x, y) => (comparer.Compare(x, y) == 0), getHashCode) { }
+    public LambdaEqualityComparer(Func<T, T, bool> comparer, Func<T, int>? getHashCode = default)
     {
         _comparer = comparer;
         _getHashCode = getHashCode ?? _defaultGetHashCode;

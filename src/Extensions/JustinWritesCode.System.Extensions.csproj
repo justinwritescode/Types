@@ -14,15 +14,16 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.3;netstandard2.0</TargetFrameworks>
-    <PackageId>JustinWritesCode.Extensions</PackageId>
-    <RootNamespace>JustinWritesCode.Extensions</RootNamespace>
-    <AssemblyName>JustinWritesCode.Extensions</AssemblyName>
+    <TargetFramework>netstandard1.3</TargetFramework>
+    <PackageId>JustinWritesCode.System.Extensions</PackageId>
+    <RootNamespace>System.Extensions</RootNamespace>
+    <AssemblyName>JustinWritesCode.System.Extensions</AssemblyName>
     <EnableGlobalCodeGenerators>false</EnableGlobalCodeGenerators>
-    <SlnGenSolutionFolder>Extensions</SlnGenSolutionFolder>
+    <SlnGenSolutionFolder>src</SlnGenSolutionFolder>
   </PropertyGroup>
   <ItemGroup>
    <PackageReference Include="System.Usings" />
    <PackageReference Include="System.Text.Usings" />
   </ItemGroup>
-
+	<Import Project="JustinWritesCode.System.Extensions.props" />
 </Project>

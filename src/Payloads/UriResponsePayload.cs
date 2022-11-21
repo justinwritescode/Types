@@ -13,8 +13,8 @@
 namespace JustinWritesCode.Payloads;
 using System;
 
-public record UriResponsePayload(Uri Value, bool Success = true, string? Error = default, string? Message = null, string? StackTrace = null) 
-    : ResponsePayload<Uri>(Value, Success, Error, Message, StackTrace);
+public record UriResponsePayload(Uri Value, bool Success = true, string? Error = default, string? Message = null, string? StackTrace = null)
+	: ResponsePayload<Uri>(Value, Success, Error, Message, StackTrace);
 // {
 //     public UriResponsePayload(Uri Value, bool Success = true, string? Error = null, string? Message = null, string? StackTrace = null)
 //         : base(Value, Success, Error, Message, StackTrace)

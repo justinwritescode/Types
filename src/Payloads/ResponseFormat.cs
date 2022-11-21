@@ -16,15 +16,15 @@ using System.ComponentModel.DataAnnotations;
 [GenerateEnumerationClass("ResponseFormat")]
 public enum ResponseFormatEnum
 {
-    [Display(Name = "application/json", ShortName = "json")]
-    Json,
-    [Display(Name = "text/plain", ShortName = "text")]
-    PlainText,
-    [Display(Name = "application/octet-stream", ShortName = "binary")]
-    Binary
+	[Display(Name = "application/json", ShortName = "json")]
+	Json,
+	[Display(Name = "text/plain", ShortName = "text")]
+	PlainText,
+	[Display(Name = "application/octet-stream", ShortName = "binary")]
+	Binary
 }
 
 public partial class ResponseFormat
 {
-    public static implicit operator ResponseFormat(string value) => Parse<ResponseFormat>(value);
+	public static implicit operator ResponseFormat(string value) => Parse<ResponseFormat>(value);
 }

@@ -1,25 +1,15 @@
-//
-//  System.Linq.cs
-//
-//  Authors:
-//       Justin Chase <justin@thebackroom.app>
-//       &
-//       Municipal Drew <drew@wheatleythecat.com>
-//
-//  Copyright ©️ 2022 2022 Justin Chase
-//
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+/* 
+ * System.Linq.cs
+ * 
+ *   Created: 2022-10-23-11:19:40
+ *   Modified: 2022-11-11-10:26:36
+ * 
+ *   Author: Justin Chase <justin@justinwritescode.com>
+ *   
+ *   Copyright © 2022 Justin Chase, All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+ */ 
+
 using System.Collections.Generic;
 
 namespace System.Linq;
@@ -31,7 +21,7 @@ public static class JustinsEnumerableExtensions
     /// </summary>
     /// <param name="e">The <see cref="IEnumerable{T}"/>  to check</param>
     /// <typeparam name="T">The type of elements in the <see cref="IEnumerable{T}"/> </typeparam>
-    /// <returns><c>TRUE</c> if <paramref cref="e" /> is <c>NULL</c> or empty, <c>FALSE</c> otherwise.</returns>
+    /// <returns><c>TRUE</c> if <paramref name="e"/> is <c>NULL</c> or empty, <c>FALSE</c> otherwise.</returns>
     public static bool IsNullOrEmpty<T>(this IEnumerable<T> e)
         => e == null || !e.Any();
 

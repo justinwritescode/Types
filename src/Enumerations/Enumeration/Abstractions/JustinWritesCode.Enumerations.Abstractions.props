@@ -1,0 +1,17 @@
+<!--
+ * JustinWritesCode.Enumerations.Abstractions.props
+ * 
+ *   Created: 2022-11-21-08:41:40
+ *   Modified: 2022-11-21-08:41:41
+ * 
+ *   Author: Justin Chase <justin@justinwritescode.com>
+ *   
+ *   Copyright © 2022 Justin Chase, All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project>
+	<ItemGroup>
+		<Using Include="JustinWritesCode.Enumerations.Abstractions" />
+	</ItemGroup>
+</Project>

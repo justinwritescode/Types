@@ -84,7 +84,7 @@ public abstract class Enumeration<TSelf, TId, TValue> : SmartEnum<TSelf, TId>, I
     // public static bool operator==(Enumeration e, object o) => e.Equals(o);
     // public static bool operator!=(Enumeration e, object o) => !e.Equals(o);
 
-    public static IEnumeration FromValue(Type t, object value) => Parse(t, x => x.Value.Equals(value));
+    public static IEnumeration? FromValue(Type t, object value) => Parse(t, x => x.Value.Equals(value));
     public static TEnumeration? FromValue<TEnumeration>(object value) where TEnumeration : class, IEnumeration => FromValue(typeof(TEnumeration), value) as TEnumeration;
     public static IEnumeration[] GetValues(Type t) => t.GetRuntimeFields().Select(f => f.GetValue(null)).OfType<IEnumeration>().ToArray();
     public static TEnumeration[] GetValues<TEnumeration>() => GetValues(typeof(TEnumeration)).OfType<TEnumeration>().ToArray();
@@ -92,12 +92,12 @@ public abstract class Enumeration<TSelf, TId, TValue> : SmartEnum<TSelf, TId>, I
         => t.GetRuntimeProperties().Where(p => p.GetCustomAttribute<FromStringAttribute>() != null);
     protected static IEnumerable<PropertyInfo> GetFromStringProperties<TEnumeration>()
         => GetFromStringProperties(typeof(TEnumeration));
-    public static IEnumeration Parse(Type t, string value) => Parse(t, e => GetFromStringProperties(t).Any(p => p.GetValue(null) as string == value));
-    public static TEnumeration Parse<TEnumeration>(string value) where TEnumeration : IEnumeration
+    public static IEnumeration? Parse(Type t, string value) => Parse(t, e => GetFromStringProperties(t).Any(p => p.GetValue(null) as string == value));
+    public static TEnumeration? Parse<TEnumeration>(string value) where TEnumeration : IEnumeration
         => Parse<TEnumeration>(e => GetFromStringProperties<TEnumeration>().Any(p => p.GetValue(null) as string == value));
-    public static TEnumeration Parse<TEnumeration>(Func<TEnumeration, bool> matchPredicate) where TEnumeration : IEnumeration
+    public static TEnumeration? Parse<TEnumeration>(Func<TEnumeration, bool> matchPredicate) where TEnumeration : IEnumeration
         => GetValues<TEnumeration>().FirstOrDefault(matchPredicate);
-    public static IEnumeration Parse(Type t, Func<IEnumeration, bool> matchPredicate)
+    public static IEnumeration? Parse(Type t, Func<IEnumeration, bool> matchPredicate)
         => GetValues(t).FirstOrDefault(matchPredicate);
     public static bool TryParse<TEnumeration>(string s, out TEnumeration value) where TEnumeration : class, IEnumeration
         => (value = Parse<TEnumeration>(s) as TEnumeration) != null;

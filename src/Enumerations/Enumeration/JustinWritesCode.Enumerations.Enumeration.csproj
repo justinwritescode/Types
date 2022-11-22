@@ -43,4 +43,5 @@
     <Compile Remove="./Abstractions/**/*" />
   </ItemGroup>
 	<Import Project="../../Core/ComponentModel/JustinWritesCode.ComponentModel.props" />
+  <Import Project="./JustinWritesCode.Enumerations.Enumeration.props" />
 </Project>

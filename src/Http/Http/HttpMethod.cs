@@ -11,8 +11,8 @@
  */
 namespace System.Net.Http;
 
-[GenerateEnumerationClass("HttpMethod")]
-public enum HttpMethodEnum
+[GenerateEnumerationClass("HttpRequestMethod")]
+public enum HttpRequestMethodEnum
 {
 	GET,
 	POST,
@@ -24,7 +24,7 @@ public enum HttpMethodEnum
 	TRACE
 }
 
-public static class HttpMethodConstants
+public static class HttpRequestMethodConstants
 {
 	public const string GET = "GET";
 	public const string POST = "POST";

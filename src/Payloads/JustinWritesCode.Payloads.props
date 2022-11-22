@@ -11,19 +11,15 @@
 -->
 
 <Project>
-  <ItemGroup Condition="'$(Configuration)' == 'Testing' Or '$(Configuration)' == 'Local'">
-    <ProjectReference Include="../Core/ComponentModel/JustinWritesCode.ComponentModel.csproj" />
-    <ProjectReference Include="../Enumerations/Enumeration/JustinWritesCode.Enumerations.Enumeration.csproj" />
-    <ProjectReference Include="../../../CodeGeneration/src/Extensions/JustinWritesCode.CodeGeneration.Extensions.csproj" />
-    <ProjectReference Include="../Enumerations/CodeGeneration/JustinWritesCode.Enumerations.CodeGeneration.csproj" TreatAsPackageReference="true" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(Configuration)' != 'Testing' And '$(Configuration)' != 'Local'">
+	<ItemGroup>
     <PackageReference Include="JustinWritesCode.ComponentModel" />
     <PackageReference Include="JustinWritesCode.Enumerations.Enumeration" />
+    <PackageReference Include="JustinWritesCode.Enumerations.Abstractions" />
     <PackageReference Include="JustinWritesCode.CodeGeneration.Extensions" />
     <PackageReference Include="JustinWritesCode.Enumerations.CodeGeneration" IncludeAssets="Analyzers;Lib;ContentFiles" PrivateAssets="All" />
   </ItemGroup>
 	<ItemGroup>
 		<Using Include="JustinWritesCode.Payloads" />
+		<Using Include="JustinWritesCode.Enumerations.Abstractions" />
 	</ItemGroup>
 </Project>

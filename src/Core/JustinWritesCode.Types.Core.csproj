@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.Build.Traversal">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <AssemblyName>JustinWritesCode.Types.Core</AssemblyName>
     <PackageId>JustinWritesCode.Types.Core</PackageId>
     <RootNamespace>JustinWritesCode.Types.Core</RootNamespace>

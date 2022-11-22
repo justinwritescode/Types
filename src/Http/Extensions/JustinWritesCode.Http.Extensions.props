@@ -14,5 +14,6 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.OpenApi" />
     <PackageReference Include="System.Text.Json" />
+		<Using Include="JustinWritesCode.Http.Extensions" />
   </ItemGroup>
 </Project>

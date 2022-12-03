@@ -35,8 +35,8 @@ public abstract class Enumeration<TSelf, TId, TValue> : SmartEnum<TSelf, TId>, I
     }
 
     public TId Id { get; init; }
-	object IIdentifiable.Id => Id;
-	object IHaveAValue.Value => Value;
+    object IIdentifiable.Id => Id;
+    object IHaveAValue.Value => Value;
     public virtual FieldInfo FieldInfo => GetType().GetField(Name);
     protected Func<IEnumeration, string> ToStringDelegate { get; init; } = e => e.DisplayName;
     public virtual TAttribute? GetCustomAttribute<TAttribute>() where TAttribute : Attribute

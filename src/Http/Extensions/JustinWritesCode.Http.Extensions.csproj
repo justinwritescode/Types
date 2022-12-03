@@ -11,13 +11,21 @@
 -->
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <!-- <TargetFramework>netstandard2.0</TargetFramework> -->
+    <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
     <PackageId>JustinWritesCode.Http.Extensions</PackageId>
     <AssemblyName>$(PackageId)</AssemblyName>
     <RootNamespace>$(PackageId)</RootNamespace>
     <EnableGlobalCodeGenerators>false</EnableGlobalCodeGenerators>
     <SlnGenSolutionFolder>src</SlnGenSolutionFolder>
-		<ProjectGuid>f52d8a04-cd74-4a5d-900f-9df28dcce542</ProjectGuid>
+    <ProjectGuid>f52d8a04-cd74-4a5d-900f-9df28dcce542</ProjectGuid>
   </PropertyGroup>
-	<Import Project="./JustinWritesCode.Http.Extensions.props" />
+    <ItemGroup>
+        <ProjectReference Include="../Http/JustinWritesCode.Http.csproj" />
+        <ProjectReference Include="../MediaTypeNames/System.Net.Mime.MediaTypeNames.csproj" />
+        <PackageReference Include="JustinWritesCode.Payloads" />
+        <!-- <PackageReference Include="System.Net.Mime.MediaTypeNames.netstandard2.0Patch" ExcludeAssets="None" IncludeAssets="ContentFiles" /> -->
+        <!-- <PackageReference Include="System.Net.Mime.MediaTypeNames.netstandard2.0Patch" ExcludeAssets="None" IncludeAssets="ContentFiles" /> -->
+    </ItemGroup>
+    <!-- <Import Project="./JustinWritesCode.Http.Extensions.props" /> -->
 </Project>

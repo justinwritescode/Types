@@ -1,5 +1,5 @@
 //
-// IHaveAnId.cs
+// IIdentifiable.cs
 //
 //   Created: 2022-10-16-08:38:27
 //   Modified: 2022-11-02-08:16:06
@@ -10,14 +10,6 @@
 //      License: MIT (https://opensource.org/licenses/MIT)
 //
 
-//
-//  IHaveAnId.cs
-//
-//  Authors:
-//       Justin Chase <justin@justinwritescode.com>
-//
-//  Copyright ©️ 2022 Justin Chase
-//
 
 namespace JustinWritesCode.Abstractions;
 

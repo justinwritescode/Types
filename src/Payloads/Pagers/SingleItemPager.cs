@@ -1,27 +1,14 @@
 namespace JustinWritesCode.Payloads;
+
+using System.Diagnostics;
+using JustinWritesCode.Payloads.Abstractions;
 using static System.Math;
 
-public record SingleItemPager<T>(T Value, int PageNumber, int Total, bool Success = true, string? Error = null, string? Message = null, string? StackTrace = null)
-	 : ResponsePayload<T>(Value, Success, Error, Message, StackTrace)
+[DebuggerDisplay($"{{{nameof(StringValue)}}}, {nameof(Page)}: {{{nameof(Page)}}} of {{{nameof(TotalRecords)}}}")]
+public class SingleItemPager : SingleItemPager<object>
 {
-	// public Pager(IEnumerable<T?>? Value, int PageNumber, int PageSize, int Total, bool Success = true, string? Error = null, string? Message = null, string? StackTrace = null)
-	//     : base(Value, Success, Error, Message, StackTrace)
-	// {
-	//     this.PageNumber = PageNumber;
-	//     this.PageSize = PageSize;
-	//     this.Total = Total;
-	// }
-
-	public virtual T Item => this.Value;
-	public virtual int TotalRecords { get; init; } = Total;
-	// public virtual int PageNumber { get; init; } = PageNumber;
-	public virtual int PageSize => 1;
-	// public virtual int Total { get; }
-
-	public virtual int PageStartIndex => (this.PageNumber - 1) * this.PageSize;
-	public virtual int PageEndIndex => this.PageNumber * this.PageSize;
-	public virtual int TotalPages => (int)Ceiling((double)this.TotalRecords / this.PageSize);
-	public bool IsLastPage => this.PageNumber >= this.TotalPages;
-	public virtual bool HasPreviousPage => this.PageNumber > 1;
-	public virtual bool HasNextPage => this.PageNumber < this.TotalPages;
+    public SingleItemPager(object value, int pageNumber, int totalRecords)
+        : base(value, pageNumber, totalRecords)
+    {
+    }
 }

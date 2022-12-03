@@ -14,12 +14,16 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <SlnGenSolutionFolder>Enumerations</SlnGenSolutionFolder>
   </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="JustinWritesCode.Abstractions" />
+        <PackageReference Include="JustinWritesCode.ComponentModel" />
+    </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="../../../Core/Abstractions/JustinWritesCode.Abstractions.csproj" />
-    <ProjectReference Include="../../../Core/ComponentModel/JustinWritesCode.ComponentModel.csproj" />
+    <!-- <ProjectReference Include="../../../Core/Abstractions/JustinWritesCode.Abstractions.csproj" /> -->
+    <!-- <ProjectReference Include="../../../Core/ComponentModel/JustinWritesCode.ComponentModel.csproj" /> -->
     <PackageReference Include="System.Text.Json.Usings" />
     <PackageReference Include="System.Text.Json" />
     <Using Include="System.Reflection" />
   </ItemGroup>
-	<Import Project="../../../Core/ComponentModel/JustinWritesCode.ComponentModel.props" />
+    <Import Project="../../../Core/ComponentModel/JustinWritesCode.ComponentModel.props" />
 </Project>

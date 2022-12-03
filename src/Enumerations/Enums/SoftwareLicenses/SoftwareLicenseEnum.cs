@@ -1,18 +1,17 @@
-/* 
+/*
  * SoftwareLicenseEnum.cs
- * 
+ *
  *   Created: 2022-10-31-05:18:33
  *   Modified: 2022-11-11-03:44:07
- * 
+ *
  *   Author: Justin Chase <justin@justinwritescode.com>
- *   
+ *
  *   Copyright © 2022 Justin Chase, All Rights Reserved
  *      License: MIT (https://opensource.org/licenses/MIT)
- */ 
+ */
 
 namespace JustinWritesCode.Enums;
 using System.ComponentModel.DataAnnotations;
-using JustinWritesCode.ComponentModel;
 [GenerateEnumerationClass("SoftwareLicense")]
 public enum SoftwareLicenseEnum
 {

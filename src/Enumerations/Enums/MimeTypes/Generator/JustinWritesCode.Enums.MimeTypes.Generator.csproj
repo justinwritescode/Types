@@ -1,0 +1,27 @@
+<!--
+ * JustinWritesCode.Enums,MimeTypes.Generator.csproj
+ * 
+ *   Created: 2022-11-24-03:58:12
+ *   Modified: 2022-11-24-03:58:12
+ * 
+ *   Author: Justin Chase <justin@justinwritescode.com>
+ *   
+ *   Copyright © 2022 Justin Chase, All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <OutputType>Exe</OutputType>
+    </PropertyGroup>
+    <ItemGroup>
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="./Resources/**/*" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Remove="./MimeTypeMap/**/*" />
+        <Compile Include="./MimeTypeMap/MimeTypeMap.cs" />
+    </ItemGroup>
+</Project>

@@ -1,0 +1,29 @@
+<!--
+ * System.Net.Mime.MediaTypeNames.csproj
+ * 
+ *   Created: 2022-11-24-09:06:32
+ *   Modified: 2022-11-29-04:39:07
+ * 
+ *   Author: Justin Chase <justin@justinwritescode.com>
+ *   
+ *   Copyright © 2022 Justin Chase, All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Provides a set of constants for the most common media types.  Fills in the gaps left by the <see cref="System.Net.Mime.MediaTypeNames" /> class.</Description>
+    <GenerateNuspec>true</GenerateNuspec>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="JustinWritesCode.Enumerations.Enumeration" />
+    <PackageReference Include="JustinWritesCode.Enumerations.CodeGeneration" IncludeAssets="Analyzers" PrivateAssets="All" />  
+    <PackageReference Include="System.ComponentModel.Annotations" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageTag Include="mime" />
+    <PackageTag Include="patch" />
+    <PackageTag Include="system.net" />
+    <PackageTag Include="system" />
+  </ItemGroup>
+</Project>

@@ -11,8 +11,8 @@
 -->
 
 <Project>
-	<ItemGroup>
-		<Using Include="JustinWritesCode.Enumerations.Abstractions" />
-		<Using Include="Ardalis" />
-	</ItemGroup>
+    <ItemGroup>
+        <Using Include="JustinWritesCode.Enumerations.Abstractions" />
+        <Using Include="Ardalis" />
+    </ItemGroup>
 </Project>

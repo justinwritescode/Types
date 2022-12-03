@@ -25,21 +25,21 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
     <PackageReference Include="System.ComponentModel.Annotations" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(Configuration)' == 'Testing' Or '$(Configuration)' == 'Local'">
+  <!-- </ItemGroup> -->
+  <!-- <ItemGroup Condition="'$(Configuration)' == 'Testing' Or '$(Configuration)' == 'Local'">
     <ProjectReference Include="../../Core/ComponentModel/JustinWritesCode.ComponentModel.csproj" TreatAsPackageReference="true" />
     <ProjectReference Include="../../Enumerations/Enumeration/JustinWritesCode.Enumerations.Enumeration.csproj" TreatAsPackageReference="true" />
     <ProjectReference Include="../../`Enumerations/CodeGeneration/JustinWritesCode.Enumerations.CodeGeneration.csproj" TreatAsPackageReference="true" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     <ProjectReference Include="../../../../CodeGeneration/src/Extensions/JustinWritesCode.CodeGeneration.Extensions.csproj" TreatAsPackageReference="true" />
   </ItemGroup>
-	<ImportGroup Condition="'$(Configuration)' == 'Testing' Or '$(Configuration)' == 'Local'">
-		<Import Project="../../Core/ComponentModel/JustinWritesCode.ComponentModel.props" />
-	</ImportGroup>
-  <ItemGroup Condition="'$(Configuration)' != 'Testing' And '$(Configuration)' != 'Local'">
+    <ImportGroup Condition="'$(Configuration)' == 'Testing' Or '$(Configuration)' == 'Local'">
+        <Import Project="../../Core/ComponentModel/JustinWritesCode.ComponentModel.props" />
+    </ImportGroup>
+  <ItemGroup Condition="'$(Configuration)' != 'Testing' And '$(Configuration)' != 'Local'"> -->
     <PackageReference Include="JustinWritesCode.ComponentModel"  ExcludeAssets="ContentFiles" />
     <PackageReference Include="JustinWritesCode.Enumerations.Enumeration" ExcludeAssets="ContentFiles" />
     <PackageReference Include="JustinWritesCode.Enumerations.CodeGeneration" IncludeAssets="Analyzers" PrivateAssets="All" ExcludeAssets="ContentFiles" />
-    <PackageReference Include="JustinWritesCode.CodeGeneration.Extensions" ExcludeAssets="ContentFiles" />
+    <PackageReference Include="JustinWritesCode.CodeGeneration.Extensions" IncludeAssets="ContentFiles; Build" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="SoftwareLicenses/Licenses/*.json" />

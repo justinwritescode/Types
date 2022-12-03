@@ -14,6 +14,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.OpenApi" />
     <PackageReference Include="System.Text.Json" />
-		<Using Include="JustinWritesCode.Http.Extensions" />
+    <Using Include="JustinWritesCode.Http.Extensions" />
+    <Using Include="Microsoft.AspNetCore.Http" />
+    <Using Include="System.Net.Mime.MediaTypes" />
   </ItemGroup>
 </Project>

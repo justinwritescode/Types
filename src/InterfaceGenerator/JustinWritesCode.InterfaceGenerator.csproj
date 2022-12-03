@@ -22,12 +22,12 @@
         <Description>This project uses Source Generation to generate an interface and a Proxy class for classes. This makes it possible to wrap external classes which do not have an interface, in a Proxy class which makes it easier to Mock and use DI.</Description>
         <MinVerTagPrefix>igen-v</MinVerTagPrefix>
         <EnableGlobalCodeGenerators>false</EnableGlobalCodeGenerators>
-		<OutputPath>analyzers/dotnet/cs</OutputPath>
+        <OutputPath>analyzers/dotnet/cs</OutputPath>
     </PropertyGroup>
 
     <ItemGroup>
         <Using Include="JustinWritesCode.InterfaceGenerator.Constants" Static="true" />
-		<Using Include="System.Diagnostics" />
+        <Using Include="System.Diagnostics" />
     </ItemGroup>
 
     <ItemGroup>
@@ -62,8 +62,8 @@
         <PackageReference Include="JustinWritesCode.CodeGeneration.Constants"  IncludeAssets="ContentFiles; Build" PrivateAssets="None"  />
     </ItemGroup>
 
-	<ItemGroup>
-		<PackageFile Include="./README.md" PackagePath="" />
-	</ItemGroup>
+    <ItemGroup>
+        <PackageFile Include="./README.md" PackagePath="" />
+    </ItemGroup>
 
 </Project>

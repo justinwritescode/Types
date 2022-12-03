@@ -20,7 +20,7 @@
         <Nullable>enable</Nullable>
         <Authors>Stef Heyenrath</Authors>
         <Description></Description>
-		<AssemblyName>ProxyInterfaceSourceGenerator</AssemblyName>
+        <AssemblyName>ProxyInterfaceSourceGenerator</AssemblyName>
         <Title>ProxyInterfaceSourceGenerator</Title>
         <PackageId>ProxyInterfaceSourceGenerator</PackageId>
         <Description>This project uses Source Generation to generate an interface and a Proxy class for classes. This makes it possible to wrap external classes which do not have an interface, in a Proxy class which makes it easier to Mock and use DI.</Description>

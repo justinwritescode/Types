@@ -1,5 +1,5 @@
 <Project>
-	<ItemGroup>
-		<Using Include="JustinWritesCode.Tuples" />
-	</ItemGroup>
+    <ItemGroup>
+        <Using Include="JustinWritesCode.Tuples" />
+    </ItemGroup>
 </Project>

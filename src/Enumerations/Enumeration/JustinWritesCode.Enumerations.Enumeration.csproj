@@ -22,8 +22,10 @@
     <SlnGenSolutionFolder>Enumerations</SlnGenSolutionFolder>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="../../Core/Abstractions/JustinWritesCode.Abstractions.csproj" />
+        <PackageReference Include="JustinWritesCode.Abstractions" />
+    <!-- <ProjectReference Include="../../Core/Abstractions/JustinWritesCode.Abstractions.csproj" /> -->
     <ProjectReference Include="./Abstractions/JustinWritesCode.Enumerations.Abstractions.csproj" />
+        <!-- <PackageReference Include="JustinWritesCode.Enumerations.Enumeration" /> -->
     <PackageReference Include="System.ComponentModel.Annotations" />
     <PackageReference Include="System.Text.Json.Usings" />
     <PackageReference Include="System.Text.Json" />
@@ -42,6 +44,6 @@
   <ItemGroup>
     <Compile Remove="./Abstractions/**/*" />
   </ItemGroup>
-	<Import Project="../../Core/ComponentModel/JustinWritesCode.ComponentModel.props" />
-  <Import Project="./JustinWritesCode.Enumerations.Enumeration.props" />
+    <Import Project="../../Core/ComponentModel/JustinWritesCode.ComponentModel.props" />
+  <!-- <Import Project="./JustinWritesCode.Enumerations.Enumeration.props" /> -->
 </Project>

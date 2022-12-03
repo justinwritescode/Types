@@ -12,7 +12,8 @@
 
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net6.0;net7.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>JustinWritesCode.ComponentModel</RootNamespace>
     <AssemblyName>JustinWritesCode.ComponentModel</AssemblyName>
     <PackageId>JustinWritesCode.ComponentModel</PackageId>
@@ -29,5 +30,4 @@ This package contains additional attributes similar to the ones offered in `Syst
 </Description>
     <ProjectGuid>c5218b5f-7a8e-474d-b7bd-3c8369309861</ProjectGuid>
   </PropertyGroup>
-	<Import Project="JustinWritesCode.ComponentModel.props" />
 </Project>

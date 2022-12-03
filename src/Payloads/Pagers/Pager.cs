@@ -1,8 +1,8 @@
 /*
  * Pager.cs
  *
- *   Created: 2022-10-31-11:33:05
- *   Modified: 2022-11-14-05:13:29
+ *   Created: 2022-11-20-07:14:18
+ *   Modified: 2022-11-29-08:42:37
  *
  *   Author: Justin Chase <justin@justinwritescode.com>
  *
@@ -10,32 +10,38 @@
  *      License: MIT (https://opensource.org/licenses/MIT)
  */
 
-using System.Collections.Generic;
-using System.Runtime.Serialization;
-using static System.Math;
+using System.Collections;
+using System.Diagnostics;
+
 namespace JustinWritesCode.Payloads;
 
-public record Pager<T>(IEnumerable<T?>? Value, int PageNumber, int PageSize, int TotalRecords, bool Success = true, string? Error = null, string? Message = null, string? StackTrace = null)
-	: ResponsePayload<IEnumerable<T?>?>(Value, Success, Error, Message, StackTrace)
+[DebuggerDisplay($"{{{nameof(StringValue)}}}, {nameof(Page)}: {{{nameof(Page)}}} of {{{nameof(TotalRecords)}}}")]
+public class Pager : Pager<object>
 {
-	// public Pager(IEnumerable<T?>? Value, int PageNumber, int PageSize, int Total, bool Success = true, string? Error = null, string? Message = null, string? StackTrace = null)
-	//     : base(Value, Success, Error, Message, StackTrace)
-	// {
-	//     this.PageNumber = PageNumber;
-	//     this.PageSize = PageSize;
-	//     this.Total = Total;
-	// }
+    public Pager(IEnumerable items, int page, int pageSize, int totalRecords)
+        : base(items.Cast<object>().ToArray(), page, pageSize, totalRecords)
+    {
+    }
 
-	public virtual IEnumerable<T?>? Items => this.Value;
-	public virtual int TotalRecords { get; init; } = TotalRecords;
-	public virtual int PageNumber { get; init; } = PageNumber;
-	public virtual int PageSize { get; init; } = PageSize;
-	// public virtual int Total { get; }
+    // [JsonIgnore]
+    // T[] IPayload<T[]>.Value { get; set; }
 
-	public virtual int PageStartIndex => (this.PageNumber - 1) * this.PageSize;
-	public virtual int PageEndIndex => this.PageNumber * this.PageSize;
-	public virtual int TotalPages => (int)Ceiling((double)this.TotalRecords / this.PageSize);
-	public bool IsLastPage => this.PageNumber >= this.TotalPages;
-	public virtual bool HasPreviousPage => this.PageNumber > 1;
-	public virtual bool HasNextPage => this.PageNumber < this.TotalPages;
+    // [JProp("items")]
+    // public virtual T[] Items { get => ((IPayload<T[]>)this).Value; set => ((IPayload<T[]>)this).Value = value; }
+
+    // public virtual string StringValue { get; set; }
+    // public virtual bool IsSuccess { get; set; }
+    // public virtual string Message { get; set; }
+
+    // public virtual int TotalRecords { get; set; }
+    // public virtual int PageNumber { get; set; }
+    // public virtual int PageSize { get; set; }
+
+    // public virtual int Page { get; set; }
+    // public virtual int PageStartIndex => (PageNumber - 1) * PageSize;
+    // public virtual int PageEndIndex => PageNumber * PageSize;
+    // public virtual int TotalPages => (int)Ceiling((double)TotalRecords / PageSize);
+    // public virtual bool IsLastPage => PageNumber >= TotalPages;
+    // public virtual bool HasPreviousPage => PageNumber > 1;
+    // public virtual bool HasNextPage => PageNumber < TotalPages;
 }

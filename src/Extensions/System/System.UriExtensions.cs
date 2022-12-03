@@ -11,6 +11,7 @@
  */
 
 namespace System;
+using @uri = System.Uri;
 
 public static class UriExtensions
 {

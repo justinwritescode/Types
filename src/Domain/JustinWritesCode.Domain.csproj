@@ -24,6 +24,6 @@
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-		<PackageReference Include="libphonenumber-csharp" />
+        <PackageReference Include="libphonenumber-csharp" />
   </ItemGroup>
 </Project>

@@ -27,17 +27,15 @@
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" />
     <PackageReference Include="Microsoft.CodeAnalysis.Common" />
     <PackageReference Include="System.Text.Json" />
+    <PackageReference Include="JustinWritesCode.CodeGeneration.Constants" IncludeAssets="ContentFiles" ExcludeAssets="None" />
   </ItemGroup>
-  <ItemGroup Condition="'$(Configuration)' != 'Testing' And '$(Configuration)' != 'Local'">
-    <PackageReference Include="JustinWritesCode.CodeGeneration.Constants" />
+  <!-- <ItemGroup Condition="'$(Configuration)' != 'Testing' And '$(Configuration)' != 'Local'"> -->
+    <ItemGroup>
     <PackageReference Include="JustinWritesCode.Enumerations.Enumeration" />
-    <!-- <PackageReference Include="JustinWritesCode.CodeGeneration.Extensions" IncludeAssets="ContentFiles" /> -->
   </ItemGroup>
-  <ItemGroup Condition="'$(Configuration)' == 'Testing' Or '$(Configuration)' == 'Local'">
-    <ProjectReference Include="../../../../CodeGeneration/src/Constants/JustinWritesCode.CodeGeneration.Constants.csproj" />
+  <!-- <ItemGroup Condition="'$(Configuration)' == 'Testing' Or '$(Configuration)' == 'Local'">
     <ProjectReference Include="../../Enumerations/Enumeration/JustinWritesCode.Enumerations.Enumeration.csproj" />
-    <!-- <ProjectReference Include="../../../../CodeGeneration/src/Extensions/JustinWritesCode.CodeGeneration.Extensions.csproj" IncludeAssets="ContentFiles" /> -->
-  </ItemGroup>
+  </ItemGroup> -->
   
   <ItemGroup>
     <Compile Remove="./Resources/*" />

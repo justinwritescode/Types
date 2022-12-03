@@ -11,5 +11,5 @@
 -->
 
 <Project>
-	<!-- Ignore Directory.Build.targets -->
+    <!-- Ignore Directory.Build.targets -->
 </Project>

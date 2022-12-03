@@ -1,0 +1,3 @@
+[submodule "src/Enumerations/Enums/MimeTypes/Generator/MimeTypeMap"]
+    path = src/Enumerations/Enums/MimeTypes/Generator/MimeTypeMap
+    url = https://github.com/samuelneff/MimeTypeMap.git

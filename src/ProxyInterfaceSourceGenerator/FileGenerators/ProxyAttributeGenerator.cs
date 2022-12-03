@@ -1,14 +1,14 @@
-// 
+//
 // ProxyAttributeGenerator.cs
-// 
+//
 //   Created: 2022-11-12-07:51:52
 //   Modified: 2022-11-12-07:52:09
-// 
+//
 //   Author: Justin Chase <justin@justinwritescode.com>
-//   
+//
 //   Copyright © 2022 Justin Chase, All Rights Reserved
 //      License: MIT (https://opensource.org/licenses/MIT)
-// 
+//
 
 using ProxyInterfaceSourceGenerator.Models;
 
@@ -42,7 +42,7 @@ using System;
             Type = type;
             ProxyBaseClasses = proxyBaseClasses;
         }}
-	}}
+    }}
 ");
     }
 }

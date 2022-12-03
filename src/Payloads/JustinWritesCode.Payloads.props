@@ -11,15 +11,19 @@
 -->
 
 <Project>
-	<ItemGroup>
+    <ItemGroup>
     <PackageReference Include="JustinWritesCode.ComponentModel" />
-    <PackageReference Include="JustinWritesCode.Enumerations.Enumeration" />
-    <PackageReference Include="JustinWritesCode.Enumerations.Abstractions" />
-    <PackageReference Include="JustinWritesCode.CodeGeneration.Extensions" />
-    <PackageReference Include="JustinWritesCode.Enumerations.CodeGeneration" IncludeAssets="Analyzers;Lib;ContentFiles" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" />
+    <PackageReference Include="System.Text.Json.Usings" />
+    <PackageReference Include="System.Text.Json" />
+    <!-- <PackageReference Include="JustinWritesCode.Enumerations.Enumeration" /> -->
+    <!-- <PackageReference Include="JustinWritesCode.Enumerations.Abstractions" /> -->
+    <!-- <PackageReference Include="JustinWritesCode.CodeGeneration.Extensions" /> -->
+    <!-- <PackageReference Include="JustinWritesCode.Enumerations.CodeGeneration" IncludeAssets="Analyzers;Lib;ContentFiles" PrivateAssets="All" /> -->
   </ItemGroup>
-	<ItemGroup>
-		<Using Include="JustinWritesCode.Payloads" />
-		<Using Include="JustinWritesCode.Enumerations.Abstractions" />
-	</ItemGroup>
+    <ItemGroup>
+        <Using Include="JustinWritesCode.Payloads" />
+        <Using Include="JustinWritesCode.Payloads.Abstractions" />
+        <!-- <Using Include="JustinWritesCode.Enumerations.Abstractions" /> -->
+    </ItemGroup>
 </Project>

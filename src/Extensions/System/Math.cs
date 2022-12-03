@@ -13,7 +13,11 @@
  */
 
 namespace System;
+using static System.Math;
 public static class MathExtensions
 {
-	public const double π = PI;
+    public const double π = PI;
+
+    public static double ToRadians(this double degrees) => degrees * (π / 180.0);
+    public static double ToDegrees(this double radians) => radians * (180.0 / π);
 }

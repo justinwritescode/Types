@@ -2,16 +2,16 @@ namespace JustinWritesCode;
 
 public static class Constants
 {
-	public static class Uris
-	{
-		public static class Strings
-		{
-			/// <summary>The base URI for justinwritesode, <inheritdoc cref="JustinWritesCodeUriBaseString" path="/value/node()" /></summary>
-			/// <value>https://justinwritescode.com/</value>
-			public const string JustinWritesCodeUriBaseString = "https://justinwritescode.com/";
-		}
+    public static class Uris
+    {
+        public static class Strings
+        {
+            /// <summary>The base URI for justinwritesode, <inheritdoc cref="JustinWritesCodeUriBaseString" path="/value/node()" /></summary>
+            /// <value><c>https://justinwritescode.com/</c></value>
+            public const string JustinWritesCodeBaseUriString = "https://justinwritescode.com/";
+        }
 
-		/// <inheritdoc cref="Strings.JustinWritesCodeUriBaseString" />
-		public static readonly uri JustinWritesCodeUriBase = new(Strings.JustinWritesCodeUriBaseString);
-	}
+        /// <inheritdoc cref="Strings.JustinWritesCodeBaseUriString" />
+        public static readonly uri JustinWritesCodeBaseUri = new(Strings.JustinWritesCodeBaseUriString);
+    }
 }

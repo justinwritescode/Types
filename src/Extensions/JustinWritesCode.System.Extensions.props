@@ -10,9 +10,9 @@
  *      License: MIT (https://opensource.org/licenses/MIT)
 -->
 <Project>
-	<ItemGroup>
-		<Using Include="System.MathExtensions" Static="true" />
-		<Using Include="System.Randoms" Static="true" />
-		<Using Include="System.Text.TextEncodingExtensions" Static="true" />
-	</ItemGroup>
+    <ItemGroup>
+        <!-- <Using Include="System.MathExtensions" Static="true" /> -->
+        <Using Include="System.Randoms" Static="true" />
+        <Using Include="System.Text.TextEncodingExtensions" Static="true" />
+    </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 namespace System.Text;
+using static System.Text.Encoding;
 
 /// <summary>A collection of methods that expose the functionality of <see cref="System.Text.Encoding"/>'s public static instance members statically.</summary>
 public static class TextEncodingExtensions

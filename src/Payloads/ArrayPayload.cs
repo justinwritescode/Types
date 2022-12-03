@@ -1,25 +1,31 @@
-// 
-// ArrayPayload.cs
-// 
-//   Created: 2022-10-31-08:33:05
-//   Modified: 2022-10-31-08:33:26
-// 
-//   Author: Justin Chase <justin@justinwritescode.com>
-//   
-//   Copyright © 2022 Justin Chase, All Rights Reserved
-//      License: MIT (https://opensource.org/licenses/MIT)
-// 
+/*
+ * ArrayPayload.cs
+ *
+ *   Created: 2022-11-20-07:14:18
+ *   Modified: 2022-11-26-04:44:57
+ *
+ *   Author: Justin Chase <justin@justinwritescode.com>
+ *
+ *   Copyright © 2022 Justin Chase, All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+ */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Collections;
+using System.Diagnostics;
+using JustinWritesCode.Payloads.Abstractions;
 
 namespace JustinWritesCode.Payloads;
 
-public record ArrayPayload<T>(IEnumerable<T>? Values = default, string? StringValue = default)
-	: Payload<List<T>>(Values is null ? new List<T>() : Values.ToList(), StringValue);
-// {
-// public IEnumerable<T> Values {get;} = Values is null ? Array.Empty<T>() : Values;
-// public ArrayPayload() : this(Array.Empty<T>()) { }
-// public ArrayPayload(IEnumerable<T> array) : base(array.ToList()) { }
-// }
+[DebuggerDisplay($"{{{nameof(StringValue)}}}")]
+public class ArrayPayload : ArrayPayload<object>
+{
+    public ArrayPayload()
+        : this(Array.Empty<object>())
+    {
+    }
+
+    public ArrayPayload(IEnumerable values, string? stringValue = default)
+    : base(values.OfType<object>().ToArray(), stringValue)
+    {
+    }
+}

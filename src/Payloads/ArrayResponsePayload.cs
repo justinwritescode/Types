@@ -1,26 +1,31 @@
-// 
-// ArrayResponsePayload.cs
-// 
-//   Created: 2022-10-31-08:33:05
-//   Modified: 2022-10-31-08:33:41
-// 
-//   Author: Justin Chase <justin@justinwritescode.com>
-//   
-//   Copyright © 2022 Justin Chase, All Rights Reserved
-//      License: MIT (https://opensource.org/licenses/MIT)
-// 
+/*
+ * ArrayResponsePayload.cs
+ *
+ *   Created: 2022-11-28-09:44:00
+ *   Modified: 2022-11-28-09:44:15
+ *
+ *   Author: Justin Chase <justin@justinwritescode.com>
+ *
+ *   Copyright © 2022 Justin Chase, All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+ */
 
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 
 namespace JustinWritesCode.Payloads;
 
-public record ArrayResponsePayload<T>(IEnumerable<T> Values, bool Success = true, string? Error = null, string? Message = null, string? StackTrace = null) :
-	ResponsePayload<List<T>>(Values.ToList(), Success, Error, Message, StackTrace);
-// {
-// public ArrayResponsePayload() : this(Array.Empty<T>()) { }
-// public ArrayResponsePayload(IEnumerable<T> array) : base(array.ToList()) { }
-// public ArrayResponsePayload(IEnumerable<T> array, bool Success = true, string? Error = null, string? Message = null, string? StackTrace = null)
-//     : base(array.ToList(), Success, Error, Message, StackTrace) { }
-// }
+using System.Diagnostics;
+using JustinWritesCode.Payloads.Abstractions;
+
+[DebuggerDisplay($"{{{nameof(StringValue)}}}; Count = {{{nameof(Count)}}}")]
+public class ArrayResponsePayload : ArrayResponsePayload<object>, IArrayResponsePayload
+{
+    public ArrayResponsePayload() : this(Array.Empty<object>()) { }
+    public ArrayResponsePayload(IEnumerable value, bool isSuccess = true, string? message = default, string? stringValue = default) : base(value.OfType<object>().ToArray(), isSuccess, message, stringValue)
+    {
+        IsSuccess = isSuccess;
+        Message = message ?? string.Empty;
+    }
+}

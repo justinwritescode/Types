@@ -1,5 +1,5 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyInterfaceSourceGenerator", "ProxyInterfaceSourceGenerator.csproj", "{5F817A67-4E30-46FD-AEF1-675F82874650}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyInterfaceSourceGenerator", "ProxyInterfaceSourceGenerator.csproj", "{36A3CA52-A71C-452D-851F-EBD34FD5E1C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,17 +8,17 @@ Global
 		DebugAttach|Any CPU = DebugAttach|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5F817A67-4E30-46FD-AEF1-675F82874650}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5F817A67-4E30-46FD-AEF1-675F82874650}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5F817A67-4E30-46FD-AEF1-675F82874650}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5F817A67-4E30-46FD-AEF1-675F82874650}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5F817A67-4E30-46FD-AEF1-675F82874650}.DebugAttach|Any CPU.ActiveCfg = DebugAttach|Any CPU
-		{5F817A67-4E30-46FD-AEF1-675F82874650}.DebugAttach|Any CPU.Build.0 = DebugAttach|Any CPU
+		{36A3CA52-A71C-452D-851F-EBD34FD5E1C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36A3CA52-A71C-452D-851F-EBD34FD5E1C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36A3CA52-A71C-452D-851F-EBD34FD5E1C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36A3CA52-A71C-452D-851F-EBD34FD5E1C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36A3CA52-A71C-452D-851F-EBD34FD5E1C5}.DebugAttach|Any CPU.ActiveCfg = DebugAttach|Any CPU
+		{36A3CA52-A71C-452D-851F-EBD34FD5E1C5}.DebugAttach|Any CPU.Build.0 = DebugAttach|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {9253EF11-4C6A-4F98-B5F1-17269D016087}
+		SolutionGuid = {BDE14DD1-AC7D-4B37-B43A-711D11EE0831}
 	EndGlobalSection
 EndGlobal

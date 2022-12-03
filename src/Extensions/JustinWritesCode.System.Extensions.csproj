@@ -1,4 +1,4 @@
-<!--
+    <!--
  JustinWritesCode.Extensions.csproj
  
    Created: 2022-10-23-11:18:23
@@ -13,17 +13,40 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.3;netstandard2.0</TargetFrameworks>
-    <TargetFramework>netstandard1.3</TargetFramework>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>JustinWritesCode.System.Extensions</PackageId>
     <RootNamespace>System.Extensions</RootNamespace>
     <AssemblyName>JustinWritesCode.System.Extensions</AssemblyName>
     <EnableGlobalCodeGenerators>false</EnableGlobalCodeGenerators>
     <SlnGenSolutionFolder>src</SlnGenSolutionFolder>
+    <OutputPath>lib</OutputPath>
+    <Title>JustinWritesCode.System.Extensions</Title>
+    <Description>Extensions and utility classes for the System namespace</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IncludeBuiltProjectOutputGroup>true</IncludeBuiltProjectOutputGroup>
+    <IncludeComFilesOutputGroup>true</IncludeComFilesOutputGroup>
+    <IncludeSourceFilesProjectOutputGroup>true</IncludeSourceFilesProjectOutputGroup>
+    <IncludeContentFilesProjectOutputGroup>true</IncludeContentFilesProjectOutputGroup>
+    <IncludeDocumentationProjectOutputGroup>true</IncludeDocumentationProjectOutputGroup>
+    <IncludeSymbolsProjectOutputGroup>true</IncludeSymbolsProjectOutputGroup>
+    <IncludeSymbols>true</IncludeSymbols>
+    <IncludeDebugSymbolsProjectOutputGroup>true</IncludeDebugSymbolsProjectOutputGroup>
+    <IncludeCopyLocalFilesOutputGroup>true</IncludeCopyLocalFilesOutputGroup>
+    <IncludeGetResolvedSDKReferences>true</IncludeGetResolvedSDKReferences>
+    <IncludeSDKRedistOutputGroup>true</IncludeSDKRedistOutputGroup>
+    <IncludeCustomOutputGroupForPackaging>true</IncludeCustomOutputGroupForPackaging>
+    <IncludeCopyWinmdArtifactsOutputGroup>true</IncludeCopyWinmdArtifactsOutputGroup>
+    <IncludeTransitiveProjectReferences>true</IncludeTransitiveProjectReferences>
+    <IncludeSource>true</IncludeSource>
+    <IsNuGetized>true</IsNuGetized>
+    <IsPackable>true</IsPackable>
   </PropertyGroup>
   <ItemGroup>
    <PackageReference Include="System.Usings" />
    <PackageReference Include="System.Text.Usings" />
   </ItemGroup>
-	<Import Project="JustinWritesCode.System.Extensions.props" />
+    <ItemGroup>
+        <Content Include="$(OutputPath)/*.*" PackagePath="lib/netstandard2.0/%(Filename)%(Extension)" />
+    </ItemGroup>
 </Project>

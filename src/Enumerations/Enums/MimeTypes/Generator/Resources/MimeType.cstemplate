@@ -1,0 +1,24 @@
+/*
+ * MimeType.cs
+ * 
+ *   Created: 2022-11-24-04:18:01
+ *   Modified: 2022-11-24-04:20:16
+ * 
+ *   Author: Justin Chase <justin@justinwritescode.com>
+ *   
+ *   Copyright © 2022 Justin Chase, All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+ */
+
+namespace System.Net.Mime;
+using JustinWritesCode.Enumerations.Abstractions;
+using System.ComponentModel.DataAnnotations;
+
+public class MimeTypeName : IEnumeration<
+{
+    {{ for mimeType in mimeTypes }}
+    [FileExtension("{{ mimeType.fileExtensions | join('", "') }}")]
+    [Display(Name = "{{ mimeType.mimeType }}")]
+    public static readonly MimeTypeNameEnum {{ mimeType.mimeType | replace('/', '_') }} = new MimeTypeNameEnum("{{ mimeType.ContentType }}");
+    {{ end }}
+}

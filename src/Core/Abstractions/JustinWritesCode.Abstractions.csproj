@@ -13,6 +13,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <AssemblyName>JustinWritesCode.Abstractions</AssemblyName>
     <PackageId>JustinWritesCode.Abstractions</PackageId>
     <RootNamespace>JustinWritesCode.Abstractions</RootNamespace>
@@ -21,15 +22,15 @@
     <ProjectGuid>a2f9676f-d2b3-436d-99a7-68ff47ac8741</ProjectGuid>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" VersionOverride="[2.1.0,)" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.ComponentModel.Annotations" />
-  </ItemGroup>
+  <!-- </ItemGroup>
   <ItemGroup Condition="'$(Configuration)' == 'Testing' Or '$(Configuration)' == 'Local'">
-    <ProjectReference Include="../../Core/ComponentModel/JustinWritesCode.ComponentModel.csproj" TreatAsPackageReference="true" />
+    <ProjectReference Include="../../Core/ComponentModel/JustinWritesCode.ComponentModel.csproj" />
   </ItemGroup>
-  <ItemGroup Condition="'$(Configuration)' != 'Testing' And '$(Configuration)' != 'Local'">
+  <ItemGroup Condition="'$(Configuration)' != 'Testing' And '$(Configuration)' != 'Local'"> -->
     <PackageReference Include="JustinWritesCode.ComponentModel" />
   </ItemGroup>
   <ItemGroup>

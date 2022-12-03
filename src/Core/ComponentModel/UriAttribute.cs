@@ -1,3 +1,4 @@
+using System;
 //
 // UriAttribute.cs
 //
@@ -12,6 +13,7 @@
 
 namespace System.ComponentModel.DataAnnotations;
 
+[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter, AllowMultiple = true)]
 public sealed class UriAttribute : ValueAttribute<Uri>
 {
     public UriAttribute(Uri uri) : base(uri) { }

@@ -1,5 +1,0 @@
-<Project>
-  <ItemGroup>
-    <Using Include="System.Net.Mime.MediaTypes" />
-  </ItemGroup>
-</Project>

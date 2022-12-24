@@ -1,14 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
-        <TargetFrameworks>netstandard2.0</TargetFrameworks>
+        <TargetFrameworks>netstandard1.3;netstandard2.0</TargetFrameworks>
+        <!-- <TargetFrameworks>netstandard2.0</TargetFrameworks> -->
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="System.Usings" />
+        <PackageReference Include="JustinWritesCode.Domain" />
         <!-- <PackageReference Include="JustinWritesCode.System.Extensions" ExcludeAssets="ContentFiles" PrivateAssets="None"/> -->
     </ItemGroup>
     <ItemGroup>
-        
     </ItemGroup>
-    <Import Project="./JustinWritesCode.Constants.props" />
 </Project>

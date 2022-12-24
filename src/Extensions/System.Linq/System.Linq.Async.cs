@@ -24,7 +24,7 @@
 
 namespace System.Linq;
 
-public static class EnumerableExtensions
+internal static class EnumerableExtensions
 {
     // public static async Task<IImmutableList<T>> ToImmutableListAsync<T>(this IEnumerable<T> e)
     //     => await Task.Factory.StartNew<IImmutableList<T>>(() => e.ToImmutableList());

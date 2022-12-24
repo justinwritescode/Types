@@ -14,7 +14,11 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace System.Collections.Generic;
 
-public class LambdaEqualityComparer<T> : IEqualityComparer<T>
+// #if DEFINE_INTERNAL
+internal class LambdaEqualityComparer<T> : IEqualityComparer<T>
+// #else
+// public class LambdaEqualityComparer<T> : IEqualityComparer<T>
+// #endif
 {
     private readonly Func<T, T, bool> _comparer;
     private readonly Func<T, int> _getHashCode;

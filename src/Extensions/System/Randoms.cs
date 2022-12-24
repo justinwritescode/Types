@@ -18,17 +18,19 @@ using static System.Convert;
 using static System.Math;
 
 /// <summary>Extensions to the <see cref="Random" /> class</summary>
-public class Randoms : System.Random
+// #if DEFINE_INTERNAL
+internal class Randoms : Random
+// #else
+// public class Randoms : System.Random
+// #endif
 {
     /// <summary>Generates a new GUID (UUID)</summary>
     /// <returns>A new GUID</returns>
     public static Guid NextGuid() => Guid.NewGuid();
 
-    /// <inheritdoc cref="NextGuid()"/>
-    public static Guid NewGuid() => NewGuid();
-
     /// <summary>Generates an array of 16 Next bytes</summary>
     /// <returns>An array of 16 Next bytes</returns>
+
     public static byte[] Next16Bytes() => NextGuid().ToByteArray();
 
     /// <summary>Generates an array of <paramref name="n"/> Next bytes</summary>
@@ -42,7 +44,7 @@ public class Randoms : System.Random
 
     /// <summary>Generates <inheritdoc cref="NextUInt8()" path="/returns"/></summary>
     /// <returns>a new unsigned byte value</returns>
-    public static byte NextUInt8() => NewGuid().ToByteArray().First();
+    public static byte NextUInt8() => NextGuid().ToByteArray().First();
 
     /// <summary>Generates <inheritdoc cref="NextUInt8(byte,byte)" path="/returns"/></summary>
     /// <returns><inheritdoc cref="NextUInt8()" path="/returns"/> in the range [<paramref name="from"/>, <paramref name="to"/>]</returns>
@@ -52,7 +54,7 @@ public class Randoms : System.Random
 
     /// <summary>Generates <inheritdoc cref="NextInt8()" path="/returns"/></summary>
     /// <returns>a new signed 8-bit integer value</returns>
-    public static sbyte NextInt8() => (sbyte)NewGuid().ToByteArray().First();
+    public static sbyte NextInt8() => (sbyte)NextGuid().ToByteArray().First();
 
     /// <summary>Generates <inheritdoc cref="NextInt8(sbyte,sbyte)" path="/returns"/></summary>
     /// <returns><inheritdoc cref="NextInt8()" path="/returns"/> in the range [<paramref name="from"/>, <paramref name="to"/>]</returns>
@@ -62,7 +64,7 @@ public class Randoms : System.Random
 
     /// <summary>Generates <inheritdoc cref="NextInt32()" path="/returns"/></summary>
     /// <returns>a new signed  int value</returns>
-    public static  int NextInt32() => ToInt32(NewGuid().ToByteArray());
+    public static  int NextInt32() => ToInt32(NextGuid().ToByteArray());
 
     /// <summary>Generates <inheritdoc cref="NextInt32( int, int)" path="/returns"/></summary>
     /// <returns><inheritdoc cref="NextInt32()" path="/returns"/> in the range [<paramref name="from"/>, <paramref name="to"/>]</returns>
@@ -72,7 +74,7 @@ public class Randoms : System.Random
 
     /// <summary>Generates <inheritdoc cref="NextUInt32()" path="/returns"/></summary>
     /// <returns>a new unsigned 32-bit integer value</returns>
-    public static  int NextUInt32() => ToInt32(NewGuid().ToByteArray());
+    public static  int NextUInt32() => ToInt32(NextGuid().ToByteArray());
 
     /// <summary>Generates <inheritdoc cref="NextUInt32(UInt32,UInt32)" path="/returns"/></summary>
     /// <returns><inheritdoc cref="NextUInt32()" path="/returns"/> in the range [<paramref name="from"/>, <paramref name="to"/>]</returns>
@@ -82,7 +84,7 @@ public class Randoms : System.Random
 
     /// <summary>Generates <inheritdoc cref="NextInt64()" path="/returns"/></summary>
     /// <returns>a new signed 64-bit integer value</returns>
-    public static  long NextInt64() => ToInt64(NewGuid().ToByteArray());
+    public static  long NextInt64() => ToInt64(NextGuid().ToByteArray());
 
     /// <summary>Generates <inheritdoc cref="NextInt64(long, long)" path="/returns"/></summary>
     /// <returns><inheritdoc cref="NextInt64()" path="/returns"/> in the range [<paramref name="from"/>, <typeref name=" int" /><paramref name="to"/>]</returns>
@@ -92,7 +94,7 @@ public class Randoms : System.Random
 
     /// <summary>Generates <inheritdoc cref="NextUInt64()" path="/returns"/></summary>
     /// <returns>a new unsigned 64-bit integer value</returns>
-    public static UInt64 NextUInt64() => ToUInt64(NewGuid().ToByteArray());
+    public static UInt64 NextUInt64() => ToUInt64(NextGuid().ToByteArray());
 
     /// <summary>Generates <inheritdoc cref="NextUInt64(UInt64,UInt64)" path="/returns"/></summary>
     /// <returns><inheritdoc cref="NextUInt64()" path="/returns"/> in the range [<paramref name="from"/>, <typeref name=" int" /><paramref name="to"/>]</returns>
@@ -102,7 +104,7 @@ public class Randoms : System.Random
 
     /// <summary>Generates <inheritdoc cref="NextInt16()" path="/returns"/></summary>
     /// <returns> a new signed Int16 value</returns>
-    public static Int16 NextInt16() => ToInt16(NewGuid().ToByteArray());
+    public static Int16 NextInt16() => ToInt16(NextGuid().ToByteArray());
 
     /// <summary>Generates <inheritdoc cref="NextInt16(Int16,Int16)" path="/returns"/></summary>
     /// <returns><inheritdoc cref="NextInt16()" path="/returns"/> in the range [<paramref name="from"/>, <typeref name=" int" /><paramref name="to"/>]</returns>
@@ -112,7 +114,7 @@ public class Randoms : System.Random
 
     /// <summary>Generates <inheritdoc cref="NextUInt16()" path="/returns"/></summary>
     /// <returns> a new unsigned Int16 value</returns>
-    public static UInt16 NextUInt16() => ToUInt16(NewGuid().ToByteArray());
+    public static UInt16 NextUInt16() => ToUInt16(NextGuid().ToByteArray());
 
     /// <summary>Generates <inheritdoc cref="NextUInt16(UInt16,UInt16)" path="/returns"/></summary>
     /// <returns><inheritdoc cref="NextUInt16()" path="/returns"/> in the range [<paramref name="from"/>, <typeref name=" int" /><paramref name="to"/>]</returns>

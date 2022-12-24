@@ -1,20 +1,24 @@
-/* 
+/*
  * System.Linq.cs
- * 
+ *
  *   Created: 2022-10-23-11:19:40
  *   Modified: 2022-11-11-10:26:36
- * 
+ *
  *   Author: Justin Chase <justin@justinwritescode.com>
- *   
+ *
  *   Copyright © 2022 Justin Chase, All Rights Reserved
  *      License: MIT (https://opensource.org/licenses/MIT)
- */ 
+ */
 
 using System.Collections.Generic;
 
 namespace System.Linq;
 
-public static class JustinsEnumerableExtensions
+// #if DEFINE_INTERNAL
+internal static class JustinsEnumerableExtensions
+// #else
+// public static class JustinsEnumerableExtensions
+// #endif
 {
     /// <summary>
     /// Determines if the <see cref="IEnumerable{T}"/> is null or empty.

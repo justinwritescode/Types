@@ -12,7 +12,11 @@
 
 namespace System;
 
-public static class StringExtensions
+// #if DEFINE_INTERNAL
+internal static class StringExtensions
+// #else
+// public static class StringExtensions
+// #endif
 {
     /// <summary>Escapes special characters in a string</summary>
     /// <param name="str">The string to escape</param>

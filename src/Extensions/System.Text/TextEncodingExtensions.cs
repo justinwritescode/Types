@@ -2,7 +2,11 @@ namespace System.Text;
 using static System.Text.Encoding;
 
 /// <summary>A collection of methods that expose the functionality of <see cref="System.Text.Encoding"/>'s public static instance members statically.</summary>
-public static class TextEncodingExtensions
+// #if DEFINE_INTERNAL
+internal static class TextEncodingExtensions
+// #else
+// public static class TextEncodingExtensions
+// #endif
 {
     /// <summary>Calls <see cref="Encoding.UTF8" />.GetBytes(<paramref name="s"/>)</summary>
     /// <param name="s">The string to encode</param>

@@ -13,8 +13,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard1.3;netstandard1.5;netstandard2.0;netstandard2.1;netcoreapp3.1;net6.0;net7.0</TargetFrameworks>
+    <!-- <TargetFramework>netstandard1.3</TargetFramework> -->
     <PackageId>JustinWritesCode.System.Extensions</PackageId>
     <RootNamespace>System.Extensions</RootNamespace>
     <AssemblyName>JustinWritesCode.System.Extensions</AssemblyName>
@@ -23,7 +23,9 @@
     <OutputPath>lib</OutputPath>
     <Title>JustinWritesCode.System.Extensions</Title>
     <Description>Extensions and utility classes for the System namespace</Description>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <DefineConstants>$(DefineConstants);DEFINE_INTERNAL;</DefineConstants>
+    <NoBuild>true</NoBuild>
+    <!-- <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <IncludeBuiltProjectOutputGroup>true</IncludeBuiltProjectOutputGroup>
     <IncludeComFilesOutputGroup>true</IncludeComFilesOutputGroup>
     <IncludeSourceFilesProjectOutputGroup>true</IncludeSourceFilesProjectOutputGroup>
@@ -40,13 +42,21 @@
     <IncludeTransitiveProjectReferences>true</IncludeTransitiveProjectReferences>
     <IncludeSource>true</IncludeSource>
     <IsNuGetized>true</IsNuGetized>
-    <IsPackable>true</IsPackable>
+    <IsPackable>true</IsPackable> -->
   </PropertyGroup>
   <ItemGroup>
    <PackageReference Include="System.Usings" />
    <PackageReference Include="System.Text.Usings" />
+   <PackageReference Include="System.Runtime" />
+   <!-- <PackageReference Include="System.Xml.XPath.XDocument" Condition="$(DefineConstants.Contains('NETSTANDARD2_0_OR_GREATER'))" /> -->
   </ItemGroup>
-    <ItemGroup>
-        <Content Include="$(OutputPath)/*.*" PackagePath="lib/netstandard2.0/%(Filename)%(Extension)" />
-    </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="./System.Xml/XmlExtensions.cs" Condition="!$(DefineConstants.Contains('NETSTANDARD2_0_OR_GREATER'))" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageFile Include="@(Compile)" Except="$(IntermediateOutputPath)**/*" PackagePath="ContentFiles/%(RecursiveDir)%(Filename)%(Extension)" />
+    <!-- <Compile Remove="@(Compile)" /> -->
+    <!-- <Using Remove="@(Using)" /> -->
+    <None Remove="**/$(AssemblyName).*" />
+  </ItemGroup>
 </Project>

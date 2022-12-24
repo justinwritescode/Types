@@ -1,139 +1,214 @@
-﻿/* 
+﻿/*
  * EnumerationClassGenerator.cs
- * 
+ *
  *   Created: 2022-10-16-04:03:15
  *   Modified: 2022-11-11-01:59:02
- * 
+ *
  *   Author: Justin Chase <justin@justinwritescode.com>
- *   
+ *
  *   Copyright © 2022 Justin Chase, All Rights Reserved
  *      License: MIT (https://opensource.org/licenses/MIT)
- */ 
+ */
 namespace JustinWritesCode.Enumerations.CodeGeneration;
 
+using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Linq;
 using System.Text;
 using System.Threading;
+using JustinWritesCode.CodeGeneration;
+using JustinWritesCode.Enumerations.CodeGeneration;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.Text;
-using System.Linq;
 using Microsoft.CodeAnalysis.Diagnostics;
-using System;
+using static JustinWritesCode.CodeGeneration.Constants;
 using static JustinWritesCode.Enumerations.CodeGeneration.Constants;
-
+/**
+ * <summary>
+ *     EnumerationClassGenerator is a Roslyn source generator that generates
+ *     strongly-typed enumeration <see langword="record" /> <see langword="struct" />s from <see langword="enum" /> declarations.
+ * </summary>
+ */
 [Generator]
 public partial class EnumerationClassGenerator : IIncrementalGenerator
 {
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
-        var valuesProvider = context.SyntaxProvider.CreateSyntaxProvider<(EnumDeclarationSyntax? EnumDeclarationSyntax, SemanticModel? SemanticModel)?>(
-            (node, _) => node is EnumDeclarationSyntax enumDeclarationSyntax,
-            (context, _) => context.Node is EnumDeclarationSyntax enumDeclarationSyntax
-                ? (enumDeclarationSyntax, context.SemanticModel)
-                : null).Where(x => x is not null).Collect();
-        var valuesProvider2 = 
-            context.AnalyzerConfigOptionsProvider.Combine(valuesProvider);
-        var valuesProvider3 = 
-            context.CompilationProvider.Combine(valuesProvider2);
-
-        context.RegisterSourceOutput(valuesProvider3, Generate);
-    }
-
-    // public void Initialize(GeneratorInitializationContext context)
-    // {
-    //     context.RegisterForSyntaxNotifications(() => new EnumerationSyntaxReceiver());
-    // }
-
-    public virtual void Generate(SourceProductionContext context, (Compilation Compilation, (AnalyzerConfigOptionsProvider AnalyzerConfigOptions, ImmutableArray<(EnumDeclarationSyntax EnumDeclarationSyntax, SemanticModel SemanticModel)?> Values) Values) values)
-    {
-        // get the populated receiver 
-        var enumDeclarations = values.Values.Values.Select(x => x.Value.EnumDeclarationSyntax).ToImmutableArray();
-
         try
         {
-            var codeHeader = CodeHeader.Replace($"{AuthorName}", "JustinWritesCode")
-                .Replace($"{AuthorEmail}", "justin@justinwritescode.com")
-                .Replace($"{Year}", DateTime.Now.Year.ToString())
-                .Replace($"{Timestamp}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss UTC"));
+            var initialValuesProvider =
+                context.CompilationProvider
+                .Combine(context.AnalyzerConfigOptionsProvider);
 
-            var sb = new StringBuilder();
-            foreach (var enumDeclaration in enumDeclarations)
+            var isEnumDeclarationSyntaxPredicate = (SyntaxNode node, CancellationToken _) => node is EnumDeclarationSyntax enumDeclarationSyntax;
+
+            var valuesProvider = initialValuesProvider.Combine(context.SyntaxProvider.ForAttributeWithMetadataName(GenerateEnumerationRecordClassAttribute, isEnumDeclarationSyntaxPredicate, Transform).Collect());
+            context.RegisterSourceOutput(valuesProvider, Generate);
+
+            valuesProvider = initialValuesProvider.Combine(context.SyntaxProvider.ForAttributeWithMetadataName(GenerateEnumerationClassAttribute, isEnumDeclarationSyntaxPredicate, Transform).Collect());
+            context.RegisterSourceOutput(valuesProvider, Generate);
+
+            valuesProvider = initialValuesProvider.Combine(context.SyntaxProvider.ForAttributeWithMetadataName(GenerateEnumerationRecordStructAttribute, isEnumDeclarationSyntaxPredicate, Transform).Collect());
+            context.RegisterSourceOutput(valuesProvider, Generate);
+
+            valuesProvider = initialValuesProvider.Combine(context.SyntaxProvider.ForAttributeWithMetadataName(GenerateEnumerationStructAttribute, isEnumDeclarationSyntaxPredicate, Transform).Collect());
+            context.RegisterSourceOutput(valuesProvider, Generate);
+
+            context.RegisterPostInitializationOutput(context =>
             {
-                // get the semantic model
-                var semanticModel = values.Compilation.GetSemanticModel(@enumDeclaration.SyntaxTree);
-                var enumSymbol = semanticModel.GetDeclaredSymbol(@enumDeclaration) as ITypeSymbol;
-
-                var attributes = enumSymbol.GetAttributes();
-                var enumerationClassNameString = enumSymbol.Name + "Enumeration";
-                var enumerationClassNamespaceValue = enumSymbol.ContainingNamespace.ToDisplayString();
-
-                // var enumerationAttributeSymbol = enumSymbol.GetAttribute(GenerateEnumerationClassAttributeName);
-
-                 var enumerationAttributeDeclaration = @enumDeclaration.AttributeLists.SelectMany(a => a.Attributes).FirstOrDefault(x => x.Name.ToString() == GenerateEnumerationClassAttributeName || x.Name.ToString() == GenerateEnumerationClassAttributeNameWithoutAttribute);
-                if (enumerationAttributeDeclaration is not null)
+                var codeHeader = MinimalCodeHeaderTemplate.Template.Render(new
                 {
-                    var enumName = enumSymbol.Name;
-                    var enumNamespace = enumSymbol.ContainingNamespace.ToDisplayString();
-                    var enumerationClassNameArgument = enumerationAttributeDeclaration.ArgumentList?.Arguments.FirstOrDefault();
-                    var enumerationClassNameArgumentSemanticModel = enumerationClassNameArgument != null ? values.Compilation.GetSemanticModel(enumerationClassNameArgument?.Expression?.SyntaxTree) : null;
-                    var enumerationClassName = enumerationClassNameArgumentSemanticModel?.GetConstantValue(enumerationClassNameArgument?.Expression);
-                    enumerationClassNameString = enumerationClassName.HasValue ? enumerationClassName.Value.ToString() : enumName + "Enumeration";
-                    // enumerationClassNameString = enumSymbol.GetAttribute(GenerateEnumerationClassAttributeName).GetAttributeArgumentValueAsString(0) ?? enumName + "Enumeration";
+                    Filename = $"{GenerateEnumerationClassAttributeName}.g.cs",
+                    Timestamp = UtcNow.ToString("yyyy-MM-dd HH:mm:ss")
+                });
 
-                    
-                    var enumerationClassNamespaceArgument = enumerationAttributeDeclaration.ArgumentList?.Arguments.Skip(1).FirstOrDefault();
-                    var enumerationClassNamespaceArgumentSemanticModel = enumerationClassNamespaceArgument != null ? values.Compilation.GetSemanticModel(enumerationClassNamespaceArgument?.Expression?.SyntaxTree) : null;
-                    var enumerationClassNamespaceString = enumerationClassNamespaceArgumentSemanticModel?.GetConstantValue(enumerationClassNamespaceArgument?.Expression);
-                    enumerationClassNamespaceValue = enumerationClassNamespaceString.HasValue ? enumerationClassNamespaceString.Value.ToString() : enumNamespace;
-                    // enumerationClassNamespaceValue = enumSymbol.GetAttribute(GenerateEnumerationClassAttributeName).GetAttributeArgumentValueAsString(1) ?? enumerationClassNamespaceValue;
-
-                    context.AddSource(enumSymbol.Name + "_AttributeConstructorArgs.g.cs",
-                        @$"/* {string.Join(", ", enumerationAttributeDeclaration.ArgumentList?.Arguments.Select(arg => $"{arg.ToFullString()}") ?? Array.Empty<string>())} */");
-                }
-
-                if (enumerationAttributeDeclaration != null)
-                {
-                    var enumType = enumSymbol.Name;
-                    var enumNamespace = GetNamespace(enumSymbol.ContainingNamespace);
-                    var enumerationClassName = enumerationClassNameString;//enumerationAttributeDeclaration.ConstructorArguments.FirstOrDefault().Value?.ToString() ?? enumType + "Enumeration";
-                    var @namespace = enumerationClassNamespaceValue;//enumerationAttributeDeclaration.ConstructorArguments.Skip(1).FirstOrDefault().Value?.ToString() ?? enumNamespace;
-
-                    var enumFields = enumSymbol.GetMembers().Where(member => member.Kind == SymbolKind.Field).OfType<IFieldSymbol>();
-                    var enumClassDeclaration =
-                        EnumerationClassDeclaration
-                        .Replace($"{EnumerationClassName}", enumerationClassName)
-                        .Replace($"{EnumNamespace}", enumNamespace)
-                        .Replace($"{Namespace}", @namespace)
-                        .Replace($"{EnumType}", enumType)
-                        .Replace($"{Values}", string.Join(", ", enumFields.Select(f => $"{enumerationClassName}.{f.Name}.Instance")))
-                        .Replace($"{Fields}",
-                            string.Join(" ", enumFields.Select(f =>
-                                EnumerationFieldDeclaration
-                                .Replace($" {EnumerationClassName}", $" {enumerationClassName}")
-                                .Replace($" {FieldName}", $" {f.Name}")
-                                .Replace($" {Name}", $" \"{f.Name}\"")
-                                .Replace($" {DisplayName}", $" \"{(f.GetAttributes().FirstOrDefault(a => a.AttributeClass.Name == DisplayAttribute)?.NamedArguments.FirstOrDefault(na => na.Key == "Name").Value.Value?.ToString() ?? f.Name).Escape()}\"")
-                                .Replace($" {ShortName}", $" \"{f.GetAttributes().FirstOrDefault(a => a.AttributeClass.Name == DisplayAttribute)?.NamedArguments.FirstOrDefault(na => na.Key == "ShortName").Value.Value?.ToString() ?? f.Name}\"")
-                                .Replace($" {Order}", $" {f.GetAttributes().FirstOrDefault(a => a.AttributeClass.Name == DisplayAttribute)?.NamedArguments.FirstOrDefault(na => na.Key == "Order").Value.Value?.ToString() ?? f.ConstantValue.ToString()}")
-                                .Replace($" {GroupName}", $" \"{f.GetAttributes().FirstOrDefault(a => a.AttributeClass.Name == DisplayAttribute)?.NamedArguments.FirstOrDefault(na => na.Key == nameof(GroupName)).Value.Value?.ToString() ?? JustinWritesCode.Enumerations.Enumeration.NoGroup}\"")
-                                .Replace($" {Id}", $" {(f.ConstantValue.ToString())}")
-                                .Replace($" {Name}", $" \"{f.Name.ToString()}\""))));
-                    var enumClassFile = codeHeader + enumClassDeclaration;
-
-                    context.AddSource($"{enumerationClassName}.g.cs", codeHeader.Replace($"{Filename}", $"{enumerationClassName}.g.cs") + "\n" + enumClassFile);
-                }
-            }
-
-            context.AddSource(GenerateEnumerationClassAttributeName + ".g.cs", codeHeader.Replace($"{Filename}", $"{GenerateEnumerationClassAttributeName}.g.cs") + "\n" + GenerateEnumerationClassAttributeDeclaration);
+                context.AddSource(GenerateEnumerationTypeAttributesName + ".g.cs", codeHeader.Replace($"{Filename}", $"{GenerateEnumerationTypeAttributesName}.g.cs") + Environment.NewLine + GenerateEnumerationTypeAttributesDeclaration);
+                context.AddSource("TypeToGenerate.g.cs", MinimalCodeHeaderTemplate.Template.Render(new { Filename = "TypeToGenerate.g.cs", Timestamp = UtcNow.ToString("yyyy-MM-dd HH:mm:ss") }) + Environment.NewLine + TypeToGenerateEnumDeclaration);
+            });
         }
         catch (Exception ex)
         {
-            context.AddSource("Error.g.cs", @$"/* 
-Exception: {ex.Message}
-{ex.StackTrace} 
-*/");
+            var message = new StringBuilder();
+            do
+            {
+                message.AppendLine(
+                $""""
+                /*
+                Exception: {ex.Message}
+                {ex.StackTrace}
+                */
+                """"
+                );
+            } while ((ex = ex.InnerException) != null);
+            context.RegisterPostInitializationOutput(context => context.AddSource("Exception.g.cs", message.ToString()));
+        }
+    }
+
+    internal static EnumDeclaration Transform(GeneratorAttributeSyntaxContext context, CancellationToken _)
+    {
+        var enumDeclarationSyntax = context.TargetNode as EnumDeclarationSyntax;
+        var semanticModel = context.SemanticModel;
+        var enumSymbol = semanticModel.GetDeclaredSymbol(enumDeclarationSyntax, _) as ITypeSymbol;
+        var enumName = enumSymbol.Name;
+        var enumNamespace = enumSymbol.ContainingNamespace.ToDisplayString();
+        var enumerationAttributeDeclaration = context.Attributes.GetGenerateEnumerationTypeAttribute();// @enumDeclarationSyntax.AttributeLists.SelectMany(a => a.Attributes).FirstOrDefault(a => GenerateEnumerationAttributeTypeNames.Contains(a.Name.ToString()));
+        var enumerationClassNameArgument = enumerationAttributeDeclaration?.ConstructorArguments.FirstOrDefault();
+        var enumerationClassName = enumerationClassNameArgument?.Value?.ToString() ?? enumName + "Enumeration";
+        var enumerationNamespaceNameArgument = enumerationAttributeDeclaration?.ConstructorArguments.Skip(1).FirstOrDefault(); //enumerationNamespaceDeclaration?.ArgumentList?.Arguments.Skip(1).FirstOrDefault();
+        var enumerationNamespace = enumerationNamespaceNameArgument?.Value?.ToString() ?? enumNamespace;
+        return new (enumDeclarationSyntax, semanticModel, enumerationClassName, enumerationNamespace);
+    }
+
+    public static readonly CodeTemplate EnumerationClassTemplate = new(EnumerationClassDeclaration);
+    public static readonly CodeTemplate EnumerationFieldDeclarationTemplate = new(EnumerationFieldDeclaration);
+    internal static void Generate(SourceProductionContext context, ((Compilation Compilation, AnalyzerConfigOptionsProvider AnalyzerConfigOptions) CompilationAndConfig, ImmutableArray<EnumDeclaration> Values) values)
+    {
+        // get the populated receiver
+        var (Compilation, AnalyzerConfigOptions, EnumDeclarations) =
+            (values.CompilationAndConfig.Compilation, values.CompilationAndConfig.AnalyzerConfigOptions, values.Values);// valu
+
+        try
+        {
+            var sb = new StringBuilder();
+            for(var i = 0; i < EnumDeclarations.Length; i++)
+            {
+                var enumDeclaration = EnumDeclarations[i];
+                // get the semantic model
+                var semanticModel = @enumDeclaration.SemanticModel;
+                var enumSymbol = semanticModel.GetDeclaredSymbol(@enumDeclaration.SyntaxTree) as ITypeSymbol;
+
+                var attributes = enumSymbol.GetAttributes();
+                var enumerationNamespace = enumDeclaration.EnumerationNamespace;
+                var enumNamespace = enumSymbol.ContainingNamespace.ToDisplayString();
+                var enumName = enumSymbol.Name;
+                var enumerationClassName = enumDeclaration.EnumerationClassName ??=
+                        enumName.EndsWith("Enum") ?
+                        enumName.Replace("Enum", "") :
+                        enumName + "Enumeration";
+
+                var enumerationTypeAttributeData = enumSymbol.GetGenerateEnumerationTypeAttribute();
+
+                var enumerationTypeAttributeDeclaration = enumDeclaration.EnumerationTypeAttributeDeclaration = @enumDeclaration.SyntaxTree.AttributeLists.SelectMany(a => a.Attributes).FirstOrDefault(x => GenerateEnumerationTypeAttributesName.Contains(x.Name.ToString()));
+                if (enumerationTypeAttributeDeclaration is not null)
+                {
+                    var enumerationClassNameArgument = enumerationTypeAttributeDeclaration.ArgumentList?.Arguments.FirstOrDefault();
+                    var enumerationClassNameArgumentSemanticModel = enumerationClassNameArgument != null ? Compilation.GetSemanticModel(enumerationClassNameArgument?.Expression?.SyntaxTree) : null;
+                    var enumerationClassNameArgumentValue = enumerationClassNameArgumentSemanticModel?.GetConstantValue(enumerationClassNameArgument?.Expression);
+                    enumDeclaration.EnumerationClassName = enumerationClassName = enumerationClassNameArgumentValue.HasValue ? enumerationClassNameArgumentValue.Value.ToString() : enumerationClassName;
+
+                    var enumerationClassNamespaceArgument = enumerationTypeAttributeDeclaration.ArgumentList?.Arguments.Skip(1).FirstOrDefault();
+                    var enumerationClassNamespaceArgumentSemanticModel = enumerationClassNamespaceArgument != null ? Compilation.GetSemanticModel(enumerationClassNamespaceArgument?.Expression?.SyntaxTree) : null;
+                    var enumerationCTypeNamespaceArgumentValue = enumerationClassNamespaceArgumentSemanticModel?.GetConstantValue(enumerationClassNamespaceArgument?.Expression);
+                    enumDeclaration.EnumerationNamespace = enumerationNamespace = enumerationCTypeNamespaceArgumentValue.HasValue ? enumerationCTypeNamespaceArgumentValue.Value.ToString() : enumNamespace;
+
+                    context.AddSource(enumSymbol.Name + "_AttributeConstructorArgs.g.cs",
+                        @$"/* {Join(", ", enumerationTypeAttributeDeclaration.ArgumentList?.Arguments.Select(arg => $"{arg.ToFullString()}") ?? Empty<string>())} */");
+                }
+
+                var enumType = enumSymbol.Name;
+                var @namespace = enumerationNamespace;
+
+                WriteLine("enumType: {0}", enumType);
+                WriteLine("namespace: {0}", @namespace);
+
+                var enumFields = enumSymbol.GetMembers().Where(member => member.Kind == SymbolKind.Field).OfType<IFieldSymbol>();
+                var enumClassDeclaration =
+                    EnumerationClassTemplate.Template.Render(new EnumDeclarationParams(
+                            enumerationClassName,
+                            enumNamespace,
+                            @namespace,
+                            enumType,
+                            nameof(Int32),
+                            enumSymbol.Name,
+                            enumSymbol.GetDocumentationCommentXml(),
+                            enumDeclaration.TypeToGenerate,
+                            Join(", ", enumFields.Select(f => $"{enumerationClassName}.{f.Name}.Instance")),
+                            Join(" ", enumFields.Select(f =>
+                            EnumerationFieldDeclarationTemplate.Template.Render(new FieldDeclarationParams(
+                                    f.Name,
+                                    enumerationClassName,
+                                    enumNamespace,
+                                    f.GetAttributes().FirstOrDefault(a => a.AttributeClass.Name == DisplayAttribute)?.NamedArguments.FirstOrDefault(na => na.Key == "Name").Value.Value?.ToString() ?? f.Name,
+                                    f.GetAttributes().FirstOrDefault(a => a.AttributeClass.Name == DisplayAttribute)?.NamedArguments.FirstOrDefault(na => na.Key == "ShortName").Value.Value?.ToString() ?? f.Name,
+                                    f.GetAttributes().FirstOrDefault(a => a.AttributeClass.Name == DisplayAttribute)?.NamedArguments.FirstOrDefault(na => na.Key == "Order").Value.Value?.ToString() ?? "0",
+                                    f.GetAttributes().FirstOrDefault(a => a.AttributeClass.Name == DisplayAttribute)?.NamedArguments.FirstOrDefault(na => na.Key == "GroupName").Value.Value?.ToString() ?? "Default",
+                                    f.ConstantValue.ToString(),
+                                    @namespace,
+                                    enumType,
+                                    f.Name,
+                                    f.ConstantValue,
+                                    nameof(Int32),
+                                    f.Type.Name,
+                                    f.GetDocumentationCommentXml()
+                            ))
+                        ))
+                    ));
+                var enumCodeHeader = MinimalCodeHeaderTemplate.Template.Render(new
+                {
+                    Filename = $"{enumerationClassName}.g.cs",
+                    Timestamp = UtcNow.ToString("yyyy-MM-dd HH:mm:ss")
+                });
+                var enumClassFile = enumCodeHeader + enumClassDeclaration;
+
+                context.AddSource($"{enumerationClassName}.g.cs", enumCodeHeader.Replace($"{Filename}", $"{enumerationClassName}.g.cs") + "\n" + enumClassFile);
+            }
+        }
+        catch (Exception ex)
+        {
+            var message = new StringBuilder();
+            do
+            {
+            message.AppendLine(
+            $""""
+            /*
+            Exception: {ex.Message}
+            {ex.StackTrace}
+            */
+            """"
+            );
+            } while ((ex = ex.InnerException) != null);
+            context.AddSource($"Exception{Guid.NewGuid()}.g.cs", message.ToString());
         }
     }
 
@@ -147,7 +222,7 @@ Exception: {ex.Message}
     {
         var decl = (EnumDeclarationSyntax)context.Node;
 
-        var attributes = context.SemanticModel.GetDeclaredSymbol(decl).GetAttributes();//.AttributeLists.SelectMany(al => al.Attributes).Select(a => context.SemanticModel.GetSymbolInfo(a, cancellationToken).Symbol).OfType<IMethodSymbol>().Select(m => m.GetAttributes().FirstOrDefault()).Where(a => a != null);
+        var attributes = context.SemanticModel.GetDeclaredSymbol(decl, cancellationToken).GetAttributes();
 
         if (context.SemanticModel.GetDeclaredSymbol(decl, cancellationToken) is ITypeSymbol typeSymbol)
         {

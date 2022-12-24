@@ -11,16 +11,16 @@
 -->
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
     <SlnGenSolutionFolder>Enumerations</SlnGenSolutionFolder>
   </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="JustinWritesCode.Abstractions" />
-        <PackageReference Include="JustinWritesCode.ComponentModel" />
+        <!-- <PackageReference Include="JustinWritesCode.Abstractions" />
+        <PackageReference Include="JustinWritesCode.ComponentModel" /> -->
     </ItemGroup>
   <ItemGroup>
-    <!-- <ProjectReference Include="../../../Core/Abstractions/JustinWritesCode.Abstractions.csproj" /> -->
-    <!-- <ProjectReference Include="../../../Core/ComponentModel/JustinWritesCode.ComponentModel.csproj" /> -->
+    <ProjectReference Include="../../../Core/Abstractions/JustinWritesCode.Abstractions.csproj" />
+    <ProjectReference Include="../../../Core/ComponentModel/JustinWritesCode.ComponentModel.csproj" />
     <PackageReference Include="System.Text.Json.Usings" />
     <PackageReference Include="System.Text.Json" />
     <Using Include="System.Reflection" />

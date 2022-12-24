@@ -10,10 +10,10 @@
 //      License: MIT (https://opensource.org/licenses/MIT)
 //
 namespace JustinWritesCode.Enumerations.Abstractions;
-using JustinWritesCode.Abstractions;
 
-public interface IEnumeration<TId> :IEnumeration
+public interface IEnumeration<TSelf, TId> : IEnumeration<TSelf>
     where TId : IComparable, IComparable<TId>, IEquatable<TId>
+    where TSelf : struct, IEnumeration<TSelf, TId>
 {
     //string Name { get; }
 }

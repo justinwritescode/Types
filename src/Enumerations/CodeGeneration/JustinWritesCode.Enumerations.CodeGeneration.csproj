@@ -1,13 +1,13 @@
 <!--
- CodeGeneration.csproj
- 
-   Created: 2022-10-16-01:02:04
-   Modified: 2022-10-30-02:45:35
- 
-   Author: Justin Chase <justin@justinwritescode.com>
-   
-   Copyright © 2022 Justin Chase, All Rights Reserved
-      License: MIT (https://opensource.org/licenses/MIT)
+ * JustinWritesCode.Enumerations.CodeGeneration.csproj
+ * 
+ *   Created: 2022-11-20-07:14:18
+ *   Modified: 2022-12-05-03:49:17
+ * 
+ *   Author: Justin Chase <justin@justinwritescode.com>
+ *   
+ *   Copyright © 2022 Justin Chase, All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
 -->
 
 <Project Sdk="Microsoft.NET.Sdk">
@@ -20,6 +20,7 @@
     <IsRoslynComponent>true</IsRoslynComponent>
     <ProjectGuid>54d0d4e7-4f62-4d70-8fd0-ead0d34fc585</ProjectGuid>
     <SlnGenSolutionFolder>Enumerations</SlnGenSolutionFolder>
+    <EmitNuspec>true</EmitNuspec>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,11 +28,16 @@
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" />
     <PackageReference Include="Microsoft.CodeAnalysis.Common" />
     <PackageReference Include="System.Text.Json" />
-    <PackageReference Include="JustinWritesCode.CodeGeneration.Constants" IncludeAssets="ContentFiles" ExcludeAssets="None" />
+    <!-- <PackageReference Include="JustinWritesCode.CodeGeneration.Constants" IncludeAssets="ContentFiles" ExcludeAssets="Lib;Runtime;Compile;Native;Analyzers" /> -->
   </ItemGroup>
   <!-- <ItemGroup Condition="'$(Configuration)' != 'Testing' And '$(Configuration)' != 'Local'"> -->
     <ItemGroup>
-    <PackageReference Include="JustinWritesCode.Enumerations.Enumeration" />
+    <ProjectReference Include="../Enumeration/JustinWritesCode.Enumerations.Enumeration.csproj" ExcludeAssets="ContentFiles" PrivateAssets="All" />
+    <PackageReference Include="JustinWritesCode.Enumerations.Enumeration" ExcludeAssets="ContentFiles;Lib;Runtime;Build;Analyzers;Native" IncludeAssets="Compile" PrivateAssets="All" />
+    <PackageReference Include="JustinWritesCode.System.Extensions" IncludeAssets="ContentFiles;Build" ExcludeAssets="Lib;Runtime;Source;Native;Analyzers" PrivateAssets="All" />
+    <PackageReference Include="JustinWritesCode.CodeGeneration.Constants" IncludeAssets="ContentFiles;Build" ExcludeAssets="Lib;Runtime;Source;Native;Analyzers" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.CSharp" VersionOverride="4.5.0" PrivateAssets="All" />
+    <!-- <ProjectReference Include="../../../../CodeGeneration/src/Constants/JustinWritesCode.CodeGeneration.Constants.csproj" IncludeAssets="ContentFiles" ExcludeAssets="Lib;Runtime;Compile;Native;Analyzers" /> -->
   </ItemGroup>
   <!-- <ItemGroup Condition="'$(Configuration)' == 'Testing' Or '$(Configuration)' == 'Local'">
     <ProjectReference Include="../../Enumerations/Enumeration/JustinWritesCode.Enumerations.Enumeration.csproj" />
@@ -40,14 +46,46 @@
   <ItemGroup>
     <Compile Remove="./Resources/*" />
     <EmbeddedResource Include="./Resources/**/*" />
-    <Compile Include="../../Extensions/System/StringExtensions.cs" />
+    <EmbeddedResource Include="./Constants/TypeToGenerate.cs" LogicalName="%(Filename)%(Extension)" />
+    <PackageReference Remove="System.Xml.XDocument" />
+    <PackageReference Update="System.Xml.XDocument" Aliases="XDocument" />
+    <!-- <Compile Include="../../Extensions/System/StringExtensions.cs" /> -->
+    <Reference Remove="System.Xml.XDocument, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Remove="System.Xml.XDocument" />
   </ItemGroup>
 
   <PropertyGroup>
-    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <IncludeBuildOutput>true</IncludeBuildOutput>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageFile Include="$(OutputPath)\$(AssemblyName).dll" PackagePath="analyzers/dotnet/cs/$(AssemblyName).dll" Visible="false" />
+    <None Update="$(OutputPath)\$(AssemblyName).dll" PackagePath="analyzers/dotnet/cs/$(AssemblyName).dll" Visible="false" />
+    <!-- <PackageFile Include="$(OutputPath)\$(AssemblyName).dll" PackagePath="analyzers/dotnet/cs/$(AssemblyName).dll" Visible="false" /> -->
+    <PackageFile Include="$(OutputPath)\*.dll" PackagePath="lib/netstandard2.0/%(Filename)%(Extension)" Visible="false" />
   </ItemGroup>
+  <Target Name="FixBadReferenceAssembly" BeforeTargets="BeforeBuild">
+    <ItemGroup>
+      <!-- <Reference Update="System.Xml.XDocument" Aliases="XDocument" /> -->
+      <!-- <Reference Remove="System.Xml.XDocument" /> -->
+      <!-- <Reference Remove="netstandard.library" /> -->
+      <PackageReference Update="System.Xml.XDocument" Aliases="XDocument" />
+      <!-- <Reference Update="System.Xml.XDocument, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" Aliases="XDocument" /> -->
+    </ItemGroup>
+  </Target>
+  <Target Name="FixDuplicateXmlFiles" AfterTargets="GetPackageContents" BeforeTargets="Pack">
+    <!-- <RemoveDuplicates Inputs="@(None)">
+      <Output TaskParameter="Filtered" ItemName="FilteredNones" />
+    </RemoveDuplicates>
+    <RemoveDuplicates Inputs="@(PackageFile)">
+      <Output TaskParameter="Filtered" ItemName="FilteredPackageFiles" />
+    </RemoveDuplicates> -->
+    <ItemGroup>
+      <!-- <None Remove="@(None)" />
+      <PackageFile Remove="@(PackageFile)" />
+      <None Include="@(FilteredNones)" />
+      <PackageFile Include="@(FilteredPackageFiles)" /> -->
+      <None Remove="**/*.xml" />
+      <PackageFile Remove="**/*.xml" />
+    </ItemGroup>
+  </Target>
 </Project>

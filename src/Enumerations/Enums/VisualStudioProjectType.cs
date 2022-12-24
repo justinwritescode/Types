@@ -12,7 +12,7 @@
 
 namespace JustinWritesCode.Enums;
 
-public partial class VisualStudioProjectType //: Enumerations.Enumeration<VisualStudioProjectTypeEnumeration, VisualStudioProjectType>
+public partial record struct VisualStudioProjectType //: Enumerations.Enumeration<VisualStudioProjectTypeEnumeration, VisualStudioProjectType>
 {
-    public virtual Guid Guid => this.GetCustomAttribute<GuidAttribute>().Guid;
+    // public Guid Guid => this.GetCustomAttribute<GuidAttribute>().Guid;
 }

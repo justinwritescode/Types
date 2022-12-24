@@ -1,0 +1,13 @@
+/// <summary>{{ documentation }}</summary>
+[System.Runtime.CompilerServices.CompilerGenerated]
+public sealed record class {{ field_name }} : {{ enumeration_class_name }}
+{
+    public static readonly {{ enumeration_class_name }} Instance = {{ enumeration_class_name }}.{{ field_name }};
+
+    public const string Name = {{ name }};
+    public const string DisplayName = {{ display_name }};
+    public const string ShortName = {{ short_name }};
+    public const int Order = {{ order }};
+    public const int Id = {{ id }};
+    public const {{ enum_type_name }} Value = {{ value }};
+}

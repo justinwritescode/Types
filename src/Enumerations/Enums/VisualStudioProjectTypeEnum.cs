@@ -15,7 +15,7 @@ using JustinWritesCode.Enumerations;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-[GenerateEnumerationClass("VisualStudioProjectType")]
+[GenerateEnumerationRecordStruct("VisualStudioProjectType")]
 public enum VisualStudioProjectTypeEnum
 {
     [Display(Name = "None")]

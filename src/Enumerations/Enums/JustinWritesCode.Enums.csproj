@@ -36,12 +36,17 @@
         <Import Project="../../Core/ComponentModel/JustinWritesCode.ComponentModel.props" />
     </ImportGroup>
   <ItemGroup Condition="'$(Configuration)' != 'Testing' And '$(Configuration)' != 'Local'"> -->
-    <PackageReference Include="JustinWritesCode.ComponentModel"  ExcludeAssets="ContentFiles" />
+    <PackageReference Include="Scriban.Signed" ExcludeAssets="ContentFiles" />
+    <PackageReference Include="JustinWritesCode.ComponentModel" ExcludeAssets="ContentFiles" />
     <PackageReference Include="JustinWritesCode.Enumerations.Enumeration" ExcludeAssets="ContentFiles" />
-    <PackageReference Include="JustinWritesCode.Enumerations.CodeGeneration" IncludeAssets="Analyzers" PrivateAssets="All" ExcludeAssets="ContentFiles" />
+    <!-- <PackageReference Include="JustinWritesCode.Enumerations.CodeGeneration" IncludeAssets="Analyzers;Build;Lib;Runtime" PrivateAssets="None" ExcludeAssets="ContentFiles" /> -->
     <PackageReference Include="JustinWritesCode.CodeGeneration.Extensions" IncludeAssets="ContentFiles; Build" />
+    <ProjectReference Include="../CodeGeneration/JustinWritesCode.Enumerations.CodeGeneration.csproj" ReferenceOutputAssembly="false" OutputItemType="Analyzer" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="SoftwareLicenses/Licenses/*.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="./MimeTypes/**/*" />
   </ItemGroup>
 </Project>

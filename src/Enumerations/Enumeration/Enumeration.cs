@@ -16,6 +16,7 @@ public static class Enumeration
     public const int DefaultOrder = 0;
     public const string NoGroup = "No Group";
 
+    public static FieldInfo GetFieldInfo(this Type t, string name) => t.GetRuntimeField(name);
     public static IEnumeration? FromValue(Type t, object value) => Parse(t, x => x.Value.Equals(value));
     public static TEnumeration? FromValue<TEnumeration>(object value) where TEnumeration : class, IEnumeration => FromValue(typeof(TEnumeration), value) as TEnumeration;
     public static IEnumeration[] GetValues(this Type t) => t.GetRuntimeFields().Select(f => f.GetValue(null)).OfType<IEnumeration>().ToArray();

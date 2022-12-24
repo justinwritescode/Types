@@ -12,7 +12,9 @@
 
 namespace JustinWritesCode.Enums;
 using System.ComponentModel.DataAnnotations;
-[GenerateEnumerationClass("SoftwareLicense")]
+
+/// <summary>Contains the software licenses available on GitHub.</summary>
+[GenerateEnumerationRecordStruct("SoftwareLicense")]
 public enum SoftwareLicenseEnum
 {
 

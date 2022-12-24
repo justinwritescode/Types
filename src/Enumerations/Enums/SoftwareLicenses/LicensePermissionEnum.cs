@@ -1,18 +1,19 @@
-// 
+//
 // PermissionEnum.cs
-// 
+//
 //   Created: 2022-11-02-12:21:17
 //   Modified: 2022-11-02-12:21:18
-// 
+//
 //   Author: Justin Chase <justin@justinwritescode.com>
-//   
+//
 //   Copyright © 2022 Justin Chase, All Rights Reserved
 //      License: MIT (https://opensource.org/licenses/MIT)
-// 
+//
 namespace JustinWritesCode.Enums.SoftwareLicenses;
 using System.ComponentModel.DataAnnotations;
 
-[GenerateEnumerationClass("LicensePermission")]
+/// <summary>Contains the permissions granted by a software license.</summary>
+[GenerateEnumerationRecordStruct("LicensePermission")]
 public enum LicensePermissionEnum
 {
     [Display(Name = "No Permission", ShortName = "none")]
@@ -33,7 +34,6 @@ public enum LicensePermissionEnum
     Use = 64,
 }
 
-public partial class LicensePermission 
+public partial record struct LicensePermission
 {
-    public LicensePermission() : this((int)LicensePermissionEnum.None, "None") {  }
 }

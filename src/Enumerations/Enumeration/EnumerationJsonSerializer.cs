@@ -16,13 +16,13 @@ using System.Text.Json.Serialization;
 public class EnumerationJsonConverter<TEnumeration> : JsonConverter<TEnumeration>
     where TEnumeration : class, IEnumeration
 {
-    public override TEnumeration? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    public override TEnumeration? Read(ref Utf8JsonReader reader, Type typeToConvert, Jso options)
     {
         var value = reader.GetString();
         return Enumeration.Parse<TEnumeration>(value);
     }
 
-    public override void Write(Utf8JsonWriter writer, TEnumeration value, JsonSerializerOptions options)
+    public override void Write(Utf8JsonWriter writer, TEnumeration value, Jso options)
     {
         writer.WriteStringValue(value.ToString());
     }

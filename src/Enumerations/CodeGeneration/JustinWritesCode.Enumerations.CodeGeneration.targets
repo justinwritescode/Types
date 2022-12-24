@@ -1,0 +1,25 @@
+<!--
+ * JustinWritesCode.Enumerations.CodeGeneration.targets
+ * 
+ *   Created: 2022-12-23-09:34:09
+ *   Modified: 2022-12-23-09:34:09
+ * 
+ *   Author: Justin Chase <justin@justinwritescode.com>
+ *   
+ *   Copyright © 2022 Justin Chase, All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project>
+  <Target Name="_PreparePackageContents" BeforeTargets="GetPackageContents">
+    <!-- don't do this in this project -->
+    <ItemGroup>
+      <RemovePackageFile Include="@(PackageFile)" Condition="$([System.String]::Copy('%(PackageFile.Identity)').IndexOf('CodeGeneration')) &lt; 0" />  
+    </ItemGroup>
+    <!-- <Message Text="Remove: @(RemovePackageFile)" Importance="High" /> -->
+    <!-- <Message Text="@(RemovePackageFile->'%(RemovePackageFile.Identity): %(RemovePackageFile.IndexOfCodeGeneration)'" Importance="High" /> -->
+    <ItemGroup>
+      <PackageFile Remove="@(RemovePackageFile)" />
+    </ItemGroup>
+  </Target>
+</Project>

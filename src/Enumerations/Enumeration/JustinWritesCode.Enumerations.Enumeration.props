@@ -13,6 +13,8 @@
 <Project>
     <ItemGroup>
         <Using Include="JustinWritesCode.Enumerations.Abstractions" />
-        <Using Include="Ardalis" />
+        <!-- <Using Include="Ardalis" /> -->
+        <!-- <PackageReferemce Include="Ardalis.SmartEnus" /> -->
+        <PackageReferemce Include="JustinWritesCode.Enumerations.Abstractions" />
     </ItemGroup>
 </Project>

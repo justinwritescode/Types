@@ -15,14 +15,9 @@ namespace JustinWritesCode.Enums;
 
 
 using System.ComponentModel.DataAnnotations;
-public partial class SoftwareLicense
+public partial record struct SoftwareLicense
 {
     // public virtual string Name => this.GetCustomAttribute<DisplayAttribute>().Name;
     // public virtual string ShortName => this.GetCustomAttribute<DisplayAttribute>().ShortName;
-    public virtual Uri Url => this.GetCustomAttribute<UriAttribute>().Uri;
-
-    public SoftwareLicense():base(10, SoftwareLicenseEnum.None, "None")
-    {
-        Console.WriteLine(this.Name);
-    }
+    // public Uri Url => this.GetCustomAttribute<UriAttribute>().Uri;
 }

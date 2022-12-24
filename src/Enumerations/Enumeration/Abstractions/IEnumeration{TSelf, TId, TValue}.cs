@@ -10,15 +10,13 @@
 //      License: MIT (https://opensource.org/licenses/MIT)
 //
 
-using System;
 namespace JustinWritesCode.Enumerations.Abstractions;
-using System.Reflection;
-using System.ComponentModel.DataAnnotations;
 using JustinWritesCode.Abstractions;
 
-public interface IEnumeration<TId, TValue> : IEnumeration<TId>, IIdentifiable<TId>
+public interface IEnumeration<TSelf, TId, TValue> : IEnumeration<TSelf>, IIdentifiable<TId>
     where TValue : IComparable<TValue>, IEquatable<TValue>
     where TId : IComparable, IComparable<TId>, IEquatable<TId>
+    where TSelf : struct, IEnumeration<TSelf, TId, TValue>
 {
     //TValue Value { get; }
     //DisplayAttribute? DisplayAttribute { get; }

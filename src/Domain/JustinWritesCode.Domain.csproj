@@ -12,7 +12,7 @@
 
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard1.3;netstandard1.5;netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
     <AssemblyName>JustinWritesCode.Domain</AssemblyName>
     <PackageId>JustinWritesCode.Domain</PackageId>
     <RootNamespace>JustinWritesCode.Domain</RootNamespace>
@@ -20,10 +20,32 @@
     <LangVersion>latest</LangVersion>
     <SlnGenSolutionFolder>Domain</SlnGenSolutionFolder>
     <ProjectGuid>{4E1F4A52-7F97-43E1-AAA6-2EEEE07326E6}</ProjectGuid>
+    <DefineConstants Condition="'$(TargetFramework)' == 'netstandard1.3'">$(DefineConstants);NETSTANDARD1_3</DefineConstants>
+    <DefineConstants Condition="'$(TargetFramework)' == 'netstandard1.5'">$(DefineConstants);NETSTANDARD1_5</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Local|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>DEBUG;TRACE;LOCAL;NETSTANDARD;NETSTANDARD1_5;</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-        <PackageReference Include="libphonenumber-csharp" />
+    <PackageReference Include="System.Text.RegularExpressions.Usings" />
+    <PackageReference Include="libphonenumber-csharp" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
+    <PackageReference Include="System.Text.Json" />
+    <PackageReference Include="Vogen" Condition="'$(TargetFramework)' != 'netstandard1.3' And '$(TargetFramework)' != 'netstandard1.5'"
+        IncludeAssets="Analyzers;Build;Lib;Runtime;Compile" PrivateAssets="All" />
   </ItemGroup>
+  <ItemGroup>
+<!--    <Compile Remove="./EmailAddress.cs" Condition="'$(TargetFramework)' == 'netstandard1.3' Or '$(TargetFramework)' == 'netstandard1.5'" />
+    <Compile Remove="./PhoneNumber.cs" Condition="'$(TargetFramework)' == 'netstandard1.3' Or '$(TargetFramework)' == 'netstandard1.5'" />
+    <Compile Remove="./TryCreateUriExtensions.cs" Condition="'$(TargetFramework)' == 'netstandard1.3' Or '$(TargetFramework)' == 'netstandard1.5'" />
+    <Compile Remove="./uri.cs" Condition="'$(TargetFramework)' == 'netstandard1.3' Or '$(TargetFramework)' == 'netstandard1.5'" />
+    <Compile Remove="./$(IntermediateOutputPath)**/*" Condition="'$(TargetFramework)' == 'netstandard1.3' Or '$(TargetFramework)' == 'netstandard1.5'" />-->
+  </ItemGroup>
+  <Target Name="___WriteStuff" AfterTargets="__WriteStuff">
+    <Message Importance="High" Text="Packages: %(PackageReference.Identity): %(PackageReference.Version); TargetFramework: $(TargetFramework)" />
+    <Message Importance="High" Text="DefineConstants: $(DefineConstants); TargetFramework: $(TargetFramework)" />
+  </Target>
 </Project>

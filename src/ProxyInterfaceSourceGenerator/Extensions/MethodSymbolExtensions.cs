@@ -2,7 +2,7 @@ using Microsoft.CodeAnalysis;
 
 namespace ProxyInterfaceSourceGenerator.Extensions;
 
-internal static class MethodSymbolExtensions
+public staticlass MethodSymbolExtensions
 {
     public static string GetMethodNameWithOptionalTypeParameters(this IMethodSymbol method) =>
         !method.IsGenericMethod ? method.Name : $"{method.Name}<{string.Join(", ", method.TypeParameters.Select(tp => tp.Name))}>";

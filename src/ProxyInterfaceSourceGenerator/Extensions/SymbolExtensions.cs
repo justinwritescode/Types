@@ -3,7 +3,7 @@ using Microsoft.CodeAnalysis.CSharp;
 
 namespace ProxyInterfaceSourceGenerator.Extensions;
 
-internal static class SymbolExtensions
+public static class SymbolExtensions
 {
     public static bool IsKeywordOrReserved(this ISymbol symbol) =>
         SyntaxFacts.GetKeywordKind(symbol.Name) != SyntaxKind.None || SyntaxFacts.GetContextualKeywordKind(symbol.Name) != SyntaxKind.None;

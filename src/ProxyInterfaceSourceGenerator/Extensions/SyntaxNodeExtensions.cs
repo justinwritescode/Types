@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace ProxyInterfaceSourceGenerator.Extensions;
 
-internal static class SyntaxNodeExtensions
+public static class SyntaxNodeExtensions
 {
     // https://stackoverflow.com/questions/20458457/getting-class-fullname-including-namespace-from-roslyn-classdeclarationsyntax
     public static bool TryGetParentSyntax<T>(this SyntaxNode? syntaxNode, [NotNullWhen(true)] out T? result) where T : SyntaxNode
@@ -70,7 +70,7 @@ internal static class SyntaxNodeExtensions
             // We have a namespace. Use that as the type
             nameSpace = namespaceParent.Name.ToString();
 
-            // Keep moving "out" of the namespace declarations until we 
+            // Keep moving "out" of the namespace declarations until we
             // run out of nested namespace declarations
             while (true)
             {

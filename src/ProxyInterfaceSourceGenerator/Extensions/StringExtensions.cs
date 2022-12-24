@@ -1,6 +1,6 @@
 namespace ProxyInterfaceSourceGenerator.Extensions;
 
-internal static class StringExtensions
+public static class StringExtensions
 {
     // See https://andrewlock.net/why-is-string-gethashcode-different-each-time-i-run-my-program-in-net-core/
     public static string GetDeterministicHashCodeAsString(this string str)

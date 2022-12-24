@@ -2,7 +2,7 @@ using Microsoft.CodeAnalysis;
 
 namespace ProxyInterfaceSourceGenerator.Extensions;
 
-internal static class NamedTypeSymbolExtensions
+public static class NamedTypeSymbolExtensions
 {
     public static List<INamedTypeSymbol> GetBaseTypes(this INamedTypeSymbol? type)
     {

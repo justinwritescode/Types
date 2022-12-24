@@ -4,7 +4,7 @@ using ProxyInterfaceSourceGenerator.Enums;
 
 namespace ProxyInterfaceSourceGenerator.Extensions;
 
-internal static class ParameterSymbolExtensions
+public static class ParameterSymbolExtensions
 {
     private const string ParameterValueNull = "null";
 

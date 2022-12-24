@@ -3,7 +3,7 @@ using ProxyInterfaceSourceGenerator.Models;
 
 namespace ProxyInterfaceSourceGenerator.Utils;
 
-internal static class MemberHelper
+public static class MemberHelper
 {
     private static readonly string[] ExcludedMethods = { "ToString", "GetHashCode" };
 

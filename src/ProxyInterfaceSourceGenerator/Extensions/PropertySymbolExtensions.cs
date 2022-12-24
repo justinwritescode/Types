@@ -3,7 +3,7 @@ using ProxyInterfaceSourceGenerator.Enums;
 
 namespace ProxyInterfaceSourceGenerator.Extensions;
 
-internal static class PropertySymbolExtensions
+public static class PropertySymbolExtensions
 {
     public static TypeEnum GetTypeEnum(this IPropertySymbol p) => p.Type.GetTypeEnum();
 

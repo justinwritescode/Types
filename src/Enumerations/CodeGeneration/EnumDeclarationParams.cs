@@ -16,7 +16,7 @@ using System.Linq;
 using System.Xml;
 using Microsoft.CodeAnalysis;
 
-internal record struct EnumDeclarationParams(string EnumerationClassName, string EnumNamespace, string Namespace, string EnumType, string Id_type, string Value_type, string XmlDocumentation, TypeToGenerate TypeToGenerate, string Values, string Fields)
+internal record struct EnumDeclarationParams(string EnumerationClassName, string EnumNamespace, string Namespace, string EnumType, string Id_type, string Value_type, string XmlDocumentation, string IsReadonly, TypeToGenerate TypeToGenerate, string Values, string Fields)
 {
     public string Documentation
     {

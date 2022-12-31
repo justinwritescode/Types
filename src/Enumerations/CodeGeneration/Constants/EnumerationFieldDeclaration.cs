@@ -17,12 +17,13 @@ public static partial class Constants
     // public static readonly string EnumerationFieldDeclaration =
     //     new StreamReader(typeof(Constants).Assembly.GetManifestResourceStream("JustinWritesCode.Enumerations.CodeGeneration.Resources.EnumerationFieldDeclaration.cs")).ReadToEnd().TrimFromSentinel();
     public const string EnumerationFieldDeclaration =
-""""
+$$$""""
 
 /**
     {{ documentation }}
 */
 [System.Runtime.CompilerServices.CompilerGenerated]
+[{{{GeneratedCodeAttribute}}}]
 public record struct {{ field_name }}
 {
     public static readonly {{ enumeration_class_name }} Instance = new {{ enumeration_class_name }}({{ id }}, ({{ enum_type }})({{ value }}), "{{ name }}");

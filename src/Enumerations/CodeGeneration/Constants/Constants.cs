@@ -9,6 +9,9 @@
 //   Copyright © 2022 Justin Chase, All Rights Reserved
 //      License: MIT (https://opensource.org/licenses/MIT)
 //
+
+using System.CodeDom.Compiler;
+
 namespace JustinWritesCode.Enumerations.CodeGeneration;
 public static partial class Constants
 {
@@ -41,6 +44,8 @@ public static partial class Constants
     public const string GenerateEnumerationClassAttribute = "GenerateEnumerationClassAttribute";
     public const string GenerateEnumerationStructAttribute = "GenerateEnumerationStructAttribute";
 
+    public const string GeneratedCodeAttribute = $"""GeneratedCode("{nameof(EnumerationTypeGenerator)}", "{ThisAssembly.Info.FileVersion}")""";
+
     public static readonly string[] GenerateEnumerationAttributeTypeNames = new[]
     {
         GenerateEnumerationRecordClassAttribute,
@@ -49,9 +54,17 @@ public static partial class Constants
         GenerateEnumerationStructAttribute
     };
 
+
+    [System.Diagnostics.CodeAnalysis.StringSyntax("csharp")]
     public const string GenerateEnumerationTypeAttributesDeclaration =
-    """""
-    [CompilerGenerated, AttributeUsage(AttributeTargets.Enum)]
+    $$"""""
+    #if !GENERATE_ENUMERATION_TYPE_ATTRIBUTES
+    #define GENERATE_ENUMERATION_TYPE_ATTRIBUTES
+
+    using System.CodeDom.Compiler;
+
+    #nullable enable
+    [CompilerGenerated, {{GeneratedCodeAttribute}}, AttributeUsage(AttributeTargets.Enum)]
     internal abstract class GenerateEnumerationTypeAttribute : Attribute
     {
         public bool GenerateStruct { get => !GenerateClass; set => GenerateClass = !value; }
@@ -113,10 +126,15 @@ public static partial class Constants
             GenerateRecord = false;
         }
     }
+
+    #endif
     """"";
 
     public const string TypeToGenerateEnumDeclaration =
     """
+    #if !TYPE_TO_GENERATE_ENUM_DEFINED
+    #define TYPE_TO_GENERATE_ENUM_DEFINED
+
     internal enum TypeToGenerate
     {
         RecordStruct,
@@ -124,6 +142,8 @@ public static partial class Constants
         Class,
         RecordClass
     }
+
+    #endif
     """;
 
     public static string TrimFromSentinel(this string input)

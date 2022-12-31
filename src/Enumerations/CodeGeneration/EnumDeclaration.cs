@@ -18,25 +18,26 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using static JustinWritesCode.Enumerations.CodeGeneration.Constants;
 
-internal record struct EnumDeclaration(EnumDeclarationSyntax SyntaxTree, SemanticModel SemanticModel, string EnumerationClassName = "", string EnumerationNamespace = "")
+internal record struct EnumDeclaration(EnumDeclarationSyntax SyntaxTree, SemanticModel SemanticModel, string EnumerationClassName = "", string EnumerationNamespace = "", TypeToGenerate TypeToGenerate = TypeToGenerate.RecordStruct)
 {
     public string EnumerationClassName { get; set; } = EnumerationClassName;
     public string EnumerationNamespace { get; set; } = EnumerationNamespace;
-    public TypeToGenerate TypeToGenerate
-    {
-        get
-        {
-            var enumType =  EnumerationTypeAttributeType switch {
-                GenerateEnumerationRecordStructAttribute => TypeToGenerate.RecordStruct,
-                GenerateEnumerationClassAttribute => TypeToGenerate.Class,
-                GenerateEnumerationRecordClassAttribute => TypeToGenerate.RecordClass,
-                GenerateEnumerationStructAttribute => TypeToGenerate.Struct,
-                _ => TypeToGenerate.RecordStruct
-            };
-            WriteLine($"TypeToGenerate ({EnumerationClassName}): {enumType}");
-            return enumType;
-        }
-    }
+    public TypeToGenerate TypeToGenerate { get; set; } = TypeToGenerate;
+    // {
+    //     get
+    //     {
+    //         var enumType =  EnumerationTypeAttributeType switch {
+    //             GenerateEnumerationRecordStructAttribute => TypeToGenerate.RecordStruct,
+    //             GenerateEnumerationClassAttribute => TypeToGenerate.Class,
+    //             GenerateEnumerationRecordClassAttribute => TypeToGenerate.RecordClass,
+    //             GenerateEnumerationStructAttribute => TypeToGenerate.Struct,
+    //             _ => TypeToGenerate.RecordStruct
+    //         };
+    //         WriteLine($"TypeToGenerate ({EnumerationClassName}): {enumType}");
+    //         return _typeToGenerate ??= enumType;
+    //     }
+    //     set => _typeToGenerate = value;
+    // }
 
     private AttributeSyntax? _enumerationTypeAttributeDeclaration = null;
     public AttributeSyntax EnumerationTypeAttributeDeclaration

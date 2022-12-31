@@ -1,0 +1,29 @@
+<!--
+ * JustinWritesCode.RegexDtoGenerator.Samples.csproj
+ * 
+ *   Created: 2022-12-28-11:49:14
+ *   Modified: 2022-12-28-11:49:16
+ * 
+ *   Author: Justin Chase <justin@justinwritescode.com>
+ *   
+ *   Copyright © 2022 Justin Chase, All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project Sdk="Microsoft.NET.Sdk" InitialTargets="Clean">
+  <PropertyGroup>
+    <TargetFrameworks>net7.0</TargetFrameworks>
+    <IntermediateOutputPath Condition="'$(IntermediateOutputPath)' == ''">obj/</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- <PackageReference Include="JustinWritesCode.RegexDtoGenerator" IncludeAssets="Analyzers;Build" ExcludeAssets="ContentFiles; Lib; Source; Native; Runtime" PrivateAssets="All" /> -->
+    <PackageReference Include="System.Threading.Tasks.Extensions" VersionOverride="[4.5.4,)" />
+    <PackageReference Include="System.Text.Json" />
+    <ProjectReference Include="../src/JustinWritesCode.RegexDtoGenerator.csproj" ReferenceOutputAssembly="false" OutputItemType="Analyzer" IncludeAssets="Analyzers;Build" ExcludeAssets="ContentFiles; Lib; Source; Native; Runtime" PrivateAssets="All" />
+    <!-- <PackageReference Include="JustinWritesCode.RegexDtoGenerator" ReferenceOutputAssembly="false" OutputItemType="Analyzer" IncludeAssets="Analyzers;Build" ExcludeAssets="ContentFiles; Lib; Source; Native;" PrivateAssets="All" /> -->
+  </ItemGroup>
+
+  <Target Name="Clean">
+    <RemoveDir Directories="$(BaseIntermediateOutputPath);$(IntermediateOutputPath)" />
+  </Target>
+</Project>

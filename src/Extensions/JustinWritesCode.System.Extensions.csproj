@@ -13,8 +13,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.3;netstandard1.5;netstandard2.0;netstandard2.1;netcoreapp3.1;net6.0;net7.0</TargetFrameworks>
-    <!-- <TargetFramework>netstandard1.3</TargetFramework> -->
+    <TargetFrameworks>netstandard1.0;netstandard2.0;net6.0</TargetFrameworks>
+    <!-- <TargetFramework>net7.0</TargetFramework> -->
     <PackageId>JustinWritesCode.System.Extensions</PackageId>
     <RootNamespace>System.Extensions</RootNamespace>
     <AssemblyName>JustinWritesCode.System.Extensions</AssemblyName>
@@ -25,24 +25,6 @@
     <Description>Extensions and utility classes for the System namespace</Description>
     <DefineConstants>$(DefineConstants);DEFINE_INTERNAL;</DefineConstants>
     <NoBuild>true</NoBuild>
-    <!-- <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <IncludeBuiltProjectOutputGroup>true</IncludeBuiltProjectOutputGroup>
-    <IncludeComFilesOutputGroup>true</IncludeComFilesOutputGroup>
-    <IncludeSourceFilesProjectOutputGroup>true</IncludeSourceFilesProjectOutputGroup>
-    <IncludeContentFilesProjectOutputGroup>true</IncludeContentFilesProjectOutputGroup>
-    <IncludeDocumentationProjectOutputGroup>true</IncludeDocumentationProjectOutputGroup>
-    <IncludeSymbolsProjectOutputGroup>true</IncludeSymbolsProjectOutputGroup>
-    <IncludeSymbols>true</IncludeSymbols>
-    <IncludeDebugSymbolsProjectOutputGroup>true</IncludeDebugSymbolsProjectOutputGroup>
-    <IncludeCopyLocalFilesOutputGroup>true</IncludeCopyLocalFilesOutputGroup>
-    <IncludeGetResolvedSDKReferences>true</IncludeGetResolvedSDKReferences>
-    <IncludeSDKRedistOutputGroup>true</IncludeSDKRedistOutputGroup>
-    <IncludeCustomOutputGroupForPackaging>true</IncludeCustomOutputGroupForPackaging>
-    <IncludeCopyWinmdArtifactsOutputGroup>true</IncludeCopyWinmdArtifactsOutputGroup>
-    <IncludeTransitiveProjectReferences>true</IncludeTransitiveProjectReferences>
-    <IncludeSource>true</IncludeSource>
-    <IsNuGetized>true</IsNuGetized>
-    <IsPackable>true</IsPackable> -->
   </PropertyGroup>
   <ItemGroup>
    <PackageReference Include="System.Usings" />
@@ -58,5 +40,7 @@
     <!-- <Compile Remove="@(Compile)" /> -->
     <!-- <Using Remove="@(Using)" /> -->
     <None Remove="**/$(AssemblyName).*" />
+    <Using Remove="System.Net.Http" />
+    <Using Remove="System.Console" />
   </ItemGroup>
 </Project>

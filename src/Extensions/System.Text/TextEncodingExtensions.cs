@@ -3,7 +3,7 @@ using static System.Text.Encoding;
 
 /// <summary>A collection of methods that expose the functionality of <see cref="System.Text.Encoding"/>'s public static instance members statically.</summary>
 // #if DEFINE_INTERNAL
-internal static class TextEncodingExtensions
+public static class TextEncodingExtensions
 // #else
 // public static class TextEncodingExtensions
 // #endif
@@ -17,7 +17,7 @@ internal static class TextEncodingExtensions
     /// <summary>Calls <see cref="Encoding.UTF8" />.GetString(<paramref name="bytes"/>)</summary>
     /// <param name="bytes">The byte array to decode</param>
     /// <returns>The UTF8 decoded string</returns>
-    public static string GetUTF8String(byte[] bytes) => UTF8.GetString(bytes);
+    public static string GetUTF8String(byte[] bytes) => UTF8.GetString(bytes, 0, bytes.Length);
     /// <inheritdoc cref="GetUTF8String(byte[])" />
     public static string ToUTF8String(this byte[] bytes) => GetUTF8String(bytes);
 
@@ -30,14 +30,15 @@ internal static class TextEncodingExtensions
     /// <summary>Calls <see cref="Encoding.Unicode" />.GetString(<paramref name="bytes"/>)</summary>
     /// <param name="bytes">The byte array to decode</param>
     /// <returns>The Unicode decoded string</returns>
-    public static string GetUnicodeString(byte[] bytes) => Encoding.Unicode.GetString(bytes);
+    public static string GetUnicodeString(byte[] bytes) => Encoding.Unicode.GetString(bytes, 0, bytes.Length);
     /// <inheritdoc cref="GetUnicodeString(byte[])" />
     public static string ToUnicodeString(this byte[] bytes) => GetUnicodeString(bytes);
 
+#if NETSTANDARD2_0_OR_GREATER
     /// <summary>Calls <see cref="Encoding.ASCII" />.GetBytes(<paramref name="s"/>)</summary>
     /// <param name="s">The string to encode</param>
     /// <returns>The ASCII encoded byte string</returns>
-    public static byte[] GetAsciiBytes(string s) => ASCII.GetBytes(s);
+    public static byte[] GetAsciiBytes(string s) => Encoding.ASCII.GetBytes(s);
     /// <summary>Calls <see cref="Encoding.ASCII" />.GetString(<paramref name="bytes"/>)</summary>
     /// <param name="bytes">The byte array to decode</param>
     /// <returns>The ASCII decoded string</returns>
@@ -61,4 +62,5 @@ internal static class TextEncodingExtensions
     [Obsolete("Encoding.UTF7' is obsolete: The UTF-7 encoding is insecure and should not be used. Consider using UTF-8 instead.")]
 #endif
     public static string GetUTF7String(byte[] bytes) => UTF7.GetString(bytes);
+#endif
 }

@@ -10,6 +10,8 @@
  *      License: MIT (https://opensource.org/licenses/MIT)
  */
 
+#if !DEFAULTABLE_DICTIONARY
+#define DEFAULTABLE_DICTIONARY
 namespace System.Collections.Generic;
 
 /// <summary>A wrapper around a <see cref="Dictionary{TKey, TValue}"/> that allows for a default value to be returned when a key is not found rather than throwing an exception.</summary>
@@ -30,9 +32,10 @@ namespace System.Collections.Generic;
 ///     </code>
 /// </example>
 public class DefaultableDictionary<TKey, TValue> : IDictionary<TKey, TValue>
+    where TKey : notnull
 {
     public TValue DefaultValue { get; init; }
-    private readonly Dictionary<TKey, TValue> _dictionary = new Dictionary<TKey, TValue>();
+    private readonly Dictionary<TKey, TValue> _dictionary = new();
     public DefaultableDictionary() : this(default(TValue)) {  }
     public DefaultableDictionary(IDictionary<TKey, TValue> original) : this(default, original, EqualityComparer<TKey>.Default) {  }
     public DefaultableDictionary(IDictionary<TKey, TValue> original, IEqualityComparer<TKey> keyComparer) : this(default, original, keyComparer) {  }
@@ -69,3 +72,4 @@ public class DefaultableDictionary<TKey, TValue> : IDictionary<TKey, TValue>
     public virtual IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator() => ((IEnumerable<KeyValuePair<TKey, TValue>>)this._dictionary).GetEnumerator();
     IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)this._dictionary).GetEnumerator();
 }
+#endif

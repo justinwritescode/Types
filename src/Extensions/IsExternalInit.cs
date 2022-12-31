@@ -1,3 +1,6 @@
+#if !IS_EXTERNALI_INIT_DEFINED
+#define IS_EXTERNALI_INIT_DEFINED
 namespace System.Runtime.CompilerServices;
 
-public class IsExternalInit { }
+internal class IsExternalInit { }
+#endif

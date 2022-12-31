@@ -15,7 +15,7 @@
 namespace System;
 using static System.Math;
 // #if DEFINE_INTERNAL
-internal static class MathExtensions
+public static class MathExtensions
 // #else
 // public static class MathExtensions
 // #endif

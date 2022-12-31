@@ -15,9 +15,9 @@ using System.Collections.Generic;
 namespace System.Linq;
 
 // #if DEFINE_INTERNAL
-internal static class JustinsEnumerableExtensions
+public static class JustinsLinqExtensions
 // #else
-// public static class JustinsEnumerableExtensions
+// public static class JustinsLinqExtensions
 // #endif
 {
     /// <summary>

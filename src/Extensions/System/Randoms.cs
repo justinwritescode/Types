@@ -12,14 +12,16 @@
 
 using System;
 using System.Linq;
+using System.Xml.Schema;
 
 namespace System;
 using static System.Convert;
 using static System.Math;
 
+
 /// <summary>Extensions to the <see cref="Random" /> class</summary>
 // #if DEFINE_INTERNAL
-internal class Randoms : Random
+public sealed class Randoms : Random
 // #else
 // public class Randoms : System.Random
 // #endif
@@ -61,66 +63,108 @@ internal class Randoms : Random
     /// <param name="from">The lower bound of the range to generate the Next number</param>
     /// <param name="to">The upper bound of the range to generate the Next number</param>
     public static sbyte NextInt8(sbyte from = sbyte.MinValue, sbyte to = sbyte.MaxValue) => ToSByte(from + (NextInt8() % (to - from)));
+    #region Int16
+
+    /// <summary>Generates <inheritdoc cref="NextInt16()" path="/returns"/></summary>
+    /// <returns>a new signed  <see langword="short" /> value</returns>
+    public static short NextInt16() => ToInt16(NextGuid().ToByteArray());
+
+    /// <summary>Generates <inheritdoc cref="NextInt16( short, short)" path="/returns"/></summary>
+    /// <returns><inheritdoc cref="NextInt16()" path="/returns"/> in the range [<paramref name="from"/>, <paramref name="to"/>]</returns>
+    /// <param name="from">The lower bound of the range to generate the Next number</param>
+    /// <param name="to">The upper bound of the range to generate the Next number</param>
+    public static short NextInt16(short from = short.MinValue, short to = short.MaxValue) => ToInt16(Abs(from + (NextInt16() % (to - from))));
+
+    /// <summary>Generates <inheritdoc cref="NextUInt16()" path="/returns"/></summary>
+    /// <returns>a new unsigned 16-bit integer value</returns>
+    public static short NextUInt16() => ToInt16(NextGuid().ToByteArray());
+
+    /// <summary>Generates <inheritdoc cref="NextUInt16(ushort,ushort)" path="/returns"/></summary>
+    /// <returns><inheritdoc cref="NextUInt16()" path="/returns"/> in the range [<paramref name="from"/>, <paramref name="to"/>]</returns>
+    /// <param name="from">The lower bound of the range to generate the Next number</param>
+    /// <param name="to">The upper bound of the range to generate the Next number</param>
+    public static ushort NextUInt16(ushort from = ushort.MinValue, ushort to = ushort.MaxValue) => ToUInt16(Abs(from + (NextUInt16() % (to - from))));
+    #endregion
+
+    #region Int32
 
     /// <summary>Generates <inheritdoc cref="NextInt32()" path="/returns"/></summary>
     /// <returns>a new signed  int value</returns>
-    public static  int NextInt32() => ToInt32(NextGuid().ToByteArray());
+    public static int NextInt32() => ToInt32(NextGuid().ToByteArray());
 
     /// <summary>Generates <inheritdoc cref="NextInt32( int, int)" path="/returns"/></summary>
     /// <returns><inheritdoc cref="NextInt32()" path="/returns"/> in the range [<paramref name="from"/>, <paramref name="to"/>]</returns>
     /// <param name="from">The lower bound of the range to generate the Next number</param>
     /// <param name="to">The upper bound of the range to generate the Next number</param>
-    public static  int NextInt32( int from =  int.MinValue,  int to =  int.MaxValue) => Abs(from + (NextInt32() % (to - from)));
+    public static int NextInt32(int from = int.MinValue, int to = int.MaxValue) => Abs(from + (NextInt32() % (to - from)));
 
     /// <summary>Generates <inheritdoc cref="NextUInt32()" path="/returns"/></summary>
     /// <returns>a new unsigned 32-bit integer value</returns>
-    public static  int NextUInt32() => ToInt32(NextGuid().ToByteArray());
+    public static int NextUInt32() => ToInt32(NextGuid().ToByteArray());
 
     /// <summary>Generates <inheritdoc cref="NextUInt32(UInt32,UInt32)" path="/returns"/></summary>
     /// <returns><inheritdoc cref="NextUInt32()" path="/returns"/> in the range [<paramref name="from"/>, <paramref name="to"/>]</returns>
     /// <param name="from">The lower bound of the range to generate the Next number</param>
     /// <param name="to">The upper bound of the range to generate the Next number</param>
     public static UInt32 NextUInt32(UInt32 from = UInt32.MinValue, UInt32 to = UInt32.MaxValue) => ToUInt32(Abs(from + (NextUInt32() % (to - from))));
+    #endregion
 
-    /// <summary>Generates <inheritdoc cref="NextInt64()" path="/returns"/></summary>
-    /// <returns>a new signed 64-bit integer value</returns>
-    public static  long NextInt64() => ToInt64(NextGuid().ToByteArray());
+    // /// <summary>Generates <inheritdoc cref="NextInt64()" path="/returns"/></summary>
+    // /// <returns>a new signed 64-bit integer value</returns>
+    //     public static new long NextInt64() => ToInt64(NextGuid().ToByteArray());
 
-    /// <summary>Generates <inheritdoc cref="NextInt64(long, long)" path="/returns"/></summary>
-    /// <returns><inheritdoc cref="NextInt64()" path="/returns"/> in the range [<paramref name="from"/>, <typeref name=" int" /><paramref name="to"/>]</returns>
+    /// <summary>Generates <inheritdoc cref="NextUInt64(long, long)" path="/returns"/></summary>
+    /// <returns><inheritdoc cref="NextUInt64()" path="/returns"/> in the range [<paramref name="from"/>,<paramref name="to"/>]</returns>
     /// <param name="from">The lower bound of the range to generate the Next number</param>
     /// <param name="to">The upper bound of the range to generate the Next number</param>
-    public static  long NextInt64( long from =  long.MinValue,  long to =  long.MaxValue) => from + (NextInt64() % (to - from));
+    public static  long NextUInt64( long from =  long.MinValue,  long to =  long.MaxValue) => from + (NextInt64() % (to - from));
 
     /// <summary>Generates <inheritdoc cref="NextUInt64()" path="/returns"/></summary>
     /// <returns>a new unsigned 64-bit integer value</returns>
     public static UInt64 NextUInt64() => ToUInt64(NextGuid().ToByteArray());
 
-    /// <summary>Generates <inheritdoc cref="NextUInt64(UInt64,UInt64)" path="/returns"/></summary>
-    /// <returns><inheritdoc cref="NextUInt64()" path="/returns"/> in the range [<paramref name="from"/>, <typeref name=" int" /><paramref name="to"/>]</returns>
+
+    /// <summary>Generates <inheritdoc cref="NextUInt64()" path="/returns"/></summary>
+    /// <returns><inheritdoc cref="NextUInt64()" path="/returns"/></returns>
+    public static
+#if NET6_0_OR_GREATER
+    new
+#endif
+    long NextInt64() => ToInt64(NextGuid().ToByteArray());
+
+    /// <summary>Generates <inheritdoc cref="NextInt64(long, long)" path="/returns"/></summary>
+    /// <returns><inheritdoc cref="NextInt64()" path="/returns"/> in the range [<paramref name="from"/>,<paramref name="to"/>]</returns>
     /// <param name="from">The lower bound of the range to generate the Next number</param>
     /// <param name="to">The upper bound of the range to generate the Next number</param>
-    public static UInt64 NextUInt64(UInt64 from = UInt64.MinValue, UInt64 to = UInt64.MaxValue) => from + (NextUInt64() % (to - from));
+    public static
+#if NET6_0_OR_GREATER
+    new
+#endif
+    long NextInt64(long from = long.MinValue, long to = long.MaxValue) => from + (NextInt64() % (to - from));
 
-    /// <summary>Generates <inheritdoc cref="NextInt16()" path="/returns"/></summary>
-    /// <returns> a new signed Int16 value</returns>
-    public static Int16 NextInt16() => ToInt16(NextGuid().ToByteArray());
 
-    /// <summary>Generates <inheritdoc cref="NextInt16(Int16,Int16)" path="/returns"/></summary>
-    /// <returns><inheritdoc cref="NextInt16()" path="/returns"/> in the range [<paramref name="from"/>, <typeref name=" int" /><paramref name="to"/>]</returns>
+    public static bool NextBoolean(double pTrue = 0.5) => NextInt32() % ToInt32(1 / pTrue) == 0;
+
+#if NET7_0_OR_GREATER
+    /// <summary>Generates <inheritdoc cref="NextInt128()" path="/returns" /> in the range [<paramref name="from"/>,<paramref name="to"/>]</summary>
+    /// <returns><inheritdoc cref="NextInt128()" path="/returns"/> in the range [<paramref name="from"/>, <paramref name="to"/>]</returns>
     /// <param name="from">The lower bound of the range to generate the Next number</param>
     /// <param name="to">The upper bound of the range to generate the Next number</param>
-    public static Int16 NextInt16(Int16 from, Int16 to) => ToInt16(from + (NextInt16() % (to - from)));
+    public static vlong NextInt128(vlong? from = null, vlong? to = null) => (from ?? vlong.MinValue) + (NextInt128() % (to ?? vlong.MaxValue - from ?? vlong.MinValue));
 
-    /// <summary>Generates <inheritdoc cref="NextUInt16()" path="/returns"/></summary>
-    /// <returns> a new unsigned Int16 value</returns>
-    public static UInt16 NextUInt16() => ToUInt16(NextGuid().ToByteArray());
+    /// <summary>Generates <inheritdoc cref="NextInt128()" path="/returns"/></summary>
+    /// <returns>a new <see cref="Int128" /></returns>
+    public static vlong NextInt128() => new vlong(NextUInt64(), NextUInt64());
 
-    /// <summary>Generates <inheritdoc cref="NextUInt16(UInt16,UInt16)" path="/returns"/></summary>
-    /// <returns><inheritdoc cref="NextUInt16()" path="/returns"/> in the range [<paramref name="from"/>, <typeref name=" int" /><paramref name="to"/>]</returns>
+
+    /// <summary>Generates <inheritdoc cref="NextUInt128()" path="/returns" /> in the range [<paramref name="from"/>,<paramref name="to"/>]</summary>
+    /// <returns><inheritdoc cref="NextUInt128()" path="/returns"/> in the range [<paramref name="from"/>, <paramref name="to"/>]</returns>
     /// <param name="from">The lower bound of the range to generate the Next number</param>
     /// <param name="to">The upper bound of the range to generate the Next number</param>
-    public static UInt16 NextUInt16(UInt16 from, UInt16 to) => ToUInt16(from + (NextUInt16() % (to - from)));
+    public static uvlong NextUInt128(uvlong? from = null, uvlong? to = null) => (from ?? uvlong.MinValue) + (NextUInt128() % (to ?? uvlong.MaxValue - from ?? uvlong.MinValue));
 
-    public static bool NextBoolean(double pTrue = 0.5) => NextInt32() % (ToInt32(1 / pTrue)) == 0;
+    /// <summary>Generates <inheritdoc cref="NextUInt128()" path="/returns"/></summary>
+    /// <returns>a new <see cref="UInt128" /></returns>
+    public static uvlong NextUInt128() => new uvlong(NextUInt64(), NextUInt64());
+#endif
 }

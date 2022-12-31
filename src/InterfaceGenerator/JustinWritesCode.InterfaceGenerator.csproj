@@ -1,8 +1,8 @@
 <!--
- * InterfaceGenerator.csproj
+ * JustinWritesCode.InterfaceGenerator.csproj
  * 
- *   Created: 2022-11-11-03:54:47
- *   Modified: 2022-11-11-03:57:51
+ *   Created: 2022-12-31-03:08:33
+ *   Modified: 2022-12-31-03:08:33
  * 
  *   Author: Justin Chase <justin@justinwritescode.com>
  *   
@@ -10,60 +10,12 @@
  *      License: MIT (https://opensource.org/licenses/MIT)
 -->
 
-<Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
-        <ProjectGuid>{6d73afe7-686a-4f44-9776-18578abaee92}</ProjectGuid>
-        <LangVersion>preview</LangVersion>
-        <Nullable>enable</Nullable>
-        <Title>InterfaceGenerator</Title>
-        <PackageId>JustinWritesCode.InterfaceGenerator</PackageId>
-        <Description>This project uses Source Generation to generate an interface and a Proxy class for classes. This makes it possible to wrap external classes which do not have an interface, in a Proxy class which makes it easier to Mock and use DI.</Description>
-        <MinVerTagPrefix>igen-v</MinVerTagPrefix>
-        <EnableGlobalCodeGenerators>false</EnableGlobalCodeGenerators>
-        <OutputPath>analyzers/dotnet/cs</OutputPath>
-    </PropertyGroup>
-
-    <ItemGroup>
-        <Using Include="JustinWritesCode.InterfaceGenerator.Constants" Static="true" />
-        <Using Include="System.Diagnostics" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <PackageTag Include="interface" />
-        <PackageTag Include="SourceGenerator" />
-        <PackageTag Include="Analyzer" />
-        <PackageTag Include="Generation" />
-        <PackageTag Include="Code-Generation" />
-        <PackageTag Include="Source-Generation" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" />
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" PrivateAssets="all" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <None Remove="$(OutputPath)$(AssemblyName).dll" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <Content Include="$(OutputPath)$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <Compile Remove="./Resources/**/*.cs" />
-        <EmbeddedResource Include="./Resources/**/*/cs" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <PackageReference Include="JustinWritesCode.CodeGeneration.Extensions" IncludeAssets="ContentFiles; Build" PrivateAssets="None" />
-        <PackageReference Include="JustinWritesCode.CodeGeneration.Constants"  IncludeAssets="ContentFiles; Build" PrivateAssets="None"  />
-    </ItemGroup>
-
-    <ItemGroup>
-        <PackageFile Include="./README.md" PackagePath="" />
-    </ItemGroup>
-
+<Project Sdk="Microsoft.Build.Traversal">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="./src/JustinWritesCode.InterfaceGenerator.csproj" />
+    <ProjectReference Include="./samples/JustinWritesCode.InterfaceGenerator.Samples.csproj" />
+  </ItemGroup>
 </Project>

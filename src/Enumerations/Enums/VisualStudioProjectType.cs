@@ -14,5 +14,5 @@ namespace JustinWritesCode.Enums;
 
 public partial record struct VisualStudioProjectType //: Enumerations.Enumeration<VisualStudioProjectTypeEnumeration, VisualStudioProjectType>
 {
-    // public Guid Guid => this.GetCustomAttribute<GuidAttribute>().Guid;
+    public Guid Guid => this.GetCustomAttribute<GuidAttribute>().Guid;
 }

@@ -10,7 +10,7 @@
       License: MIT (https://opensource.org/licenses/MIT)
 -->
 
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.Build.Traversal">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>JustinWritesCode.Enumerations</PackageId>

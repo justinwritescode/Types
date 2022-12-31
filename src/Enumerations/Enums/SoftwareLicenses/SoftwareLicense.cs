@@ -15,9 +15,9 @@ namespace JustinWritesCode.Enums;
 
 
 using System.ComponentModel.DataAnnotations;
-public partial record struct SoftwareLicense
+public partial record struct SoftwareLicense// : IEnumeration, IEnumeration<SoftwareLicense, Int32>, IEquatable<SoftwareLicenseEnum>, IComparable<SoftwareLicenseEnum>, IHaveAValue<SoftwareLicenseEnum>, IHaveAValue, IIdentifiable<Int32>, IIdentifiable, IComparable<SoftwareLicense>, IEquatable<SoftwareLicense>
 {
     // public virtual string Name => this.GetCustomAttribute<DisplayAttribute>().Name;
     // public virtual string ShortName => this.GetCustomAttribute<DisplayAttribute>().ShortName;
-    // public Uri Url => this.GetCustomAttribute<UriAttribute>().Uri;
+    public Uri Url => GetCustomAttribute<UriAttribute>().Uri;
 }

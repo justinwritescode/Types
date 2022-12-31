@@ -2,740 +2,788 @@ namespace JustinWritesCode.Enums;
 using System.ComponentModel.DataAnnotations;
 
 // [GenerateEnumerationRecordStruct]
-public enum LanguageCodeEnum
+public enum LanguageEnum
 {
     /// <summary>Afar (aa)</summary>
     /// <value>aa</value>
     [Display(Name = "Afar", ShortName = "aa")]
-    aa,
+    Afar,
     /// <summary>Abkhazian (ab)</summary>
     /// <value>ab</value>
     [Display(Name = "Abkhazian", ShortName = "ab")]
-    ab,
+    Abkhazian,
     /// <summary>Avestan (ae)</summary>
     /// <value>ae</value>
     [Display(Name = "Avestan", ShortName = "ae")]
-    ae,
+    Avestan,
     /// <summary>Afrikaans (af)</summary>
     /// <value>af</value>
     [Display(Name = "Afrikaans", ShortName = "af")]
-    af,
+    Afrikaans,
     /// <summary>Akan (ak)</summary>
     /// <value>ak</value>
     [Display(Name = "Akan", ShortName = "ak")]
-    ak,
+    Akan,
     /// <summary>Amharic (am)</summary>
     /// <value>am</value>
     [Display(Name = "Amharic", ShortName = "am")]
-    am,
+    Amharic,
     /// <summary>Aragonese (an)</summary>
     /// <value>an</value>
     [Display(Name = "Aragonese", ShortName = "an")]
-    an,
+    Aragonese,
     /// <summary>Arabic (ar)</summary>
     /// <value>ar</value>
     [Display(Name = "Arabic", ShortName = "ar")]
-    ar,
+    Arabic,
     /// <summary>Assamese (as)</summary>
     /// <value>as</value>
     [Display(Name = "Assamese", ShortName = "as")]
-    @as,
+    Assamese,
     /// <summary>Avaric (av)</summary>
     /// <value>av</value>
     [Display(Name = "Avaric", ShortName = "av")]
-    av,
+    Avaric,
     /// <summary>Aymara (ay)</summary>
     /// <value>ay</value>
     [Display(Name = "Aymara", ShortName = "ay")]
-    ay,
+    Aymara,
     /// <summary>Azerbaijani (az)</summary>
     /// <value>az</value>
     [Display(Name = "Azerbaijani", ShortName = "az")]
-    az,
+    Azerbaijani,
     /// <summary>Bashkir (ba)</summary>
     /// <value>ba</value>
     [Display(Name = "Bashkir", ShortName = "ba")]
-    ba,
+    Bashkir,
     /// <summary>Belarusian (be)</summary>
     /// <value>be</value>
     [Display(Name = "Belarusian", ShortName = "be")]
-    be,
+    Belarusian,
     /// <summary>Bulgarian (bg)</summary>
     /// <value>bg</value>
     [Display(Name = "Bulgarian", ShortName = "bg")]
-    bg,
+    Bulgarian,
     /// <summary>Bihari languages (bh)</summary>
     /// <value>bh</value>
     [Display(Name = "Bihari languages", ShortName = "bh")]
-    bh,
+    Bihari,
     /// <summary>Bislama (bi)</summary>
     /// <value>bi</value>
     [Display(Name = "Bislama", ShortName = "bi")]
-    bi,
+    Bislama,
     /// <summary>Bambara (bm)</summary>
     /// <value>bm</value>
     [Display(Name = "Bambara", ShortName = "bm")]
-    bm,
+    Bambara,
     /// <summary>Bengali (bn)</summary>
     /// <value>bn</value>
     [Display(Name = "Bengali", ShortName = "bn")]
-    bn,
+    Bengali,
     /// <summary>Tibetan (bo)</summary>
     /// <value>bo</value>
     [Display(Name = "Tibetan", ShortName = "bo")]
-    bo,
+    Tibetan,
     /// <summary>Breton (br)</summary>
     /// <value>br</value>
     [Display(Name = "Breton", ShortName = "br")]
-    br,
+    Breton,
     /// <summary>Bosnian (bs)</summary>
     /// <value>bs</value>
     [Display(Name = "Bosnian", ShortName = "bs")]
-    bs,
+    Bosnian,
     /// <summary>Catalan; Valencian (ca)</summary>
     /// <value>ca</value>
-    [Display(Name = "Catalan; Valencian", ShortName = "ca")]
-    ca,
+    [Display(Name = "Catalan", ShortName = "ca")]
+    Catalan,
+    /// <summary>Valencian (ca)</summary>
+    /// <value>ca</value>
+    [Display(Name = "Valencian", ShortName = "ca")]
+    Valencian = Catalan,
     /// <summary>Chechen (ce)</summary>
     /// <value>ce</value>
     [Display(Name = "Chechen", ShortName = "ce")]
-    ce,
+    Chechen,
     /// <summary>Chamorro (ch)</summary>
     /// <value>ch</value>
     [Display(Name = "Chamorro", ShortName = "ch")]
-    ch,
+    Chamorro,
     /// <summary>Corsican (co)</summary>
     /// <value>co</value>
     [Display(Name = "Corsican", ShortName = "co")]
-    co,
+    Corsican,
     /// <summary>Cree (cr)</summary>
     /// <value>cr</value>
     [Display(Name = "Cree", ShortName = "cr")]
-    cr,
+    Cree,
     /// <summary>Czech (cs)</summary>
     /// <value>cs</value>
     [Display(Name = "Czech", ShortName = "cs")]
-    cs,
-    /// <summary>Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic (cu)</summary>
+    Czech,
+    /// <summary>Church Slavic (cu)</summary>
     /// <value>cu</value>
-    [Display(Name = "Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic", ShortName = "cu")]
-    cu,
+    [Display(Name = "Church Slavic", ShortName = "cu")]
+    ChurchSlavic,
+    /// <summary>Old Slavonic (cu)</summary>
+    /// <value>cu</value>
+    [Display(Name = "Old Slavonic", ShortName = "cu")]
+    OldSlavonic = ChurchSlavic,
+    /// <summary>Church Slavonic (cu)</summary>
+    /// <value>cu</value>
+    [Display(Name = "Church Slavonic", ShortName = "cu")]
+    ChurchSlavonic = ChurchSlavic,
+    /// <summary>Old Bulgarian (cu)</summary>
+    /// <value>cu</value>
+    [Display(Name = "Old Bulgarian", ShortName = "cu")]
+    OldBulgarian = ChurchSlavic,
+    /// <summary> Old Church Slavonic (cu)</summary>
+    /// <value>cu</value>
+    [Display(Name = "Old Church Slavonic", ShortName = "cu")]
+    OldChurchSlavonic = ChurchSlavic,
     /// <summary>Chuvash (cv)</summary>
     /// <value>cv</value>
     [Display(Name = "Chuvash", ShortName = "cv")]
-    cv,
+    Chuvash,
     /// <summary>Welsh (cy)</summary>
     /// <value>cy</value>
     [Display(Name = "Welsh", ShortName = "cy")]
-    cy,
+    Welsh,
     /// <summary>Danish (da)</summary>
     /// <value>da</value>
     [Display(Name = "Danish", ShortName = "da")]
-    da,
+    Danish,
     /// <summary>German (de)</summary>
     /// <value>de</value>
     [Display(Name = "German", ShortName = "de")]
-    de,
+    German,
     /// <summary>Divehi; Dhivehi; Maldivian (dv)</summary>
     /// <value>dv</value>
-    [Display(Name = "Divehi; Dhivehi; Maldivian", ShortName = "dv")]
-    dv,
+    [Display(Name = "Divehi  (dv)", ShortName = "dv")]
+    Divehi,
+    /// <summary>Divehi; Dhivehi; Maldivian (dv)</summary>
+    /// <value>dv</value>
+    [Display(Name = "Dhivehi  (dv)", ShortName = "dv")]
+    Dhivehi = Divehi,
+    /// <summary>Divehi; Dhivehi; Maldivian (dv)</summary>
+    /// <value>dv</value>
+    [Display(Name = "Maldivian (dv)", ShortName = "dv")]
+    Maldivian = Divehi,
     /// <summary>Dzongkha (dz)</summary>
     /// <value>dz</value>
     [Display(Name = "Dzongkha", ShortName = "dz")]
-    dz,
+    Dzongkha,
     /// <summary>Ewe (ee)</summary>
     /// <value>ee</value>
     [Display(Name = "Ewe", ShortName = "ee")]
-    ee,
+    Ewe,
     /// <summary>Greek, Modern (1453-) (el)</summary>
     /// <value>el</value>
     [Display(Name = "Greek, Modern (1453-)", ShortName = "el")]
-    el,
+    Greek,
     /// <summary>English (en)</summary>
     /// <value>en</value>
     [Display(Name = "English", ShortName = "en")]
-    en,
+    English,
     /// <summary>Esperanto (eo)</summary>
     /// <value>eo</value>
     [Display(Name = "Esperanto", ShortName = "eo")]
-    eo,
+    Esperanto,
+    /// <summary>Spanish (es)</summary>
+    /// <value>es</value>
+    [Display(Name = "Spanish", ShortName = "es")]
+    Spanish,
     /// <summary>Spanish; Castilian (es)</summary>
     /// <value>es</value>
-    [Display(Name = "Spanish; Castilian", ShortName = "es")]
-    es,
+    [Display(Name = "Castilian", ShortName = "es")]
+    Castilian = Spanish,
     /// <summary>Estonian (et)</summary>
     /// <value>et</value>
     [Display(Name = "Estonian", ShortName = "et")]
-    et,
+    Estonian,
     /// <summary>Basque (eu)</summary>
     /// <value>eu</value>
     [Display(Name = "Basque", ShortName = "eu")]
-    eu,
+    Basque,
     /// <summary>Persian (fa)</summary>
     /// <value>fa</value>
     [Display(Name = "Persian", ShortName = "fa")]
-    fa,
+    Persian,
     /// <summary>Fulah (ff)</summary>
     /// <value>ff</value>
     [Display(Name = "Fulah", ShortName = "ff")]
-    ff,
+    Fulah,
     /// <summary>Finnish (fi)</summary>
     /// <value>fi</value>
     [Display(Name = "Finnish", ShortName = "fi")]
-    fi,
+    Finnish,
     /// <summary>Fijian (fj)</summary>
     /// <value>fj</value>
     [Display(Name = "Fijian", ShortName = "fj")]
-    fj,
+    Fijian,
     /// <summary>Faroese (fo)</summary>
     /// <value>fo</value>
     [Display(Name = "Faroese", ShortName = "fo")]
-    fo,
+    Faroese,
     /// <summary>French (fr)</summary>
     /// <value>fr</value>
     [Display(Name = "French", ShortName = "fr")]
-    fr,
+    French,
     /// <summary>Western Frisian (fy)</summary>
     /// <value>fy</value>
     [Display(Name = "Western Frisian", ShortName = "fy")]
-    fy,
+    WesternFrisian,
     /// <summary>Irish (ga)</summary>
     /// <value>ga</value>
     [Display(Name = "Irish", ShortName = "ga")]
-    ga,
-    /// <summary>Gaelic; Scomttish Gaelic (gd)</summary>
+    Irish,
+    /// <summary>Gaelic (gd)</summary>
     /// <value>gd</value>
-    [Display(Name = "Gaelic; Scomttish Gaelic", ShortName = "gd")]
-    gd,
+    [Display(Name = "Gaelic", ShortName = "gd")]
+    Gaelic,
     /// <summary>Galician (gl)</summary>
     /// <value>gl</value>
     [Display(Name = "Galician", ShortName = "gl")]
-    gl,
+    Galician,
     /// <summary>Guarani (gn)</summary>
     /// <value>gn</value>
     [Display(Name = "Guarani", ShortName = "gn")]
-    gn,
+    Guarani,
     /// <summary>Gujarati (gu)</summary>
     /// <value>gu</value>
     [Display(Name = "Gujarati", ShortName = "gu")]
-    gu,
+    Gujarati,
     /// <summary>Manx (gv)</summary>
     /// <value>gv</value>
     [Display(Name = "Manx", ShortName = "gv")]
-    gv,
+    Manx,
     /// <summary>Hausa (ha)</summary>
     /// <value>ha</value>
     [Display(Name = "Hausa", ShortName = "ha")]
-    ha,
+    Hausa,
     /// <summary>Hebrew (he)</summary>
     /// <value>he</value>
     [Display(Name = "Hebrew", ShortName = "he")]
-    he,
+    Hebrew,
     /// <summary>Hindi (hi)</summary>
     /// <value>hi</value>
     [Display(Name = "Hindi", ShortName = "hi")]
-    hi,
+    Hindi,
     /// <summary>Hiri Motu (ho)</summary>
     /// <value>ho</value>
     [Display(Name = "Hiri Motu", ShortName = "ho")]
-    ho,
+    HiriMotu,
     /// <summary>Croatian (hr)</summary>
     /// <value>hr</value>
     [Display(Name = "Croatian", ShortName = "hr")]
-    hr,
-    /// <summary>Haitian; Haitian Creole (ht)</summary>
+    Croatian,
+    /// <summary>Haitian (ht)</summary>
     /// <value>ht</value>
-    [Display(Name = "Haitian; Haitian Creole", ShortName = "ht")]
-    ht,
+    [Display(Name = "Haitian", ShortName = "ht")]
+    Haitian,
     /// <summary>Hungarian (hu)</summary>
     /// <value>hu</value>
     [Display(Name = "Hungarian", ShortName = "hu")]
-    hu,
+    Hungarian,
     /// <summary>Armenian (hy)</summary>
     /// <value>hy</value>
     [Display(Name = "Armenian", ShortName = "hy")]
-    hy,
+    Armenian,
     /// <summary>Herero (hz)</summary>
     /// <value>hz</value>
     [Display(Name = "Herero", ShortName = "hz")]
-    hz,
-    /// <summary>Interlingua (International Auxiliary Language Association) (ia)</summary>
+    Herero,
+    /// <summary>Interlingua (ia)</summary>
     /// <value>ia</value>
-    [Display(Name = "Interlingua (International Auxiliary Language Association)", ShortName = "ia")]
-    ia,
+    [Display(Name = "Interlingua", ShortName = "ia")]
+    Interlingua,
     /// <summary>Indonesian (id)</summary>
     /// <value>id</value>
     [Display(Name = "Indonesian", ShortName = "id")]
-    id,
-    /// <summary>Interlingue; Occidental (ie)</summary>
+    Indonesian,
+    /// <summary>Interlingue (ie)</summary>
     /// <value>ie</value>
-    [Display(Name = "Interlingue; Occidental", ShortName = "ie")]
-    ie,
+    [Display(Name = "Interlingue", ShortName = "ie")]
+    Interlingue,
     /// <summary>Igbo (ig)</summary>
     /// <value>ig</value>
     [Display(Name = "Igbo", ShortName = "ig")]
-    ig,
-    /// <summary>Sichuan Yi; Nuosu (ii)</summary>
+    Igbo,
+    /// <summary>Sichuan Yi (ii)</summary>
     /// <value>ii</value>
-    [Display(Name = "Sichuan Yi; Nuosu", ShortName = "ii")]
-    ii,
+    [Display(Name = "Sichuan Yi", ShortName = "ii")]
+    SichuanYi,
     /// <summary>Inupiaq (ik)</summary>
     /// <value>ik</value>
     [Display(Name = "Inupiaq", ShortName = "ik")]
-    ik,
+    Inupiaq,
     /// <summary>Ido (io)</summary>
     /// <value>io</value>
     [Display(Name = "Ido", ShortName = "io")]
-    io,
+    Ido,
     /// <summary>Icelandic (is)</summary>
     /// <value>is</value>
     [Display(Name = "Icelandic", ShortName = "is")]
-    @is,
+    Icelandic,
     /// <summary>Italian (it)</summary>
     /// <value>it</value>
     [Display(Name = "Italian", ShortName = "it")]
-    it,
+    Italian,
     /// <summary>Inuktitut (iu)</summary>
     /// <value>iu</value>
     [Display(Name = "Inuktitut", ShortName = "iu")]
-    iu,
+    Inuktitut,
     /// <summary>Japanese (ja)</summary>
     /// <value>ja</value>
     [Display(Name = "Japanese", ShortName = "ja")]
-    ja,
+    Japanese,
     /// <summary>Javanese (jv)</summary>
     /// <value>jv</value>
     [Display(Name = "Javanese", ShortName = "jv")]
-    jv,
+    Javanese,
     /// <summary>Georgian (ka)</summary>
     /// <value>ka</value>
     [Display(Name = "Georgian", ShortName = "ka")]
-    ka,
+    Georgian,
     /// <summary>Kongo (kg)</summary>
     /// <value>kg</value>
     [Display(Name = "Kongo", ShortName = "kg")]
-    kg,
-    /// <summary>Kikuyu; Gikuyu (ki)</summary>
+    Kongo,
+    /// <summary>Kikuyu (ki)</summary>
     /// <value>ki</value>
-    [Display(Name = "Kikuyu; Gikuyu", ShortName = "ki")]
-    ki,
-    /// <summary>Kuanyama; Kwanyama (kj)</summary>
+    [Display(Name = "Kikuy", ShortName = "ki")]
+    Kikuyu,
+    /// <summary>Gikuyu (ki)</summary>
+    /// <value>ki</value>
+    [Display(Name = "Gikuyu", ShortName = "ki")]
+    Gikuyu = Kikuyu,
+    /// <summary>Kuanyama (kj)</summary>
     /// <value>kj</value>
-    [Display(Name = "Kuanyama; Kwanyama", ShortName = "kj")]
-    kj,
+    [Display(Name = "Kuanyama", ShortName = "kj")]
+    Kuanyama,
     /// <summary>Kazakh (kk)</summary>
     /// <value>kk</value>
     [Display(Name = "Kazakh", ShortName = "kk")]
-    kk,
-    /// <summary>Kalaallisut; Greenlandic (kl)</summary>
+    Kazakh,
+    /// <summary>Kalaallisut (kl)</summary>
     /// <value>kl</value>
-    [Display(Name = "Kalaallisut; Greenlandic", ShortName = "kl")]
-    kl,
+    [Display(Name = "Kalaallisut", ShortName = "kl")]
+    Kalaallisut,
+    /// <summary>Greenlandic (kl)</summary>
+    /// <value>kl</value>
+    [Display(Name = "Greenlandic", ShortName = "kl")]
+    Greenlandic = Kalaallisut,
     /// <summary>Central Khmer (km)</summary>
     /// <value>km</value>
     [Display(Name = "Central Khmer", ShortName = "km")]
-    km,
+    CentralKhmer,
     /// <summary>Kannada (kn)</summary>
     /// <value>kn</value>
     [Display(Name = "Kannada", ShortName = "kn")]
-    kn,
+    Kannada,
     /// <summary>Korean (ko)</summary>
     /// <value>ko</value>
     [Display(Name = "Korean", ShortName = "ko")]
-    ko,
+    Korean,
     /// <summary>Kanuri (kr)</summary>
     /// <value>kr</value>
     [Display(Name = "Kanuri", ShortName = "kr")]
-    kr,
+    Kanuri,
     /// <summary>Kashmiri (ks)</summary>
     /// <value>ks</value>
     [Display(Name = "Kashmiri", ShortName = "ks")]
-    ks,
+    Kashmiri,
     /// <summary>Kurdish (ku)</summary>
     /// <value>ku</value>
     [Display(Name = "Kurdish", ShortName = "ku")]
-    ku,
+    Kurdish,
     /// <summary>Komi (kv)</summary>
     /// <value>kv</value>
     [Display(Name = "Komi", ShortName = "kv")]
-    kv,
+    Komi,
     /// <summary>Cornish (kw)</summary>
     /// <value>kw</value>
     [Display(Name = "Cornish", ShortName = "kw")]
-    kw,
-    /// <summary>Kirghiz; Kyrgyz (ky)</summary>
+    Cornish,
+    /// <summary>Kirghiz (ky)</summary>
     /// <value>ky</value>
-    [Display(Name = "Kirghiz; Kyrgyz", ShortName = "ky")]
-    ky,
+    [Display(Name = "Kirghiz", ShortName = "ky")]
+    Kirghiz,
     /// <summary>Latin (la)</summary>
     /// <value>la</value>
     [Display(Name = "Latin", ShortName = "la")]
-    la,
-    /// <summary>Luxembourgish; Letzeburgesch (lb)</summary>
+    Latin,
+    /// <summary>Luxembourgish (lb)</summary>
     /// <value>lb</value>
-    [Display(Name = "Luxembourgish; Letzeburgesch", ShortName = "lb")]
-    lb,
+    [Display(Name = "Luxembourgish", ShortName = "lb")]
+    Luxembourgish,
     /// <summary>Ganda (lg)</summary>
     /// <value>lg</value>
     [Display(Name = "Ganda", ShortName = "lg")]
-    lg,
-    /// <summary>Limburgan; Limburger; Limburgish (li)</summary>
+    Ganda,
+    /// <summary>Limburgan (li)</summary>
     /// <value>li</value>
-    [Display(Name = "Limburgan; Limburger; Limburgish", ShortName = "li")]
-    li,
+    [Display(Name = "Limburgan", ShortName = "li")]
+    Limburgan,
     /// <summary>Lingala (ln)</summary>
     /// <value>ln</value>
     [Display(Name = "Lingala", ShortName = "ln")]
-    ln,
+    Lingala,
     /// <summary>Lao (lo)</summary>
     /// <value>lo</value>
     [Display(Name = "Lao", ShortName = "lo")]
-    lo,
+    Lao,
     /// <summary>Lithuanian (lt)</summary>
     /// <value>lt</value>
     [Display(Name = "Lithuanian", ShortName = "lt")]
-    lt,
+    Lithuanian,
     /// <summary>Luba-Katanga (lu)</summary>
     /// <value>lu</value>
     [Display(Name = "Luba-Katanga", ShortName = "lu")]
-    lu,
+    LubaKatanga,
     /// <summary>Latvian (lv)</summary>
     /// <value>lv</value>
     [Display(Name = "Latvian", ShortName = "lv")]
-    lv,
+    Latvian,
     /// <summary>Malagasy (mg)</summary>
     /// <value>mg</value>
     [Display(Name = "Malagasy", ShortName = "mg")]
-    mg,
+    Malagasy,
     /// <summary>Marshallese (mh)</summary>
     /// <value>mh</value>
     [Display(Name = "Marshallese", ShortName = "mh")]
-    mh,
+    Marshallese,
     /// <summary>Maori (mi)</summary>
     /// <value>mi</value>
     [Display(Name = "Maori", ShortName = "mi")]
-    mi,
+    Maori,
     /// <summary>Macedonian (mk)</summary>
     /// <value>mk</value>
     [Display(Name = "Macedonian", ShortName = "mk")]
-    mk,
+    Macedonian,
     /// <summary>Malayalam (ml)</summary>
     /// <value>ml</value>
     [Display(Name = "Malayalam", ShortName = "ml")]
-    ml,
+    Malayalam,
     /// <summary>Mongolian (mn)</summary>
     /// <value>mn</value>
     [Display(Name = "Mongolian", ShortName = "mn")]
-    mn,
+    Mongolian,
     /// <summary>Marathi (mr)</summary>
     /// <value>mr</value>
     [Display(Name = "Marathi", ShortName = "mr")]
-    mr,
+    Marathi,
     /// <summary>Malay (ms)</summary>
     /// <value>ms</value>
     [Display(Name = "Malay", ShortName = "ms")]
-    ms,
+    Malay,
     /// <summary>Maltese (mt)</summary>
     /// <value>mt</value>
     [Display(Name = "Maltese", ShortName = "mt")]
-    mt,
+    Maltese,
     /// <summary>Burmese (my)</summary>
     /// <value>my</value>
     [Display(Name = "Burmese", ShortName = "my")]
-    my,
+    Burmese,
     /// <summary>Nauru (na)</summary>
     /// <value>na</value>
     [Display(Name = "Nauru", ShortName = "na")]
-    na,
-    /// <summary>Bokmål, Norwegian; Norwegian Bokmål (nb)</summary>
+    Nauru,
+    /// <summary>Bokmål, Norwegian (nb)</summary>
     /// <value>nb</value>
-    [Display(Name = "Bokmål, Norwegian; Norwegian Bokmål", ShortName = "nb")]
-    nb,
-    /// <summary>Ndebele, North; North Ndebele (nd)</summary>
+    [Display(Name = "Bokmål, Norwegian", ShortName = "nb")]
+    BokmålNorwegian,
+    /// <summary>North Ndebele (nd)</summary>
     /// <value>nd</value>
-    [Display(Name = "Ndebele, North; North Ndebele", ShortName = "nd")]
-    nd,
+    [Display(Name = "North Ndebele", ShortName = "nd")]
+    NorthNdebele,
     /// <summary>Nepali (ne)</summary>
     /// <value>ne</value>
     [Display(Name = "Nepali", ShortName = "ne")]
-    ne,
+    Nepali,
     /// <summary>Ndonga (ng)</summary>
     /// <value>ng</value>
     [Display(Name = "Ndonga", ShortName = "ng")]
-    ng,
-    /// <summary>Dutch; Flemish (nl)</summary>
+    Ndonga,
+    /// <summary>Dutch (nl)</summary>
     /// <value>nl</value>
-    [Display(Name = "Dutch; Flemish", ShortName = "nl")]
-    nl,
-    /// <summary>Norwegian Nynorsk; Nynorsk, Norwegian (nn)</summary>
+    [Display(Name = "Dutch", ShortName = "nl")]
+    Dutch,
+    /// <summary>Norwegian Nynorsk (nn)</summary>
     /// <value>nn</value>
-    [Display(Name = "Norwegian Nynorsk; Nynorsk, Norwegian", ShortName = "nn")]
-    nn,
+    [Display(Name = "Norwegian Nynorsk", ShortName = "nn")]
+    NorwegianNynorsk,
     /// <summary>Norwegian (no)</summary>
     /// <value>no</value>
     [Display(Name = "Norwegian", ShortName = "no")]
-    no,
-    /// <summary>Ndebele, South; South Ndebele (nr)</summary>
+    Norwegian,
+    /// <summary>South Ndebele (nr)</summary>
     /// <value>nr</value>
-    [Display(Name = "Ndebele, South; South Ndebele", ShortName = "nr")]
-    nr,
-    /// <summary>Navajo; Navaho (nv)</summary>
+    [Display(Name = "South Ndebele", ShortName = "nr")]
+    SouthNdebele,
+    /// <summary>Navajo (nv)</summary>
     /// <value>nv</value>
-    [Display(Name = "Navajo; Navaho", ShortName = "nv")]
-    nv,
-    /// <summary>Chichewa; Chewa; Nyanja (ny)</summary>
+    [Display(Name = "Navajo", ShortName = "nv")]
+    Navajo,
+    /// <summary>Chichewa (ny)</summary>
     /// <value>ny</value>
-    [Display(Name = "Chichewa; Chewa; Nyanja", ShortName = "ny")]
-    ny,
-    /// <summary>Occitan (post 1500) (oc)</summary>
+    [Display(Name = "Chichewa", ShortName = "ny")]
+    Chichewa,
+    /// <summary>Occitan (oc)</summary>
     /// <value>oc</value>
-    [Display(Name = "Occitan (post 1500)", ShortName = "oc")]
-    oc,
+    [Display(Name = "Occitan", ShortName = "oc")]
+    Occitan,
     /// <summary>Ojibwa (oj)</summary>
     /// <value>oj</value>
     [Display(Name = "Ojibwa", ShortName = "oj")]
-    oj,
+    Ojibwa,
     /// <summary>Oromo (om)</summary>
     /// <value>om</value>
     [Display(Name = "Oromo", ShortName = "om")]
-    om,
+    Oromo,
     /// <summary>Oriya (or)</summary>
     /// <value>or</value>
     [Display(Name = "Oriya", ShortName = "or")]
-    or,
-    /// <summary>Ossetian; Ossetic (os)</summary>
+    Oriya,
+    /// <summary>Ossetian (os)</summary>
     /// <value>os</value>
-    [Display(Name = "Ossetian; Ossetic", ShortName = "os")]
-    os,
-    /// <summary>Panjabi; Punjabi (pa)</summary>
+    [Display(Name = "Ossetian", ShortName = "os")]
+    Ossetian,
+    /// <summary>Punjabi (pa)</summary>
     /// <value>pa</value>
-    [Display(Name = "Panjabi; Punjabi", ShortName = "pa")]
-    pa,
+    [Display(Name = "Punjabi", ShortName = "pa")]
+    Punjabi,
     /// <summary>Pali (pi)</summary>
     /// <value>pi</value>
     [Display(Name = "Pali", ShortName = "pi")]
-    pi,
+    Pali,
     /// <summary>Polish (pl)</summary>
     /// <value>pl</value>
     [Display(Name = "Polish", ShortName = "pl")]
-    pl,
-    /// <summary>Pushto; Pashto (ps)</summary>
+    Polish,
+    /// <summary>Pashto (ps)</summary>
     /// <value>ps</value>
-    [Display(Name = "Pushto; Pashto", ShortName = "ps")]
-    ps,
+    [Display(Name = "Pashto", ShortName = "ps")]
+    Pashto,
     /// <summary>Portuguese (pt)</summary>
     /// <value>pt</value>
     [Display(Name = "Portuguese", ShortName = "pt")]
-    pt,
+    Portuguese,
     /// <summary>Quechua (qu)</summary>
     /// <value>qu</value>
     [Display(Name = "Quechua", ShortName = "qu")]
-    qu,
+    Quechua,
     /// <summary>Romansh (rm)</summary>
     /// <value>rm</value>
     [Display(Name = "Romansh", ShortName = "rm")]
-    rm,
+    Romansh,
     /// <summary>Rundi (rn)</summary>
     /// <value>rn</value>
     [Display(Name = "Rundi", ShortName = "rn")]
-    rn,
-    /// <summary>Romanian; Moldavian; Moldovan (ro)</summary>
+    Rundi,
+    /// <summary>Romanian (ro)</summary>
     /// <value>ro</value>
-    [Display(Name = "Romanian; Moldavian; Moldovan", ShortName = "ro")]
-    ro,
+    [Display(Name = "Romanian", ShortName = "ro")]
+    Romanian,
+    /// <summary>Moldavian (ro)</summary>
+    /// <value>ro</value>
+    [Display(Name = "Moldavian", ShortName = "ro")]
+    Moldavian = Romanian,
+    /// <summary>Moldovan (ro)</summary>
+    /// <value>ro</value>
+    [Display(Name = "Moldovan", ShortName = "ro")]
+    Moldovan = Romanian,
     /// <summary>Russian (ru)</summary>
     /// <value>ru</value>
     [Display(Name = "Russian", ShortName = "ru")]
-    ru,
+    Russian,
     /// <summary>Kinyarwanda (rw)</summary>
     /// <value>rw</value>
     [Display(Name = "Kinyarwanda", ShortName = "rw")]
-    rw,
+    Kinyarwanda,
     /// <summary>Sanskrit (sa)</summary>
     /// <value>sa</value>
     [Display(Name = "Sanskrit", ShortName = "sa")]
-    sa,
+    Sanskrit,
     /// <summary>Sardinian (sc)</summary>
     /// <value>sc</value>
     [Display(Name = "Sardinian", ShortName = "sc")]
-    sc,
+    Sardinian,
     /// <summary>Sindhi (sd)</summary>
     /// <value>sd</value>
     [Display(Name = "Sindhi", ShortName = "sd")]
-    sd,
+    Sindhi,
     /// <summary>Northern Sami (se)</summary>
     /// <value>se</value>
     [Display(Name = "Northern Sami", ShortName = "se")]
-    se,
+    NorthernSami,
     /// <summary>Sango (sg)</summary>
     /// <value>sg</value>
     [Display(Name = "Sango", ShortName = "sg")]
-    sg,
-    /// <summary>Sinhala; Sinhalese (si)</summary>
+    Sango,
+    /// <summary>Sinhalese (si)</summary>
     /// <value>si</value>
-    [Display(Name = "Sinhala; Sinhalese", ShortName = "si")]
-    si,
+    [Display(Name = "Sinhalese", ShortName = "si")]
+    Sinhalese,
     /// <summary>Slovak (sk)</summary>
     /// <value>sk</value>
     [Display(Name = "Slovak", ShortName = "sk")]
-    sk,
+    Slovak,
     /// <summary>Slovenian (sl)</summary>
     /// <value>sl</value>
     [Display(Name = "Slovenian", ShortName = "sl")]
-    sl,
+    Slovenian,
     /// <summary>Samoan (sm)</summary>
     /// <value>sm</value>
     [Display(Name = "Samoan", ShortName = "sm")]
-    sm,
+    Samoan,
     /// <summary>Shona (sn)</summary>
     /// <value>sn</value>
     [Display(Name = "Shona", ShortName = "sn")]
-    sn,
+    Shona,
     /// <summary>Somali (so)</summary>
     /// <value>so</value>
     [Display(Name = "Somali", ShortName = "so")]
-    so,
+    Somali,
     /// <summary>Albanian (sq)</summary>
     /// <value>sq</value>
     [Display(Name = "Albanian", ShortName = "sq")]
-    sq,
+    Albanian,
     /// <summary>Serbian (sr)</summary>
     /// <value>sr</value>
     [Display(Name = "Serbian", ShortName = "sr")]
-    sr,
+    Serbian,
     /// <summary>Swati (ss)</summary>
     /// <value>ss</value>
     [Display(Name = "Swati", ShortName = "ss")]
-    ss,
-    /// <summary>Sotho, Southern (st)</summary>
+    Swati,
+    /// <summary>Sotho (st)</summary>
     /// <value>st</value>
-    [Display(Name = "Sotho, Southern", ShortName = "st")]
-    st,
+    [Display(Name = "Sotho", ShortName = "st")]
+    Sotho,
     /// <summary>Sundanese (su)</summary>
     /// <value>su</value>
     [Display(Name = "Sundanese", ShortName = "su")]
-    su,
+    Sundanese,
     /// <summary>Swedish (sv)</summary>
     /// <value>sv</value>
     [Display(Name = "Swedish", ShortName = "sv")]
-    sv,
+    Swedish,
     /// <summary>Swahili (sw)</summary>
     /// <value>sw</value>
     [Display(Name = "Swahili", ShortName = "sw")]
-    sw,
+    Swahili,
     /// <summary>Tamil (ta)</summary>
     /// <value>ta</value>
     [Display(Name = "Tamil", ShortName = "ta")]
-    ta,
+    Tamil,
     /// <summary>Telugu (te)</summary>
     /// <value>te</value>
     [Display(Name = "Telugu", ShortName = "te")]
-    te,
+    Telugu,
     /// <summary>Tajik (tg)</summary>
     /// <value>tg</value>
     [Display(Name = "Tajik", ShortName = "tg")]
-    tg,
+    Tajik,
     /// <summary>Thai (th)</summary>
     /// <value>th</value>
     [Display(Name = "Thai", ShortName = "th")]
-    th,
+    Thai,
     /// <summary>Tigrinya (ti)</summary>
     /// <value>ti</value>
     [Display(Name = "Tigrinya", ShortName = "ti")]
-    ti,
+    Tigrinya,
     /// <summary>Turkmen (tk)</summary>
     /// <value>tk</value>
     [Display(Name = "Turkmen", ShortName = "tk")]
-    tk,
+    Turkmen,
     /// <summary>Tagalog (tl)</summary>
     /// <value>tl</value>
     [Display(Name = "Tagalog", ShortName = "tl")]
-    tl,
+    Tagalog,
     /// <summary>Tswana (tn)</summary>
     /// <value>tn</value>
     [Display(Name = "Tswana", ShortName = "tn")]
-    tn,
-    /// <summary>Tonga (Tonga Islands) (to)</summary>
+    Tswana,
+    /// <summary>Tonga (to)</summary>
     /// <value>to</value>
-    [Display(Name = "Tonga (Tonga Islands)", ShortName = "to")]
-    to,
+    [Display(Name = "Tonga", ShortName = "to")]
+    Tonga,
     /// <summary>Turkish (tr)</summary>
     /// <value>tr</value>
     [Display(Name = "Turkish", ShortName = "tr")]
-    tr,
+    Turkish,
     /// <summary>Tsonga (ts)</summary>
     /// <value>ts</value>
     [Display(Name = "Tsonga", ShortName = "ts")]
-    ts,
+    Tsonga,
     /// <summary>Tatar (tt)</summary>
     /// <value>tt</value>
     [Display(Name = "Tatar", ShortName = "tt")]
-    tt,
+    Tatar,
     /// <summary>Twi (tw)</summary>
     /// <value>tw</value>
     [Display(Name = "Twi", ShortName = "tw")]
-    tw,
+    Twi,
     /// <summary>Tahitian (ty)</summary>
     /// <value>ty</value>
     [Display(Name = "Tahitian", ShortName = "ty")]
-    ty,
-    /// <summary>Uighur; Uyghur (ug)</summary>
+    Tahitian,
+    /// <summary>Uighur (ug)</summary>
     /// <value>ug</value>
-    [Display(Name = "Uighur; Uyghur", ShortName = "ug")]
-    ug,
+    [Display(Name = "Uighur", ShortName = "ug")]
+    Uighur,
     /// <summary>Ukrainian (uk)</summary>
     /// <value>uk</value>
     [Display(Name = "Ukrainian", ShortName = "uk")]
-    uk,
+    Ukrainian,
     /// <summary>Urdu (ur)</summary>
     /// <value>ur</value>
     [Display(Name = "Urdu", ShortName = "ur")]
-    ur,
+    Urdu,
     /// <summary>Uzbek (uz)</summary>
     /// <value>uz</value>
     [Display(Name = "Uzbek", ShortName = "uz")]
-    uz,
+    Uzbek,
     /// <summary>Venda (ve)</summary>
     /// <value>ve</value>
     [Display(Name = "Venda", ShortName = "ve")]
-    ve,
+    Venda,
     /// <summary>Vietnamese (vi)</summary>
     /// <value>vi</value>
     [Display(Name = "Vietnamese", ShortName = "vi")]
-    vi,
+    Vietnamese,
     /// <summary>Volapük (vo)</summary>
     /// <value>vo</value>
     [Display(Name = "Volapük", ShortName = "vo")]
-    vo,
+    Volapük,
     /// <summary>Walloon (wa)</summary>
     /// <value>wa</value>
     [Display(Name = "Walloon", ShortName = "wa")]
-    wa,
+    Walloon,
     /// <summary>Wolof (wo)</summary>
     /// <value>wo</value>
     [Display(Name = "Wolof", ShortName = "wo")]
-    wo,
+    Wolof,
     /// <summary>Xhosa (xh)</summary>
     /// <value>xh</value>
     [Display(Name = "Xhosa", ShortName = "xh")]
-    xh,
+    Xhosa,
     /// <summary>Yiddish (yi)</summary>
     /// <value>yi</value>
     [Display(Name = "Yiddish", ShortName = "yi")]
-    yi,
+    Yiddish,
     /// <summary>Yoruba (yo)</summary>
     /// <value>yo</value>
     [Display(Name = "Yoruba", ShortName = "yo")]
-    yo,
-    /// <summary>Zhuang; Chuang (za)</summary>
+    Yoruba,
+    /// <summary>Zhuang (za)</summary>
     /// <value>za</value>
-    [Display(Name = "Zhuang; Chuang", ShortName = "za")]
-    za,
+    [Display(Name = "Zhuang", ShortName = "za")]
+    Zhuang,
     /// <summary>Chinese (zh)</summary>
     /// <value>zh</value>
     [Display(Name = "Chinese", ShortName = "zh")]
-    zh,
+    Chinese,
     [Display(Name = "Zulu")]
     zu
 }

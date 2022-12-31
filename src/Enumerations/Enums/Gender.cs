@@ -13,10 +13,12 @@
 namespace JustinWritesCode;
 using System.ComponentModel.DataAnnotations;
 
-[GenerateEnumerationClass("Gender", "JustinWritesCode")]
+[GenerateEnumerationRecordStruct("Gender", "JustinWritesCode")]
 public enum GenderEnum
 {
+    [Display(Name = "None")]
     None = 0,
+    [Display(Name = "Agender")]
     Agender = -1,
     [Display(Name = "Male")]
     Male = 1,

@@ -16,7 +16,7 @@ using JustinWritesCode.Abstractions;
 public interface IEnumeration<TSelf, TId, TValue> : IEnumeration<TSelf>, IIdentifiable<TId>
     where TValue : IComparable<TValue>, IEquatable<TValue>
     where TId : IComparable, IComparable<TId>, IEquatable<TId>
-    where TSelf : struct, IEnumeration<TSelf, TId, TValue>
+    where TSelf : IEnumeration<TSelf, TId, TValue>
 {
     //TValue Value { get; }
     //DisplayAttribute? DisplayAttribute { get; }

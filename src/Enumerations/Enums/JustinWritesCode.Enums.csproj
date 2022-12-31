@@ -12,7 +12,7 @@
 
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
     <Title>A collection of useful enum types along with their enumeration counterparts</Title>
     <AssemblyName>JustinWritesCode.Enums</AssemblyName>
     <PackageId>JustinWritesCode.Enums</PackageId>
@@ -25,23 +25,16 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
     <PackageReference Include="System.ComponentModel.Annotations" />
-  <!-- </ItemGroup> -->
-  <!-- <ItemGroup Condition="'$(Configuration)' == 'Testing' Or '$(Configuration)' == 'Local'">
-    <ProjectReference Include="../../Core/ComponentModel/JustinWritesCode.ComponentModel.csproj" TreatAsPackageReference="true" />
-    <ProjectReference Include="../../Enumerations/Enumeration/JustinWritesCode.Enumerations.Enumeration.csproj" TreatAsPackageReference="true" />
-    <ProjectReference Include="../../`Enumerations/CodeGeneration/JustinWritesCode.Enumerations.CodeGeneration.csproj" TreatAsPackageReference="true" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-    <ProjectReference Include="../../../../CodeGeneration/src/Extensions/JustinWritesCode.CodeGeneration.Extensions.csproj" TreatAsPackageReference="true" />
-  </ItemGroup>
-    <ImportGroup Condition="'$(Configuration)' == 'Testing' Or '$(Configuration)' == 'Local'">
-        <Import Project="../../Core/ComponentModel/JustinWritesCode.ComponentModel.props" />
-    </ImportGroup>
-  <ItemGroup Condition="'$(Configuration)' != 'Testing' And '$(Configuration)' != 'Local'"> -->
+
     <PackageReference Include="Scriban.Signed" ExcludeAssets="ContentFiles" />
+    <PackageReference Include="Microsoft.Extensions.Logging" ExcludeAssets="ContentFiles" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" ExcludeAssets="ContentFiles" />
     <PackageReference Include="JustinWritesCode.ComponentModel" ExcludeAssets="ContentFiles" />
     <PackageReference Include="JustinWritesCode.Enumerations.Enumeration" ExcludeAssets="ContentFiles" />
     <!-- <PackageReference Include="JustinWritesCode.Enumerations.CodeGeneration" IncludeAssets="Analyzers;Build;Lib;Runtime" PrivateAssets="None" ExcludeAssets="ContentFiles" /> -->
     <PackageReference Include="JustinWritesCode.CodeGeneration.Extensions" IncludeAssets="ContentFiles; Build" />
-    <ProjectReference Include="../CodeGeneration/JustinWritesCode.Enumerations.CodeGeneration.csproj" ReferenceOutputAssembly="false" OutputItemType="Analyzer" />
+    <!-- <ProjectReference Include="../CodeGeneration/JustinWritesCode.Enumerations.CodeGeneration.csproj" ReferenceOutputAssembly="false" OutputItemType="Analyzer" /> -->
+    <PackageReference Include="JustinWritesCode.Enumerations.CodeGeneration" IncludeAssets="Analyzers;Build" PrivateAssets="All" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="SoftwareLicenses/Licenses/*.json" />

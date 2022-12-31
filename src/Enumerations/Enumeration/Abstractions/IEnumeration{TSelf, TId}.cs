@@ -13,7 +13,7 @@ namespace JustinWritesCode.Enumerations.Abstractions;
 
 public interface IEnumeration<TSelf, TId> : IEnumeration<TSelf>
     where TId : IComparable, IComparable<TId>, IEquatable<TId>
-    where TSelf : struct, IEnumeration<TSelf, TId>
+    where TSelf : IEnumeration<TSelf, TId>
 {
     //string Name { get; }
 }

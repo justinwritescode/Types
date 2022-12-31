@@ -10,12 +10,12 @@
 //      License: MIT (https://opensource.org/licenses/MIT)
 //
 namespace JustinWritesCode.Enumerations.Abstractions;
-using JustinWritesCode.Abstractions;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
+using JustinWritesCode.Abstractions;
 public interface IEnumeration : IConvertible, IComparable, IHaveAValue, IHaveAName, IHaveADescription, IIdentifiable
 {
-    FieldInfo FieldInfo {get;}//=> GetType().GetField(Name);
+    FieldInfo? FieldInfo {get;}//=> GetType().GetField(Name);
     [FromString]
     string DisplayName {get;}//=> Name;
     [FromString]

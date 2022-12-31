@@ -13,7 +13,7 @@
 namespace JustinWritesCode.Enumerations.Abstractions;
 
 public interface IEnumeration<TSelf> : IEnumeration
-    where TSelf : struct, IEnumeration<TSelf>
+    where TSelf : IEnumeration<TSelf>
 {
     //TValue Value { get; }
     //DisplayAttribute? DisplayAttribute { get; }

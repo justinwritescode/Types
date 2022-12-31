@@ -9,9 +9,7 @@
  *   Copyright © 2022 Justin Chase, All Rights Reserved
  *      License: MIT (https://opensource.org/licenses/MIT)
  */
-
-public static class Foo {
-    public static string Bar() {
-        return "Hello, World!";
-    }
+namespace JustinWritesCode.Types.Domain;
+internal sealed class Foo {
+    public static string Bar() => "Hello, World!";
 }

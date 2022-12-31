@@ -1,8 +1,8 @@
 /*
- * IsExternalInit.cs
+ * YesNoIdc.cs
  *
- *   Created: 2022-12-19-10:50:41
- *   Modified: 2022-12-19-10:50:41
+ *   Created: 2022-12-17-12:47:12
+ *   Modified: 2022-12-17-12:47:12
  *
  *   Author: Justin Chase <justin@justinwritescode.com>
  *
@@ -10,5 +10,12 @@
  *      License: MIT (https://opensource.org/licenses/MIT)
  */
 
-namespace System.Runtime.CompilerServices;
-internal class IsExternalInit { }
+namespace System;
+
+public enum YesNoIdc
+{
+    Idc = 0,
+    Idgaf = Idc,
+    Yes = 1,
+    No = -1
+}

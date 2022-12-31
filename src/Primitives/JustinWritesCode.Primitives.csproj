@@ -1,0 +1,50 @@
+<!--
+ Domain.csproj
+ 
+   Created: 2022-10-16-06:30:42
+   Modified: 2022-10-30-06:38:19
+ 
+   Author: Justin Chase <justin@justinwritescode.com>
+   
+   Copyright © 2022 Justin Chase, All Rights Reserved
+      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.3;netstandard1.5;netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
+    <!-- <TargetFramework>net7.0</TargetFramework> -->
+    <AssemblyName>JustinWritesCode.Primitives</AssemblyName>
+    <PackageId>JustinWritesCode.Primitives</PackageId>
+    <RootNamespace>JustinWritesCode.Primitives</RootNamespace>
+    <Description>A collection of useful data and behavioral value types.</Description>
+    <LangVersion>latest</LangVersion>
+    <SlnGenSolutionFolder>Domain</SlnGenSolutionFolder>
+    <ProjectGuid>{4E1F4A52-7F97-43E1-AAA6-2EEEE07326E6}</ProjectGuid>
+    <DefineConstants Condition="'$(TargetFramework)' == 'netstandard1.3'">$(DefineConstants);NETSTANDARD1_3</DefineConstants>
+    <DefineConstants Condition="'$(TargetFramework)' == 'netstandard1.5'">$(DefineConstants);NETSTANDARD1_5</DefineConstants>
+  </PropertyGroup>
+  <!-- <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Local|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>DEBUG;TRACE;LOCAL;NETSTANDARD;NETSTANDARD1_5;</DefineConstants>
+  </PropertyGroup> -->
+  <ItemGroup Condition="$(TargetFramework.Contains('net6')) Or $(TargetFramework.Contains('net7'))">
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup Condition="$(DefineConstants.Contains('NETSTANDARD2_0_OR_GREATER'))">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
+    <PackageReference Include="System.Text.Json" />
+    <PackageReference Include="Vogen" IncludeAssets="Analyzers; Build; Lib; Runtime; Compile" PrivateAssets="All" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Text.RegularExpressions.Usings" />
+    <PackageReference Include="libphonenumber-csharp" />
+    <PackageReference Include="System.Compat" IncludeAssets="Compile" ExcludeAssets="None" PrivateAssets="All" />
+    <PackageReference Include="System.ComponentModel.Usings" />
+  </ItemGroup>
+  <!-- <ItemGroup Condition="$(TargetFramework.Contains('netstandard2'))">
+    <Compile Include="$(PkgSystem_Compat)/**/*.cs" />
+  </ItemGroup> -->
+</Project>

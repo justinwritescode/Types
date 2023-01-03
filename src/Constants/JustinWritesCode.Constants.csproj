@@ -5,7 +5,7 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="System.Usings" />
-        <PackageReference Include="JustinWritesCode.Domain" />
+        <PackageReference Include="JustinWritesCode.Primitives" />
         <!-- <PackageReference Include="JustinWritesCode.System.Extensions" ExcludeAssets="ContentFiles" PrivateAssets="None"/> -->
     </ItemGroup>
     <ItemGroup>

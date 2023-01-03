@@ -1,0 +1,23 @@
+<!--
+ * Directory.Build.props
+ * 
+ *   Created: 2022-12-18-12:40:20
+ *   Modified: 2022-12-18-12:40:20
+ * 
+ *   Author: Justin Chase <justin@justinwritescode.com>
+ *   
+ *   Copyright © 2022 Justin Chase, All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project>
+	<PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+		<CentralPackagesFileName>Packages.$(Configuration).pkgs</CentralPackagesFileName>
+    <CentralPackagesFile>$([MSBuild]::GetDirectoryNameOfFileAbove("$(MSBuildThisFileDirectory)", "Packages/$(CentralPackagesFileName)"))/Packages/$(CentralPackagesFileName)</CentralPackagesFile>
+	</PropertyGroup>  
+	<Target Name="CustomAfterCentralPackageVersions" BeforeTargets="CheckPackageReferences">
+    <Message Text="CentralPackagesFile: $(CentralPackagesFile)" Importance="High" />
+    <Message Text="Build Configuration: $(Configuration)" />
+  </Target>
+</Project>

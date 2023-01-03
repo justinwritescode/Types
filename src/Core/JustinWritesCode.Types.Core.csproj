@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.Build.Traversal">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netstandard1.3;netstandard2.0</TargetFrameworks>
     <AssemblyName>JustinWritesCode.Types.Core</AssemblyName>
     <PackageId>JustinWritesCode.Types.Core</PackageId>
     <RootNamespace>JustinWritesCode.Types.Core</RootNamespace>
@@ -10,9 +9,9 @@
     <UsingMicrosoftNetSdk>true</UsingMicrosoftNetSdk>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="./**/*.csproj" />
+    <ProjectReference Include="./Abstractions/JustinWritesCode.Abstractions.csproj" />
+    <ProjectReference Include="./ComponentModel/JustinWritesCode.ComponentModel.csproj" />
+    <ProjectReference Include="./Tuples/JustinWritesCode.Tuples.csproj" />
     <ProjectReference Remove="./JustinWritesCode.Types.Core.csproj" />
-    <!-- <ProjectReference Remove="./JustinWritesCode.Types.Core.csproj" /> -->
-    <Compile Remove="**/*" />
   </ItemGroup>
 </Project>

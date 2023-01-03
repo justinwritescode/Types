@@ -766,11 +766,7 @@
         }
       },
       "System.Text.Usings/0.0.1-Local": {},
-      "System.Usings/0.0.1-Local": {
-        "compile": {
-          "lib/netstandard2.0/System.Usings.dll": {}
-        }
-      }
+      "System.Usings/0.0.1-Local": {}
     },
     ".NETStandard,Version=v2.0/": {
       "JustinWritesCode.System.Extensions/0.0.1.0": {
@@ -1034,7 +1030,7 @@
     "System.Usings/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-9W1GcQQ9h6mi+vZWJ3jOzaYeHeBD8yzjZFT69QWc+LPGy7oIeiJmv5lD6s9WXRp4jj2qnGZGd/hokqkfQupMjw==",
+      "sha512": "sha512-MssjUfsbICiL3QSj+F0eYvghaQsHrQtpAqOXKtCTQJdsQqRp/lAQdp+zkmHgQJdkhpgfBq4vjHH9gKp4wILgYA==",
       "path": "system.usings/0.0.1-local",
       "hashPath": "system.usings.0.0.1-local.nupkg.sha512"
     },

@@ -1,0 +1,20 @@
+<!--
+ * JustinWritesCode.Enumerations.CodeGeneration.V2 copy.csproj
+ * 
+ *   Created: 2023-01-02-01:30:16
+ *   Modified: 2023-01-02-01:30:16
+ * 
+ *   Author: Justin Chase <justin@justinwritescode.com>
+ *   
+ *   Copyright © 2022-2023 Justin Chase, All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+
+
+<Project>
+  <ItemGroup>
+    <!-- <Compile Remove="$(PkgJustinWritesCode_CodeGeneration_Constants_Scriban_Bundled)/**/IsExternalInit.cs" />
+    <Compile Include="IsExternalInit.cs" /> -->
+  </ItemGroup>
+</Project>

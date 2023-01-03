@@ -1,0 +1,35 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JustinWritesCode.Enumerations.CodeGeneration.Samples", "JustinWritesCode.Enumerations.CodeGeneration.Samples.csproj", "{8EDDBD92-7150-4F86-9953-7FF429B53AAE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{27D1F93F-0642-457B-8CA5-4A7D48FE3E37}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Local|Any CPU = Local|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Staging|Any CPU = Staging|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Testing|Any CPU = Testing|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8EDDBD92-7150-4F86-9953-7FF429B53AAE}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{8EDDBD92-7150-4F86-9953-7FF429B53AAE}.Local|Any CPU.Build.0 = Local|Any CPU
+		{8EDDBD92-7150-4F86-9953-7FF429B53AAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EDDBD92-7150-4F86-9953-7FF429B53AAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EDDBD92-7150-4F86-9953-7FF429B53AAE}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{8EDDBD92-7150-4F86-9953-7FF429B53AAE}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{8EDDBD92-7150-4F86-9953-7FF429B53AAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EDDBD92-7150-4F86-9953-7FF429B53AAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EDDBD92-7150-4F86-9953-7FF429B53AAE}.Testing|Any CPU.ActiveCfg = Testing|Any CPU
+		{8EDDBD92-7150-4F86-9953-7FF429B53AAE}.Testing|Any CPU.Build.0 = Testing|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8EDDBD92-7150-4F86-9953-7FF429B53AAE} = {27D1F93F-0642-457B-8CA5-4A7D48FE3E37}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3A6B96B5-DE30-476C-B8E9-CB6CBFD2C0EC}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "EnumerationClassGenerator.Information, hh:mm:ssfff",
+    "message": "Registering source output for GenerateEnumerationRecordClassAttribute (\u0022GenerateEnumerationRecordClass\u0022)...",
+    "severity": "Information",
+    "location": {
+      "path": "/Users/justin/GitHub/justinwritescode/libs/src/Types/src/Enumerations/CodeGeneration/EnumerationClassGenerator.cs",
+      "member": "Initialize",
+      "line": 56
+    }
+  },
+  {
+    "id": "EnumerationClassGenerator.Information, hh:mm:ssfff",
+    "message": "Registering source output for GenerateEnumerationClassAttribute (\u0022GenerateEnumerationClassAttribute\u0022)...",
+    "severity": "Information",
+    "location": {
+      "path": "/Users/justin/GitHub/justinwritescode/libs/src/Types/src/Enumerations/CodeGeneration/EnumerationClassGenerator.cs",
+      "member": "Initialize",
+      "line": 60
+    }
+  },
+  {
+    "id": "EnumerationClassGenerator.Information, hh:mm:ssfff",
+    "message": "Registering source output for GenerateEnumerationRecordStructAttribute (\u0022GenerateEnumerationRecordStructAttribute\u0022)...",
+    "severity": "Information",
+    "location": {
+      "path": "/Users/justin/GitHub/justinwritescode/libs/src/Types/src/Enumerations/CodeGeneration/EnumerationClassGenerator.cs",
+      "member": "Initialize",
+      "line": 64
+    }
+  },
+  {
+    "id": "EnumerationClassGenerator.Information, hh:mm:ssfff",
+    "message": "Registering source output for GenerateEnumerationStructAttribute (\u0022GenerateEnumerationStructAttribute\u0022)...",
+    "severity": "Information",
+    "location": {
+      "path": "/Users/justin/GitHub/justinwritescode/libs/src/Types/src/Enumerations/CodeGeneration/EnumerationClassGenerator.cs",
+      "member": "Initialize",
+      "line": 68
+    }
+  },
+  {
+    "id": "EnumerationClassGenerator.Information, hh:mm:ssfff",
+    "message": "Finished",
+    "severity": "Information",
+    "location": {
+      "path": "/Users/justin/GitHub/justinwritescode/libs/src/Types/src/Enumerations/CodeGeneration/SourceGeneratorLoggerProvider.cs",
+      "member": "Dispose",
+      "line": 88
+    }
+  }
+]

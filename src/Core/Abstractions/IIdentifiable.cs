@@ -13,34 +13,26 @@
 
 namespace JustinWritesCode.Abstractions;
 
-/// <summary>
-/// Marker interface for an object or struct that has a *read-only* <c><see cref="Id">Id</see></c> property.
-/// </summary>
+/// <summary>Marker interface for an object or struct that has a *read-only* <c><see cref="Id">Id</see></c> property.</summary>
 public interface IIdentifiable
 {
     object Id { get; }
 }
 
-/// <summary>
-/// Marker interface for an object or struct that has a *read-only* <c><see cref="Id">Id</see></c> property of type <typeparamref name="TId"/>.
-/// </summary>
+/// <summary>Marker interface for an object or struct that has a *read-only* <c><see cref="Id">Id</see></c> property of type <typeparamref name="TId"/>.</summary>
 public interface IIdentifiable<TId> where TId : IComparable, IEquatable<TId>
 {
     TId Id { get; }
 }
 
-/// <summary>
-/// Marker interface for an object or struct that has a *read/write* <c><see cref="Id">Id</see></c> property.
-/// </summary>
+/// <summary> Marker interface for an object or struct that has a *read/write* <c><see cref="Id">Id</see></c> property.</summary>
 public interface IHaveAWritableId : IIdentifiable
 {
     new object Id { get; set; }
 }
 
 
-/// <summary>
-/// Marker interface for an object or struct that has a *read/write* <c><see cref="Id">Id</see></c> property.
-/// </summary>
+/// <summary>Marker interface for an object or struct that has a *read/write* <c><see cref="Id">Id</see></c> property.</summary>
 public interface IHaveAWritableId<TId> : IIdentifiable<TId> where TId : IComparable, IEquatable<TId>
 {
     new TId Id { get; set; }

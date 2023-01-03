@@ -1,0 +1,35 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JustinWritesCode.Enumerations.CodeGeneration.V2", "JustinWritesCode.Enumerations.CodeGeneration.V2.csproj", "{C7215117-AB7E-474C-81D6-02AD9AAACF5F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9B60712C-931B-4F51-B903-5954F1AEB8E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Local|Any CPU = Local|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Staging|Any CPU = Staging|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Testing|Any CPU = Testing|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7215117-AB7E-474C-81D6-02AD9AAACF5F}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{C7215117-AB7E-474C-81D6-02AD9AAACF5F}.Local|Any CPU.Build.0 = Local|Any CPU
+		{C7215117-AB7E-474C-81D6-02AD9AAACF5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7215117-AB7E-474C-81D6-02AD9AAACF5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7215117-AB7E-474C-81D6-02AD9AAACF5F}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{C7215117-AB7E-474C-81D6-02AD9AAACF5F}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{C7215117-AB7E-474C-81D6-02AD9AAACF5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7215117-AB7E-474C-81D6-02AD9AAACF5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7215117-AB7E-474C-81D6-02AD9AAACF5F}.Testing|Any CPU.ActiveCfg = Testing|Any CPU
+		{C7215117-AB7E-474C-81D6-02AD9AAACF5F}.Testing|Any CPU.Build.0 = Testing|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C7215117-AB7E-474C-81D6-02AD9AAACF5F} = {9B60712C-931B-4F51-B903-5954F1AEB8E1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {03ED1A1D-DDCE-402D-B982-936790F47386}
+	EndGlobalSection
+EndGlobal

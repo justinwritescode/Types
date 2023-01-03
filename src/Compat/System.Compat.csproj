@@ -1,0 +1,29 @@
+<!--
+ * System.Compat.csproj
+ * 
+ *   Created: 2022-12-27-05:02:19
+ *   Modified: 2022-12-27-05:02:19
+ * 
+ *   Author: Justin Chase <justin@justinwritescode.com>
+ *   
+ *   Copyright © 2022 Justin Chase, All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project Sdk="Microsoft.Build.NoTargets">
+    <PropertyGroup>
+      <TargetFrameworks>netstandard1.0;netstandard1.3;netstandard1.5;netstandard2.0;netstandard2.1</TargetFrameworks>
+      <Title>System Compatibility Library</Title>
+      <Description>This **source code only** package contains source code for the little times when for whatever reason the type that's required by the framework isn't provided by it.</Description>
+      <IntermediateOutputPath Condition="'$(IntermediateOutputPath)' == ''">obj/</IntermediateOutputPath>
+    </PropertyGroup>
+    <ItemGroup>
+      <Compile Remove="@(Compile)" />
+      <Content Include="./**/*.cs" Exclude="$(IntermediateOutputPath)**/*.cs" />
+      <Content Remove="$(IntermediateOutputPath)**/*.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Remove="**/*.dll;**/*.pdb;**/*.xml" />
+      <Using Remove="@(Using)" />
+    </ItemGroup>
+</Project>

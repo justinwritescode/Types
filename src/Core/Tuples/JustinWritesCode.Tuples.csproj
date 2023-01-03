@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <!-- <TargetFramework>netstandard1.3</TargetFramework> -->
-        <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
+        <TargetFrameworks>netstandard1.3;netstandard1.5;netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
     <ItemGroup>
@@ -12,12 +12,12 @@
     </ItemGroup> -->
     <ItemGroup>
     <!-- <ItemGroup Condition="'$(Configuration)' != 'Testing' And '$(Configuration)' != 'Local'"> -->
-        <PackageReference Include="JustinWritesCode.System.Extensions" IncludeAssets="Build;ContentFiles" ExcludeAssets="Runtime;Lib" PrivateAssets="All"/>
-        <ProjectReference Include="../../Domain/JustinWritesCode.Domain.csproj" />
+        <PackageReference Include="JustinWritesCode.System.Extensions" ExcludeAssets="Build;ContentFiles" />
+        <ProjectReference Include="../../Primitives/JustinWritesCode.Primitives.csproj" />
     </ItemGroup>
 
     <ItemGroup>
        <PackageReference Include="System.Usings" />
     </ItemGroup>
-    <Import Project="../../Extensions/JustinWritesCode.System.Extensions.props" />
+    <!-- <Import Project="../../Extensions/JustinWritesCode.System.Extensions.props" /> -->
 </Project>

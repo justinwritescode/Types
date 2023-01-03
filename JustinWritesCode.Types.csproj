@@ -10,10 +10,10 @@
       License: MIT (https://opensource.org/licenses/MIT)
 -->
 
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.Build.Traversal">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFramework>net7.0</TargetFramework>
+    <TargetFrameworks>net7.0</TargetFrameworks>
     <IncludeInSolutionFile>false</IncludeInSolutionFile>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <UsingMicrosoftNETSdk>true</UsingMicrosoftNETSdk>
@@ -22,12 +22,11 @@
     <SlnGenInheritGlobalProperties>true</SlnGenInheritGlobalProperties>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="./src/**/*.*proj" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" VersionOverride="[4.3.1,)" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.Common" VersionOverride="[4.3.1,)" />
-    <!-- <ProjectReference Include="./tests/**/*.*proj" /> -->
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="**/*.cs" />
+    <ProjectReference Include="./src/Compat/System.Compat.csproj" />
+    <ProjectReference Include="./src/Constants/JustinWritesCode.Constants.csproj" />
+    <ProjectReference Include="./src/Core/JustinWritesCode.Types.Core.csproj" />
+    <ProjectReference Include="./src//InterfaceGenerator/JustinWritesCode.InterfaceGenerator.csproj" />
+    <ProjectReference Include="./src/RegexDtoGenerator/src/JustinWritesCode.RegexDtoGenerator.csproj" />
+    <ProjectReference Include="./src/RegexDtoGenerator/Samples/JustinWritesCode.RegexDtoGenerator.Samples.csproj" />
   </ItemGroup>
 </Project>

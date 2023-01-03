@@ -1,0 +1,23 @@
+<!--
+ * JustinWritesCode.Enumerations.EntityFrameworkCore.csproj
+ * 
+ *   Created: 2022-12-23-09:55:12
+ *   Modified: 2022-12-23-09:55:12
+ * 
+ *   Author: Justin Chase <justin@justinwritescode.com>
+ *   
+ *   Copyright © 2022 Justin Chase, All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net6.0;net7.0</TargetFrameworks>
+  </PropertyGroup>
+  <ItemGroup>
+   <PackageReference Include="Microsoft.EntityFrameworkCore.Usings" />
+   <PackageReference Include="JustinWritesCode.Abstractions" />
+   <PackageReference Include="JustinWritesCode.Enumerations.Abstractions" />
+   <PackageReference Include="JustinWritesCode.Enumerations.Enumeration" />
+  </ItemGroup>
+</Project>

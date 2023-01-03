@@ -48,7 +48,7 @@ public partial class EnumerationClassGenerator : IIncrementalGenerator
             var interfaceName = interfaceSymbol.Name;
             var interfaceNamespace = interfaceSymbol.ContainingNamespace.ToDisplayString();
             var classToGenerateTheInterfaceFor = attributeData.ConstructorArguments.First().Value as INamedTypeSymbol;
-            context.AddSource(interfaceName + "g.cs",
+            context.AddSource(interfaceName + ".g.cs",
             InterfaceDeclarationTemplate.Render(new InterfaceGeneratorModel(interfaceNamespace, interfaceName,
                 string.Join(Environment.NewLine,
                     classToGenerateTheInterfaceFor

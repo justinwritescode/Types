@@ -15,7 +15,7 @@ using System.Linq;
 using System.Xml.Schema;
 
 namespace System;
-using static System.Convert;
+using static System.BitConverter;
 using static System.Math;
 
 
@@ -67,30 +67,30 @@ public sealed class Randoms : Random
 
     /// <summary>Generates <inheritdoc cref="NextInt16()" path="/returns"/></summary>
     /// <returns>a new signed  <see langword="short" /> value</returns>
-    public static short NextInt16() => ToInt16(NextGuid().ToByteArray());
+    public static short NextInt16() => ToInt16(NextGuid().ToByteArray(), 0);
 
     /// <summary>Generates <inheritdoc cref="NextInt16( short, short)" path="/returns"/></summary>
     /// <returns><inheritdoc cref="NextInt16()" path="/returns"/> in the range [<paramref name="from"/>, <paramref name="to"/>]</returns>
     /// <param name="from">The lower bound of the range to generate the Next number</param>
     /// <param name="to">The upper bound of the range to generate the Next number</param>
-    public static short NextInt16(short from = short.MinValue, short to = short.MaxValue) => ToInt16(Abs(from + (NextInt16() % (to - from))));
+    public static short NextInt16(short from = short.MinValue, short to = short.MaxValue) => Convert.ToInt16(Abs(from + (NextInt16() % (to - from))));
 
     /// <summary>Generates <inheritdoc cref="NextUInt16()" path="/returns"/></summary>
     /// <returns>a new unsigned 16-bit integer value</returns>
-    public static short NextUInt16() => ToInt16(NextGuid().ToByteArray());
+    public static short NextUInt16() => ToInt16(NextGuid().ToByteArray(), 0);
 
     /// <summary>Generates <inheritdoc cref="NextUInt16(ushort,ushort)" path="/returns"/></summary>
     /// <returns><inheritdoc cref="NextUInt16()" path="/returns"/> in the range [<paramref name="from"/>, <paramref name="to"/>]</returns>
     /// <param name="from">The lower bound of the range to generate the Next number</param>
     /// <param name="to">The upper bound of the range to generate the Next number</param>
-    public static ushort NextUInt16(ushort from = ushort.MinValue, ushort to = ushort.MaxValue) => ToUInt16(Abs(from + (NextUInt16() % (to - from))));
+    public static ushort NextUInt16(ushort from = ushort.MinValue, ushort to = ushort.MaxValue) => Convert.ToUInt16(Abs(from + (NextUInt16() % (to - from))));
     #endregion
 
     #region Int32
 
     /// <summary>Generates <inheritdoc cref="NextInt32()" path="/returns"/></summary>
     /// <returns>a new signed  int value</returns>
-    public static int NextInt32() => ToInt32(NextGuid().ToByteArray());
+    public static int NextInt32() => BitConverter.ToInt32(NextGuid().ToByteArray(), 0);
 
     /// <summary>Generates <inheritdoc cref="NextInt32( int, int)" path="/returns"/></summary>
     /// <returns><inheritdoc cref="NextInt32()" path="/returns"/> in the range [<paramref name="from"/>, <paramref name="to"/>]</returns>
@@ -100,13 +100,13 @@ public sealed class Randoms : Random
 
     /// <summary>Generates <inheritdoc cref="NextUInt32()" path="/returns"/></summary>
     /// <returns>a new unsigned 32-bit integer value</returns>
-    public static int NextUInt32() => ToInt32(NextGuid().ToByteArray());
+    public static int NextUInt32() => ToInt32(NextGuid().ToByteArray(), 0);
 
     /// <summary>Generates <inheritdoc cref="NextUInt32(UInt32,UInt32)" path="/returns"/></summary>
     /// <returns><inheritdoc cref="NextUInt32()" path="/returns"/> in the range [<paramref name="from"/>, <paramref name="to"/>]</returns>
     /// <param name="from">The lower bound of the range to generate the Next number</param>
     /// <param name="to">The upper bound of the range to generate the Next number</param>
-    public static UInt32 NextUInt32(UInt32 from = UInt32.MinValue, UInt32 to = UInt32.MaxValue) => ToUInt32(Abs(from + (NextUInt32() % (to - from))));
+    public static UInt32 NextUInt32(UInt32 from = UInt32.MinValue, UInt32 to = UInt32.MaxValue) => Convert.ToUInt32(Abs(from + (NextUInt32() % (to - from))));
     #endregion
 
     // /// <summary>Generates <inheritdoc cref="NextInt64()" path="/returns"/></summary>
@@ -121,7 +121,7 @@ public sealed class Randoms : Random
 
     /// <summary>Generates <inheritdoc cref="NextUInt64()" path="/returns"/></summary>
     /// <returns>a new unsigned 64-bit integer value</returns>
-    public static UInt64 NextUInt64() => ToUInt64(NextGuid().ToByteArray());
+    public static UInt64 NextUInt64() => ToUInt64(NextGuid().ToByteArray(), 0);
 
 
     /// <summary>Generates <inheritdoc cref="NextUInt64()" path="/returns"/></summary>
@@ -130,7 +130,7 @@ public sealed class Randoms : Random
 #if NET6_0_OR_GREATER
     new
 #endif
-    long NextInt64() => ToInt64(NextGuid().ToByteArray());
+    long NextInt64() => ToInt64(NextGuid().ToByteArray(), 0);
 
     /// <summary>Generates <inheritdoc cref="NextInt64(long, long)" path="/returns"/></summary>
     /// <returns><inheritdoc cref="NextInt64()" path="/returns"/> in the range [<paramref name="from"/>,<paramref name="to"/>]</returns>
@@ -143,7 +143,7 @@ public sealed class Randoms : Random
     long NextInt64(long from = long.MinValue, long to = long.MaxValue) => from + (NextInt64() % (to - from));
 
 
-    public static bool NextBoolean(double pTrue = 0.5) => NextInt32() % ToInt32(1 / pTrue) == 0;
+    public static bool NextBoolean(double pTrue = 0.5) => NextInt32() % Convert.ToInt32(1 / pTrue) == 0;
 
 #if NET7_0_OR_GREATER
     /// <summary>Generates <inheritdoc cref="NextInt128()" path="/returns" /> in the range [<paramref name="from"/>,<paramref name="to"/>]</summary>

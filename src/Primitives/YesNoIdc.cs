@@ -9,13 +9,23 @@
  *   Copyright © 2022 Justin Chase, All Rights Reserved
  *      License: MIT (https://opensource.org/licenses/MIT)
  */
-
+#if NETSTANDARD2_0_OR_GREATER
 namespace System;
 
-public enum YesNoIdc
+[GenerateEnumerationRecordClassAttribute]
+public enum YesNoIdcEnum
 {
-    Idc = 0,
-    Idgaf = Idc,
+    No = 0,
     Yes = 1,
-    No = -1
+    Idc = -1,
+    Idgaf = Idc,
 }
+
+[GenerateEnumerationRecordClassAttribute]
+public enum YesNoEnum
+{
+    No = 0,
+    Yes = 1,
+}
+
+#endif

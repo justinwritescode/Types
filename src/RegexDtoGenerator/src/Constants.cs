@@ -6,13 +6,11 @@
  *
  *   Author: Justin Chase <justin@justinwritescode.com>
  *
- *   Copyright © 2022 Justin Chase, All Rights Reserved
+ *   Copyright © 2022-2023 Justin Chase, All Rights Reserved
  *      License: MIT (https://opensource.org/licenses/MIT)
  */
 
 namespace JustinWritesCode.RegexDtoGenerator;
-
-using System.Security;
 
 public static class Constants
 {
@@ -36,6 +34,24 @@ public static class Constants
         "Example: RegexDtoGenerator -r \"(?<Name>\\w+) (?<Age>\\d+)\" -n Person -o \"C:\\Users\\Justin\\Documents\\Person.cs\" -p \"JustinWritesCode.RegexDtoGenerator\" -c \"PersonDto\" -i -s";
 
     public const string RegexDtoAttributeName = "RegexDtoAttribute";
+
+    public const string Header =
+    """
+    /*
+     * {{ file_name }}
+     *
+     *   Created: {{ created_date }}
+     */
+    using System.Text.RegularExpressions;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System;
+    using System.Text;
+    using System.Globalization;
+    using System.Diagnostics.CodeAnalysis;
+
+    #nullable enable
+    """;
 
     public const string RegexDtoAttributeDeclaration = """"
     #nullable enable
@@ -71,8 +87,17 @@ public static class Constants
     {
         {{ visibility }} partial abstract {{ target_data_structure_type }} {{ type_name }}Base {{ if base_type != "" }} : {{ base_type }} {{ end }}
         {
+            #if NET7_0_OR_GREATER
+            [System.Diagnostics.CodeAnalysis.StringSyntax("regex")]
+            #endif
             public const string RegexString = @"""{{ regex }}""";
-            public static readonly System.Text.RegularExpressions.Regex Regex = new System.Text.RegularExpressions.Regex(RegexString);
+            #if NET7_0_OR_GREATER
+            [GeneratedRegex(RegexString, RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.ExplicitCapture | RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace | RegexOptions.Multiline | RegexOptions.RightToLeft | RegexOptions.Singleline)]
+            public static partial System.Text.RegularExpressions.Regex Regex();
+            #else
+            private static readonly System.Text.RegularExpressions.Regex _regex = new System.Text.RegularExpressions.Regex(RegexString);
+            public static System.Text.RegularExpressions.Regex Regex() => _regex;
+            #endif
 
             {{ members }}
         }
@@ -91,8 +116,18 @@ public static class Constants
     {
         {{ visibility }} partial {{ target_data_structure_type }} {{ type_name }} {{ if base_type != "" }} : {{ base_type }} {{ end }}
         {
+            #if NET7_0_OR_GREATER
+            [System.Diagnostics.CodeAnalysis.StringSyntax("regex")]
+            #endif
             public const string RegexString = @"""{{ regex }}""";
-            public static readonly System.Text.RegularExpressions.Regex Regex = new System.Text.RegularExpressions.Regex(RegexString);
+
+            #if NET7_0_OR_GREATER
+            [GeneratedRegex(RegexString, RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.ExplicitCapture | RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace | RegexOptions.Multiline | RegexOptions.RightToLeft | RegexOptions.Singleline)]
+            public static partial System.Text.RegularExpressions.Regex Regex();
+            #else
+            private static readonly System.Text.RegularExpressions.Regex _regex = new System.Text.RegularExpressions.Regex(RegexString);
+            public static System.Text.RegularExpressions.Regex Regex() => _regex;
+            #endif
 
             {{ members }}
         }
@@ -103,7 +138,7 @@ public static class Constants
     public const string RegexDtoParseDeclaration = """
     public static {{ type_name }} Parse(string s)
     {
-        var match = Regex.Match(s);
+        var match = Regex().Match(s);
         if (!match.Success)
         {
             throw new System.ArgumentException($"The string \"{s}\" does not match the regular expression \"{RegexString}\".", nameof(s));
@@ -126,7 +161,7 @@ public static class Constants
 
     {{ parameterized_constructor_visibility }} {{ type_name }} (string s)
     {
-        var match = Regex.Match(s);
+        var match = Regex().Match(s);
         if (!match.Success)
         {
             throw new System.ArgumentException($"The string \"{s}\" does not match the regular expression \"{RegexString}\".", nameof(s));
@@ -159,12 +194,22 @@ public static class Constants
 
     {{ visibility }} partial {{ target_data_structure_type }} {{ type_name }}
     {
+        #if NET7_0_OR_GREATER
+        [System.Diagnostics.CodeAnalysis.StringSyntax("regex")]
+        #endif
         public const string RegexString = @"""{{ regex }}""";
-        public static readonly System.Text.RegularExpressions.Regex Regex = new System.Text.RegularExpressions.Regex(RegexString);
+
+        #if NET7_0_OR_GREATER
+        [GeneratedRegex(RegexString, RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.ExplicitCapture | RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace | RegexOptions.Multiline | RegexOptions.RightToLeft | RegexOptions.Singleline)]
+        public static partial System.Text.RegularExpressions.Regex Regex();
+        #else
+        private static readonly System.Text.RegularExpressions.Regex _regex = new System.Text.RegularExpressions.Regex(RegexString);
+        public static System.Text.RegularExpressions.Regex Regex() => _regex;
+        #endif
 
         public static {{ type_name }} Parse(string s)
         {
-            var match = Regex.Match(s);
+            var match = Regex().Match(s);
             if (!match.Success)
             {
                 throw new System.ArgumentException($"The string \"{s}\" does not match the regular expression \"{RegexString}\".", nameof(s));

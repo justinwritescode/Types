@@ -2,7 +2,7 @@ namespace Foo;
 
 public record class RoomBase
 {
-    public Uri Url { get; set; }
+    public Uri? Url { get; set; }
 }
 
 [RegexDto(

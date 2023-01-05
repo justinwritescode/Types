@@ -55,10 +55,10 @@ public class RegexDtoGenerator : IIncrementalGenerator
                                         .Value;
                     var baseTypeValueType = baseTypeValue?.GetType();
                     var baseType =
-                            (ctx.Attributes[0].ConstructorArguments
+                            ctx.Attributes[0].ConstructorArguments
                                     .Skip(1)
                                     .FirstOrDefault()
-                                    .Value)?.ToString();
+                                    .Value?.ToString();
                     Logger.LogInformation($"Found regex: {regex}.");
                     Logger.LogInformation(
                         "Base type symbol",
@@ -256,7 +256,12 @@ public class RegexDtoGenerator : IIncrementalGenerator
 
             context.RegisterSourceOutput(
                 sources,
-                (context, source) => context.AddSource($"{source.TypeName}.cs", source.Source)
+                (context, source) => context.AddSource($"{source.TypeName}.cs",
+                Scriban.Template.Parse(Constants.Header).Render(new
+                {
+                    FileName = $"{source.TypeName}.cs",
+                    CreatedDate = DateTime.Now.ToString("yyyy-MM-dd")
+                }) + source.Source)
             );
 
             context.RegisterPostInitializationOutput(

@@ -25,6 +25,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageFile Include="$(OutputPath)\$(AssemblyName).dll" PackagePath="analyzers/dotnet/cs/$(AssemblyName).dll" Visible="false" />
+    <PackageFile Include="$(OutputPath)\$(AssemblyName).dll" PackagePath="analyzers/dotnet/cs/$(TargetFramework)/$(AssemblyName).dll" Visible="false" />
   </ItemGroup>
 </Project>

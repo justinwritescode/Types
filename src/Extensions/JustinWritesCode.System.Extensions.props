@@ -1,0 +1,17 @@
+<!--
+ * JustinWritesCode.System.Extensions.props
+ * 
+ *   Created: 2023-01-05-08:37:57
+ *   Modified: 2023-01-05-08:38:10
+ * 
+ *   Author: Justin Chase <justin@justinwritescode.com>
+ *   
+ *   Copyright © 2022-2023 Justin Chase, All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project>
+  <PropertyGroup>
+    <DefineConstants>$(DefineConstants);PUBLIC_EXTENSIONS;INCLUDE_XML;INCLUDE_LINQ;INCLUDE_SYSTEM_TEXT;INCLUDE_MATH_EXTENSIONS;INCLUDE_RANDOMS;INCLUDE_URI_EXTENSIONS</DefineConstants>
+  </PropertyGroup>
+</Project>

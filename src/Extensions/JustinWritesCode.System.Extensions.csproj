@@ -23,7 +23,6 @@
     <OutputPath>lib</OutputPath>
     <Title>JustinWritesCode.System.Extensions</Title>
     <Description>Extensions and utility classes for the System namespace</Description>
-    <DefineConstants>$(DefineConstants);DEFINE_INTERNAL;</DefineConstants>
     <NoBuild>true</NoBuild>
   </PropertyGroup>
   <ItemGroup>
@@ -31,16 +30,5 @@
    <PackageReference Include="System.Text.Usings" />
    <PackageReference Include="System.Runtime" />
    <!-- <PackageReference Include="System.Xml.XPath.XDocument" Condition="$(DefineConstants.Contains('NETSTANDARD2_0_OR_GREATER'))" /> -->
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="./System.Xml/XmlExtensions.cs" Condition="!$(DefineConstants.Contains('NETSTANDARD2_0_OR_GREATER'))" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageFile Include="@(Compile)" Except="$(IntermediateOutputPath)**/*" PackagePath="ContentFiles/%(RecursiveDir)%(Filename)%(Extension)" />
-    <!-- <Compile Remove="@(Compile)" /> -->
-    <!-- <Using Remove="@(Using)" /> -->
-    <None Remove="**/$(AssemblyName).*" />
-    <Using Remove="System.Net.Http" />
-    <Using Remove="System.Console" />
   </ItemGroup>
 </Project>

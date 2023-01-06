@@ -12,9 +12,20 @@
 
 
 
-<Project>
-  <ItemGroup>
-    <!-- <Compile Remove="$(PkgJustinWritesCode_CodeGeneration_Constants_Scriban_Bundled)/**/IsExternalInit.cs" />
-    <Compile Include="IsExternalInit.cs" /> -->
-  </ItemGroup>
+<Project>    
+  <!-- <Target Name="ILRepacker" AfterTargets="Build">
+    <ItemGroup>
+      <InputAssemblies Include="$(TargetPath)"/>
+      <InputAssemblies Include="@(ReferencePathWithRefAssemblies)" Condition="'%(filename)' == 'Newtonsoft.Json'" />
+    </ItemGroup>
+
+    <ILRepack
+        AllowDuplicateResources="false"
+        DebugInfo="true"
+        Internalize="true"
+        InputAssemblies="@(InputAssemblies)"
+        OutputFile="$(TargetPath)"
+        Parallel="true"
+        TargetKind="SameAsPrimaryAssembly" />
+  </Target> -->
 </Project>

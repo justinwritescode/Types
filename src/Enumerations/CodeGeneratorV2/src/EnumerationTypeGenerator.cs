@@ -2,14 +2,19 @@ namespace JustinWritesCode.Enumerations.CodeGeneration;
 
 using System.Collections.Immutable;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Xml;
+using System.Xml.XPath;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 [Generator]
 public class EnumerationTypeGenerator : IIncrementalGenerator
 {
+    private const string Value = nameof(Value);
+
     private static bool Include(SyntaxNode node, CancellationToken cancellationToken)
         => node is EnumDeclarationSyntax enumDeclaration &&
            enumDeclaration.AttributeLists.Any(list => list.Attributes.Any(attribute => Constants.GenerateEnumerationTypeAttributes.Any(attributeName => attribute.Name.ToString() == attributeName)));
@@ -180,6 +185,13 @@ public class EnumerationTypeGenerator : IIncrementalGenerator
                         Value = guidString ?? null
                     };
                 }
+
+                // attributesDictionary[Value] = new EnumerationAttributeDeclaration
+                // {
+                //     Name = Value,
+                //     Type = new NamedEnumType(enumTypeSymbol.ContainingNamespace.ToDisplayString(), enumTypeSymbol.Name),
+                //     Value = $"({enumTypeSymbol.ContainingNamespace.ToDisplayString()}.{enumTypeSymbol.Name}){enumValue.ConstantValue}"
+                // };
             }
 
             membersDictionary.Add(enumValue.Name, new EnumerationMemberDeclaration
@@ -199,7 +211,8 @@ public class EnumerationTypeGenerator : IIncrementalGenerator
         var xmlComment = "";
         try
         {
-            xmlComment = Join(Environment.NewLine, enumTypeSymbol.GetDocumentationCommentXml().SelectXpath("//member/*", false).Select(xe => xe.ToString()).ToArray());
+            var doc = System.Xml.Linq.XDocument.Parse(enumTypeSymbol.GetDocumentationCommentXml());
+            xmlComment = Join(Environment.NewLine, doc.XPathSelectElements("//member/*").Select(xe => xe.ToString()).ToArray());
         }
         catch (Exception)
         {
@@ -248,9 +261,66 @@ public class EnumerationTypeGenerator : IIncrementalGenerator
                 continue;
             }
 
-            var template = Scriban.Template.Parse(Constants.EnumerationTypeDeclaration);
+            var template = Constants.EnumerationTypeDeclarationTemplate;
             var result = template.Render(enumerationType);
             context.AddSource($"{enumerationType.Value.EnumerationTypeName}.g.cs", result);
         }
+    }
+
+    public class NamedEnumType : type
+    {
+        public NamedEnumType(string @namespace, string name)
+        {
+            _namespace = @namespace;
+            _mame = name;
+        }
+
+        public override Assembly Assembly => typeof(NamedEnumType).Assembly;
+
+        public override string AssemblyQualifiedName => FullName + ", " + Assembly.FullName;
+
+        public override type BaseType => typeof(Enum);
+
+        public override string FullName => throw new NotImplementedException();
+
+        public override guid GUID => throw new NotImplementedException();
+
+        public override Module Module => throw new NotImplementedException();
+
+        private string _namespace = "";
+        public override string Namespace => _namespace;
+
+        public override type UnderlyingSystemType => typeof(Enum).UnderlyingSystemType;
+
+        private string _mame = "";
+        public override string Name => _mame;
+
+        public override ConstructorInfo[] GetConstructors(BindingFlags bindingAttr) => throw new NotImplementedException();
+        public override object[] GetCustomAttributes(bool inherit) => throw new NotImplementedException();
+        public override object[] GetCustomAttributes(type attributeType, bool inherit) => throw new NotImplementedException();
+        public override type GetElementType() => throw new NotImplementedException();
+        public override EventInfo GetEvent(string name, BindingFlags bindingAttr) => throw new NotImplementedException();
+        public override EventInfo[] GetEvents(BindingFlags bindingAttr) => throw new NotImplementedException();
+        public override FieldInfo GetField(string name, BindingFlags bindingAttr) => throw new NotImplementedException();
+        public override FieldInfo[] GetFields(BindingFlags bindingAttr) => throw new NotImplementedException();
+        public override type GetInterface(string name, bool ignoreCase) => throw new NotImplementedException();
+        public override type[] GetInterfaces() => throw new NotImplementedException();
+        public override MemberInfo[] GetMembers(BindingFlags bindingAttr) => throw new NotImplementedException();
+        public override MethodInfo[] GetMethods(BindingFlags bindingAttr) => throw new NotImplementedException();
+        public override type GetNestedType(string name, BindingFlags bindingAttr) => throw new NotImplementedException();
+        public override type[] GetNestedTypes(BindingFlags bindingAttr) => throw new NotImplementedException();
+        public override PropertyInfo[] GetProperties(BindingFlags bindingAttr) => throw new NotImplementedException();
+        public override object InvokeMember(string name, BindingFlags invokeAttr, Binder binder, object target, object[] args, ParameterModifier[] modifiers, CultureInfo culture, string[] namedParameters) => throw new NotImplementedException();
+        public override bool IsDefined(type attributeType, bool inherit) => throw new NotImplementedException();
+        protected override TypeAttributes GetAttributeFlagsImpl() => throw new NotImplementedException();
+        protected override ConstructorInfo GetConstructorImpl(BindingFlags bindingAttr, Binder binder, CallingConventions callConvention, type[] types, ParameterModifier[] modifiers) => throw new NotImplementedException();
+        protected override MethodInfo GetMethodImpl(string name, BindingFlags bindingAttr, Binder binder, CallingConventions callConvention, type[] types, ParameterModifier[] modifiers) => throw new NotImplementedException();
+        protected override PropertyInfo GetPropertyImpl(string name, BindingFlags bindingAttr, Binder binder, type returnType, type[] types, ParameterModifier[] modifiers) => throw new NotImplementedException();
+        protected override bool HasElementTypeImpl() => throw new NotImplementedException();
+        protected override bool IsArrayImpl() => throw new NotImplementedException();
+        protected override bool IsByRefImpl() => throw new NotImplementedException();
+        protected override bool IsCOMObjectImpl() => throw new NotImplementedException();
+        protected override bool IsPointerImpl() => throw new NotImplementedException();
+        protected override bool IsPrimitiveImpl() => throw new NotImplementedException();
     }
 }

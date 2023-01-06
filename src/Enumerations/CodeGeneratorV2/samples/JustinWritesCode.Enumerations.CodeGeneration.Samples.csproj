@@ -15,7 +15,7 @@
     <TargetFrameworks>netstandard2.0;net7.0</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="JustinWritesCode.Enumerations.CodeGeneration.V2" />
+    <PackageReference Include="JustinWritesCode.Enumerations.CodeGeneration.V2" PrivateAssets="All" />
     <PackageReference Include="JustinWritesCode.Enumerations.Abstractions" />
     <PackageReference Include="JustinWritesCode.Enumerations.Enumeration" />
   </ItemGroup>

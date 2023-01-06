@@ -14,6 +14,7 @@ namespace JustinWritesCode.Enumerations.CodeGeneration;
 
 public record struct EnumerationTypeDeclaration
 {
+    public string GeneratedCodeAttribute => Constants.GeneratedCodeAttribute;
     public string EnumerationTypeName { get; set; }
     public string EnumTypeName { get; set; }
     public string EnumerationTypeType { get; set; }

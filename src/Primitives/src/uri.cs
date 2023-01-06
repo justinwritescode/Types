@@ -18,8 +18,8 @@ using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Vogen;
+[global::System.Text.Json.Serialization.JsonConverter(typeof(uri.JsonConverter))]
 #endif
-
 [DebuggerDisplay("{ToString()}")]
 public partial class uri : Uri, IEquatable<uri>, IStringWithRegexValueObject<uri>
 {

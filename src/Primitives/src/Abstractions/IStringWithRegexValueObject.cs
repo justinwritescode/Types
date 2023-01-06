@@ -10,11 +10,11 @@ public interface IStringWithRegexValueObject<TSelf> : IComparable<TSelf>, ICompa
     bool IsEmpty { get; }
 
 #if NET6_0_OR_GREATER
+    static abstract REx Regex();
     static abstract string RegexString { get; }
     static abstract string Description { get; }
     static abstract TSelf Parse(string value);
     static abstract TSelf From(string value);
-    static abstract REx Regex();
     static abstract TSelf ExampleValue { get; }
     static abstract TSelf Empty { get; }
 #else

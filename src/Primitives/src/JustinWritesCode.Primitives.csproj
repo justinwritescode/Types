@@ -37,9 +37,9 @@
     <PackageReference Include="Vogen" IncludeAssets="Analyzers; Build; Lib; Runtime; Compile" PrivateAssets="All" />
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" />
-    <PackageReference Include="JustinWritesCode.Enumerations.CodeGeneration.V2" />
-    <PackageReference Include="JustinWritesCode.Enumerations.Enumeration" />
-    <PackageReference Include="JustinWritesCode.Enumerations.Abstractions" />
+    <PackageReference Include="JustinWritesCode.Enumerations.CodeGeneration.V2" PrivateAssets="All" />
+    <PackageReference Include="JustinWritesCode.Enumerations.Enumeration" PrivateAssets="All" />
+    <PackageReference Include="JustinWritesCode.Enumerations.Abstractions" PrivateAssets="All" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Text.RegularExpressions.Usings" />

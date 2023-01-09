@@ -9,6 +9,7 @@
 //   Copyright © 2022-2023 Justin Chase, All Rights Reserved
 //      License: MIT (https://opensource.org/licenses/MIT)
 //
+#if NETSTADARD2_0_OR_GREATER
 namespace JustinWritesCode.Enumerations.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -27,3 +28,4 @@ public class EnumerationJsonConverter<TEnumeration> : JsonConverter<TEnumeration
         writer.WriteStringValue(value.ToString());
     }
 }
+#endif

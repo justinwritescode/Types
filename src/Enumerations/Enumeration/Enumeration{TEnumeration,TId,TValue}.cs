@@ -21,7 +21,9 @@ using JustinWritesCode.Abstractions;
 /// <typeparam name="TValue">The type of the enumeration's value</typeparam>
 /// <typeparam name="TId">The type of the enumeration's id</typeparam>
 /// <typeparam name="TSelf">The type of the enumeration (must be the name of the declared class)</typeparam>
+#if NETSTANDARD2_0_OR_GREATER
 [Serializable]
+#endif
 [DebuggerDisplay("{DisplayName} - {Value}")]
 public record struct Enumeration<TSelf, TId, TValue> : IEnumeration, IEnumeration<TSelf, TId>, IEquatable<TValue>, IComparable<TValue>, IHaveAValue<TValue>, IHaveAValue, IIdentifiable<TId>, IIdentifiable
     where TSelf : struct, IEnumeration<TSelf, TId>
@@ -45,7 +47,7 @@ public record struct Enumeration<TSelf, TId, TValue> : IEnumeration, IEnumeratio
     object IHaveAValue.Value => Value;
     /// <summary>Gets the field info of the backing type of the enumeration.</summary>
     /// <returns>The field info of the backing type of the enumeration.</returns>
-    public FieldInfo FieldInfo => GetType().GetField(Name);
+    public FieldInfo FieldInfo => GetType().GetFieldInfo(Name);
     private Func<IEnumeration, string> ToStringDelegate { get; init; } = e => e.DisplayName;
     /// <summary>Gets the custom attribute of type <typeparamref name="TAttribute"/> from the enumeration's <see cref="FieldInfo" />.</summary>
     public TAttribute? GetCustomAttribute<TAttribute>() where TAttribute : Attribute
@@ -154,8 +156,10 @@ public record struct Enumeration<TSelf, TId, TValue> : IEnumeration, IEnumeratio
 /// </summary>
 /// <typeparam name="TValue">The type of the enumeration's value</typeparam>
 /// <typeparam name="TId">The type of the enumeration's id</typeparam>
-/// <typeparam name="TSelf">The type of the enumeration (must be the name of the declared class)</typeparam>
+/// <typeparam name="TSelf">The type of the enumeration (must be the name of the declared class)</typeparam
+#if NETSTANDARD2_0_OR_GREATER
 [Serializable]
+#endif
 [DebuggerDisplay("{DisplayName} - {Value}")]
 public record class EnumerationClass<TSelf, TId, TValue> : IEnumeration, IEnumeration<TSelf, TId>, IEquatable<TValue>, IComparable<TValue>, IHaveAValue<TValue>, IHaveAValue, IIdentifiable<TId>, IIdentifiable
     where TSelf : class, IEnumeration<TSelf, TId>
@@ -179,7 +183,7 @@ public record class EnumerationClass<TSelf, TId, TValue> : IEnumeration, IEnumer
     object IHaveAValue.Value => Value;
     /// <summary>Gets the field info of the backing type of the enumeration.</summary>
     /// <returns>The field info of the backing type of the enumeration.</returns>
-    public FieldInfo FieldInfo => GetType().GetField(Name);
+    public FieldInfo FieldInfo => GetType().GetFieldInfo(Name);
     private Func<IEnumeration, string> ToStringDelegate { get; init; } = e => e.DisplayName;
     /// <summary>Gets the custom attribute of type <typeparamref name="TAttribute"/> from the enumeration's <see cref="FieldInfo" />.</summary>
     public TAttribute? GetCustomAttribute<TAttribute>() where TAttribute : Attribute

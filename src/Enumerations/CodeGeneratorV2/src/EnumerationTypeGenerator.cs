@@ -14,6 +14,8 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 public class EnumerationTypeGenerator : IIncrementalGenerator
 {
     private const string Value = nameof(Value);
+    private const string UriAttribute = nameof(UriAttribute);
+    private const string GuidAttribute = nameof(GuidAttribute);
 
     private static bool Include(SyntaxNode node, CancellationToken cancellationToken)
         => node is EnumDeclarationSyntax enumDeclaration &&
@@ -283,7 +285,7 @@ public class EnumerationTypeGenerator : IIncrementalGenerator
 
         public override string FullName => throw new NotImplementedException();
 
-        public override guid GUID => throw new NotImplementedException();
+        public override Guid GUID => throw new NotImplementedException();
 
         public override Module Module => throw new NotImplementedException();
 

@@ -17,7 +17,7 @@
     <PackageReference Include="ThisAssembly.Project" />
     <!-- <PackageReference Include="ThisAssembly.Resources" /> -->
     <PackageReference Include="JustinWritesCode.System.Extensions" IncludeAssets="ContentFiles" ExcludeAssets="Lib;Runtime;Compile;Native" /> 
-    <PackageReference Include="JustinWritesCode.ComponentModel" IncludeAssets="ContentFiles" ExcludeAssets="Lib;Runtime;Compile;Native" />
+    <!-- <PackageReference Include="JustinWritesCode.ComponentModel" IncludeAssets="ContentFiles" ExcludeAssets="Lib;Runtime;Compile;Native" /> -->
     <PackageReference Include="JustinWritesCode.CodeGeneration.Constants-Scriban.Bundled" IncludeAssets="ContentFiles;Build" ExcludeAssets="Lib;Runtime;Compile;Native" />
     <PackageReference Include="System.Usings" IncludeAssets="Build" />
     <!-- <PackageReference Include="JustinWritesCode.ComponentModel" ExcludeAssets="ContentFiles" IncludeAssets="Lib;Runtime;Compile;Native" />

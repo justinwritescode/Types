@@ -12,7 +12,7 @@
 
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <PackageId>JustinWritesCode.Enumerations.Enumeration</PackageId>
     <AssemblyName>JustinWritesCode.Enumerations.Enumeration</AssemblyName>
     <RootNamespace>JustinWritesCode.Enumerations</RootNamespace>
@@ -27,8 +27,9 @@
     <ProjectReference Include="./Abstractions/JustinWritesCode.Enumerations.Abstractions.csproj" />
         <!-- <PackageReference Include="JustinWritesCode.Enumerations.Enumeration" /> -->
     <PackageReference Include="System.ComponentModel.Annotations" />
-    <PackageReference Include="System.Text.Json.Usings" />
-    <PackageReference Include="System.Text.Json" />
+    <PackageReference Include="System.Text.Json.Usings" Condition="$(DefineConstants.Contains('NETSTANDARD2_0_OR_GREATER'))" />
+    <PackageReference Include="System.Text.Json" Condition="$(DefineConstants.Contains('NETSTANDARD2_0_OR_GREATER'))" />
+    <PackageReference Include="System.Runtime" Condition="!$(DefineConstants.Contains('NETSTANDARD2_0_OR_GREATER'))" />
     <PackageReference Include="System.Usings" />
     <!-- <PackageReference Include="Ardalis.SmartEnum" /> -->
     <!-- <ProjectReference Include="../SmartEnum/src/SmartEnum/SmartEnum.csproj" /> -->

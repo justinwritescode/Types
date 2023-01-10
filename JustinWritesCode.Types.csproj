@@ -10,7 +10,8 @@
       License: MIT (https://opensource.org/licenses/MIT)
 -->
 
-<Project Sdk="Microsoft.Build.Traversal">
+<Project Sdk="Microsoft.NET.Sdk">
+  <Sdk Name="MetapackageSdk" />
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <TargetFrameworks>net7.0</TargetFrameworks>
@@ -25,7 +26,10 @@
     <ProjectReference Include="./src/Compat/System.Compat.csproj" />
     <ProjectReference Include="./src/Constants/JustinWritesCode.Constants.csproj" />
     <ProjectReference Include="./src/Core/JustinWritesCode.Types.Core.csproj" />
-    <ProjectReference Include="./src//InterfaceGenerator/JustinWritesCode.InterfaceGenerator.csproj" />
+    <ProjectReference Include="./src/InterfaceGenerator/JustinWritesCode.InterfaceGenerator.csproj" />
+    <ProjectReference Include="./src/Primitives/src/JustinWritesCode.Primitives.csproj" />
+    <ProjectReference Include="./src/Extensions/JustinWritesCode.System.Extensions.csproj" />
+    <ProjectReference Include="./src/Enumerations/JustinWritesCode.Enumerations.csproj" />
     <ProjectReference Include="./src/RegexDtoGenerator/src/JustinWritesCode.RegexDtoGenerator.csproj" />
     <ProjectReference Include="./src/RegexDtoGenerator/Samples/JustinWritesCode.RegexDtoGenerator.Samples.csproj" />
   </ItemGroup>

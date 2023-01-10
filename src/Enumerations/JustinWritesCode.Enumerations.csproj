@@ -10,7 +10,8 @@
       License: MIT (https://opensource.org/licenses/MIT)
 -->
 
-<Project Sdk="Microsoft.Build.Traversal">
+<Project Sdk="Microsoft.NET.Sdk">
+  <Sdk Name="MetapackageSdk" />
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>JustinWritesCode.Enumerations</PackageId>
@@ -20,6 +21,7 @@
     <EnableGlobalCodeGenerators>false</EnableGlobalCodeGenerators>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="./CodeGeneratorV2/JustinWritesCode.Enumerations.CodeGeneration.V2.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     <ProjectReference Include="./CodeGeneration/JustinWritesCode.Enumerations.CodeGeneration.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     <ProjectReference Include="./Enumeration/JustinWritesCode.Enumerations.Enumeration.csproj" />
     <ProjectReference Include="./Enums/JustinWritesCode.Enums.csproj" />
